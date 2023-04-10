@@ -519,7 +519,7 @@
     medium-zoom "^1.0.8"
     vue "^3.2.47"
 
-"@vuepress/plugin-nprogress@2.0.0-beta.61":
+"@vuepress/plugin-nprogress@2.0.0-beta.61", "@vuepress/plugin-nprogress@^2.0.0-beta.61":
   version "2.0.0-beta.61"
   resolved "https://registry.npmmirror.com/@vuepress/plugin-nprogress/-/plugin-nprogress-2.0.0-beta.61.tgz#dbbd0e59177ffb3a051beb6103406c00e4f162d9"
   integrity sha512-d36NEy8hkZaAuqMZec9VTEjozPkj9Wvimyx+AgJYpYN8JDBrWB58r9Gu9xHf8/PVeEnKayggD2xJYpGKtQ2lrw==
@@ -717,9 +717,9 @@ cac@^6.7.14:
   integrity sha512-b6Ilus+c3RrdDk+JhLKUAQfzzgLEPy6wcXqS7f/xe1EETvsDP6GORG7SFuOs6cID5YkqchW/LXZbX5bc8j7ZcQ==
 
 caniuse-lite@^1.0.30001449, caniuse-lite@^1.0.30001464:
-  version "1.0.30001474"
-  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001474.tgz#13b6fe301a831fe666cce8ca4ef89352334133d5"
-  integrity sha512-iaIZ8gVrWfemh5DG3T9/YqarVZoYf0r188IjaGwx68j4Pf0SGY6CQkmJUIE+NZHkkecQGohzXmBGEwWDr9aM3Q==
+  version "1.0.30001477"
+  resolved "https://registry.npmmirror.com/caniuse-lite/-/caniuse-lite-1.0.30001477.tgz#a2ffb2276258233034bbb869d4558b02658a511e"
+  integrity sha512-lZim4iUHhGcy5p+Ri/G7m84hJwncj+Kz7S5aD4hoQfslKZJgt0tHc/hafVbqHC5bbhHb+mrW2JOUHkI5KH7toQ==
 
 chalk@^5.0.0:
   version "5.2.0"
@@ -799,9 +799,9 @@ dir-glob@^3.0.1:
     path-type "^4.0.0"
 
 electron-to-chromium@^1.4.284:
-  version "1.4.355"
-  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.355.tgz#539484310e5a94133bc3df8ba4b6a9dde7a506a4"
-  integrity sha512-056hxzEE4l667YeOccgjhRr5fTiwZ6EIJ4FpzGps4k3YcS8iAhiaBYUBrv5E2LDQJsussscv9EEUwAYKnv+ZKg==
+  version "1.4.356"
+  resolved "https://registry.npmmirror.com/electron-to-chromium/-/electron-to-chromium-1.4.356.tgz#b75a8a8c31d571f6024310cc980a08cd6c15a8c5"
+  integrity sha512-nEftV1dRX3omlxAj42FwqRZT0i4xd2dIg39sog/CnCJeCcL1TRd2Uh0i9Oebgv8Ou0vzTPw++xc+Z20jzS2B6A==
 
 entities@~3.0.1:
   version "3.0.1"
