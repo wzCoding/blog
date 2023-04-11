@@ -4,12 +4,9 @@ heroImage: /images/knowledge.png
 heroText: 知识是颗树
 tagline: null
 actions:
-  - text: 博客简介
+  - text: 开始探索 →
     link: /artical/
     type: primary
-  - text: 作者简介
-    link: /artical/
-    type: secondary
 features:
 - title: 简洁至上
   details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
