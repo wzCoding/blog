@@ -5,7 +5,7 @@ heroText: 知识是颗树
 tagline: null
 actions:
   - text: 开始探索 →
-    link: /artical/
+    link: /blog-html/
     type: primary
 features:
 - title: 简洁至上

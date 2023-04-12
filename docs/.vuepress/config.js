@@ -44,7 +44,7 @@ export default defineUserConfig({
                     text: 'HTML相关',
                     collapsible: true,
                     children: [
-                        
+                        '/blog-html/2023-04-12.md'
                     ],
                 },
             ],
