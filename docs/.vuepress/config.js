@@ -38,18 +38,18 @@ export default defineUserConfig({
                 link: "/"
             }
         ],
+        sidebarDepth:2,
         sidebar: {
             '/blog-html/': [
                 {
                     text: 'HTML相关',
                     collapsible: true,
                     children: [
-                        '/blog-html/guide.md',
+                        '/blog-html/Guide.md',
                         '/blog-html/01.md',
                         '/blog-html/02.md',
                         '/blog-html/03.md',
                         '/blog-html/04.md',
-                        '/blog-html/05.md'
                     ],
                 },
             ],

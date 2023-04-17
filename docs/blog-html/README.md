@@ -1,3 +1,11 @@
-# HTML 相关的知识
+---
+next:
+  text: 开始学习 HTML
+  link: /blog-html/Guide.md
+---
 
-这里开始介绍一些在前端开发中常用到的 HTML 知识与技巧
+
+# HTML 相关
+
+这里会介绍关 **HTML** 的一些知识
+
