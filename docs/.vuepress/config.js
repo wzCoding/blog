@@ -45,7 +45,7 @@ export default defineUserConfig({
                     text: 'HTML相关',
                     collapsible: true,
                     children: [
-                        '/blog-html/Guide.md',
+                        '/blog-html/guide.md',
                         '/blog-html/01.md',
                         '/blog-html/02.md',
                         '/blog-html/03.md',

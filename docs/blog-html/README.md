@@ -1,7 +1,7 @@
 ---
 next:
   text: 开始学习 HTML
-  link: /blog-html/Guide.md
+  link: /blog-html/guide.md
 ---
 
 

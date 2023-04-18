@@ -2,10 +2,10 @@
 home: true
 heroImage: /images/knowledge.png
 heroText: 知识是颗树
-tagline: null
+tagline: 心有所向，日复一日，必有精进
 actions:
   - text: 开始探索 →
-    link: /blog-html/
+    link: /blog-html/guide.md
     type: primary
 features:
 - title: 简洁至上
