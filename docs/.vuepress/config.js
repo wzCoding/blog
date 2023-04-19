@@ -58,7 +58,8 @@ export default defineUserConfig({
                     text: 'CSS相关',
                     collapsible: true,
                     children: [
-                        
+                        '/blog-css/guide.md',
+                        '/blog-css/01.md',
                     ],
                 },
             ],
