@@ -7,6 +7,7 @@ export default defineUserConfig({
     description: 'wzCoding的前端博客-知识是颗树',
     head: [['link', { rel: 'icon', href: '/images/knowledge.png' }]],
     theme: defaultTheme({
+        base:'/blog/',
         // Public 文件路径
         logo: '/images/knowledge.png',
         // colorMode:'dark',
