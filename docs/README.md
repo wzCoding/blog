@@ -2,17 +2,17 @@
 home: true
 heroImage: /images/knowledge.png
 heroText: 知识是颗树
-tagline: 心有所向，日复一日，必有精进
+tagline: 木欣欣以向荣，泉涓涓而始流.....
 actions:
   - text: 开始探索 →
     link: /blog-html/guide.md
     type: primary
 features:
-- title: 简洁至上
-  details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
-- title: Vue驱动
-  details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-- title: 高性能
-  details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
+- title: Web 基础知识
+  details: 这里从其他网站收集并整理了一部分 Web 相关的基础知识，方便 快速查阅。
+- title: Web 常见问题
+  details: 这里也收集记录了一些常见的 Web 开发的相关问题，帮助记录与参考。
+- title:  Web 小Demo
+  details: 这里将会记录一些利用 Web 知识制作的小 Demo，以供参考欣赏。
 footer: Copyright © 2023-present wzCoding
 ---
