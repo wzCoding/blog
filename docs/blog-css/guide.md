@@ -13,7 +13,7 @@
 <CodeGroup>
   <CodeGroupItem title="HTML">
 
-```html
+```html{6}
 <!DOCTYPE html>
 <html>
   <head>
@@ -50,7 +50,7 @@ p{
 <CodeGroup>
   <CodeGroupItem title="HTML">
 
-```html
+```html{6-13}
 <!DOCTYPE html>
 <html>
   <head>
@@ -79,7 +79,7 @@ p{
 <CodeGroup>
   <CodeGroupItem title="HTML">
 
-```html
+```html{8-9}
 <!DOCTYPE html>
 <html>
   <head>
