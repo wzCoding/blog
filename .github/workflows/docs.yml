@@ -18,7 +18,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup yarn
-        uses: yarn/action-setup@v2
+        uses: comchangs/action-yarn@v0.1-beta
         with:
           # 选择要使用的 yarn 版本
           version: 1
