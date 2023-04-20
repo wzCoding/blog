@@ -17,11 +17,11 @@ jobs:
           # “最近更新时间” 等 git 日志相关信息，需要拉取全部提交记录
           fetch-depth: 0
 
-      - name: Setup yarn
-        uses: comchangs/action-yarn@v0.1-beta
+      - name: Setup Yarn
+        uses: mskelton/setup-yarn@v1.4.0
         with:
           # 选择要使用的 yarn 版本
-          version: 1
+          version: 1.4.0
           # 使用 yarn 安装依赖
           run_install: true
 
