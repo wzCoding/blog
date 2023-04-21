@@ -4,7 +4,7 @@ export default defineUserConfig({
     base:'/blog/',
     title: '知识是颗树',
     description: 'wzCoding的前端博客-知识是颗树',
-    head: [['link', { rel: 'icon', href: '/images/knowledge.png' }]],
+    head: [['link', { rel: 'icon', href: '/blog/images/knowledge.png' }]],
     theme: defaultTheme({
         logo: '/images/knowledge.png',
         navbar: [
