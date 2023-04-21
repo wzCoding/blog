@@ -13,19 +13,19 @@ export default defineUserConfig({
                 children: [
                     {
                         text: "HTML相关",
-                        link: "/blog-html/",
+                        link: "/blog-html/guide.html",
                     },
                     {
                         text: "CSS相关",
-                        link: "/blog-css/"
+                        link: "/blog-css/guide.html"
                     },
                     {
                         text: "JavaScript相关",
-                        link: "/blog-js/"
+                        link: "/blog-js/guide.html"
                     },
                     {
                         text: "Demo展示",
-                        link: "/blog-demo/"
+                        link: "/blog-demo/guide.html"
                     }
                 ],
             },
@@ -56,6 +56,7 @@ export default defineUserConfig({
                     children: [
                         '/blog-css/guide.html',
                         '/blog-css/01.html',
+                        '/blog-css/02.html',
                     ],
                 },
             ],
