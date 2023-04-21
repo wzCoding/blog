@@ -5,7 +5,7 @@ heroText: 知识是颗树
 tagline: 木欣欣以向荣，泉涓涓而始流.....
 actions:
   - text: 开始探索 →
-    link: /blog-html/guide.md
+    link: /blog-html/
     type: primary
 features:
 - title: Web 基础知识
