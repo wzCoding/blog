@@ -10,10 +10,7 @@ export default defineUserConfig({
     description: 'wzCoding的前端博客-知识是颗树',
     head: [['link', { rel: 'icon', href: '/images/knowledge.png' }]],
     theme: defaultTheme({
-        // Public 文件路径
         logo: '/images/knowledge.png',
-        // colorMode:'dark',
-        // colorModeSwitch:false //colorModeSwitch设置为false,colorMode才会生效
         navbar: [
             {
                 text: '探索',
@@ -28,7 +25,7 @@ export default defineUserConfig({
                     },
                     {
                         text: "JavaScript相关",
-                        link: "/blog-js/README.md"
+                        link: "/blog-js/"
                     },
                     {
                         text: "Demo展示",
@@ -38,7 +35,7 @@ export default defineUserConfig({
             },
             {
                 text: "关于",
-                link: baseUrl
+                link: "/"
             }
         ],
         sidebarDepth:2,
@@ -48,11 +45,11 @@ export default defineUserConfig({
                     text: 'HTML相关',
                     collapsible: true,
                     children: [
-                        '/blog-html/guide.md',
-                        '/blog-html/01.md',
-                        '/blog-html/02.md',
-                        '/blog-html/03.md',
-                        '/blog-html/04.md',
+                        '/blog-html/guide.html',
+                        '/blog-html/01.html',
+                        '/blog-html/02.html',
+                        '/blog-html/03.html',
+                        '/blog-html/04.html',
                     ],
                 },
             ],
@@ -61,8 +58,8 @@ export default defineUserConfig({
                     text: 'CSS相关',
                     collapsible: true,
                     children: [
-                        '/blog-css/guide.md',
-                        '/blog-css/01.md',
+                        '/blog-css/guide.html',
+                        '/blog-css/01.html',
                     ],
                 },
             ],
