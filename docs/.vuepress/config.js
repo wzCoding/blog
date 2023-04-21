@@ -1,10 +1,8 @@
 import { defineUserConfig, defaultTheme } from 'vuepress'
 import { nprogressPlugin } from '@vuepress/plugin-nprogress'
 
-const baseUrl = '/blog/'
-
 export default defineUserConfig({
-    base:baseUrl,
+    base:'/blog/',
     lang: 'zh-CN',
     title: '知识是颗树',
     description: 'wzCoding的前端博客-知识是颗树',
