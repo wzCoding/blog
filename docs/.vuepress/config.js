@@ -4,12 +4,12 @@ import { nprogressPlugin } from '@vuepress/plugin-nprogress'
 const baseUrl = './blog/'
 
 export default defineUserConfig({
+    base:baseUrl,
     lang: 'zh-CN',
     title: '知识是颗树',
     description: 'wzCoding的前端博客-知识是颗树',
     head: [['link', { rel: 'icon', href: '/images/knowledge.png' }]],
     theme: defaultTheme({
-        base:baseUrl,
         // Public 文件路径
         logo: '/images/knowledge.png',
         // colorMode:'dark',
