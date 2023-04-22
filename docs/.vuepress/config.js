@@ -1,40 +1,45 @@
 import { defineUserConfig, defaultTheme } from 'vuepress'
+import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 
 export default defineUserConfig({
-    base:'/blog/',
+    base: '/blog/',
     title: '知识是颗树',
-    description: 'wzCoding的前端博客-知识是颗树',
+    description: 'wzCoding的前端博客，前端基础知识收集整理-知识是颗树',
     head: [['link', { rel: 'icon', href: '/blog/images/knowledge.png' }]],
     theme: defaultTheme({
         logo: '/images/knowledge.png',
         navbar: [
             {
-                text: '探索',
+                text: '学习探索',
                 children: [
                     {
-                        text: "HTML相关",
+                        text: "学习 HTML",
                         link: "/blog-html/guide.html",
                     },
                     {
-                        text: "CSS相关",
+                        text: "学习 CSS",
                         link: "/blog-css/guide.html"
                     },
                     {
-                        text: "JavaScript相关",
+                        text: "学习 JavaScript",
                         link: "/blog-js/guide.html"
                     },
                     {
-                        text: "Demo展示",
+                        text: "Demo 展示",
                         link: "/blog-demo/guide.html"
                     }
                 ],
             },
             {
-                text: "关于",
+                text: "问题收集",
+                link: "/1"
+            },
+            {
+                text: "关于我",
                 link: "/"
             }
         ],
-        sidebarDepth:2,
+        sidebarDepth: 2,
         sidebar: {
             '/blog-html/': [
                 {
@@ -65,7 +70,7 @@ export default defineUserConfig({
                     text: 'JavaScript相关',
                     collapsible: true,
                     children: [
-                        
+
                     ],
                 },
             ],
@@ -74,12 +79,18 @@ export default defineUserConfig({
                     text: 'Demo展示',
                     collapsible: true,
                     children: [
-                        
+
                     ],
                 },
             ],
-        }
+        },
+
     }),
+    plugins: [
+        docsearchPlugin({
+            //do something
+        }),
+    ],
 })
 
 

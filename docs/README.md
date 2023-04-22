@@ -8,11 +8,11 @@ actions:
     link: /blog-html/guide.html
     type: primary
 features:
-- title: Web 基础知识
-  details: 这里从其他网站收集并整理了一部分 Web 相关的基础知识，方便 快速查阅。
-- title: Web 常见问题
-  details: 这里也收集记录了一些常见的 Web 开发的相关问题，帮助记录与参考。
-- title:  Web 小Demo
-  details: 这里将会记录一些利用 Web 知识制作的小 Demo，以供参考欣赏。
+- title: 简单易用
+  details: 简单的页面风格，强大的搜索能力，帮助你快速找到有用的知识。
+- title: 知识整理
+  details: 这里收集整理了一些 Web 相关的基础知识，以供查阅参考。
+- title: 问题记录
+  details: 这里记录了部分在 Web 开发中常见的问题，以供理解学习。
 footer: Copyright © 2023-present wzCoding
 ---
