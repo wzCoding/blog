@@ -1,5 +1,10 @@
 import { defineUserConfig, defaultTheme } from 'vuepress'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
+import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
+import { getDirname, path } from '@vuepress/utils'
+import { CSSProperty } from './public/data/cssData'
+
+const __dirname = getDirname(import.meta.url)
 
 export default defineUserConfig({
     base: '/blog/',
@@ -90,7 +95,16 @@ export default defineUserConfig({
         docsearchPlugin({
             //do something
         }),
+        registerComponentsPlugin({
+            components: {
+                Mtable: path.resolve(__dirname, './components/Mtable.vue'),
+            }
+
+        }),
     ],
+    define: {
+      CSSProperty
+    },
 })
 
 
