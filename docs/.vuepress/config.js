@@ -105,13 +105,13 @@ export default defineUserConfig({
     define: {
         CSSProperty
     },
-    clientConfigFile: path.resolve(__dirname, './client.js'),
+    //clientConfigFile: path.resolve(__dirname, './client.js'),
     extendsBundlerOptions: (bundlerOptions, app) => {
         // 修改 @vuepress/bundler-vite 的配置项
         if (app.options.bundler.name === '@vuepress/bundler-vite') {
-            bundlerOptions.vuePluginOptions ??= {}
-            bundlerOptions.vuePluginOptions.template ??= {}
-            bundlerOptions.vuePluginOptions.template.compilerOptions ??= {}
+            bundlerOptions.vuePluginOptions = {}
+            bundlerOptions.vuePluginOptions.template = {}
+            bundlerOptions.vuePluginOptions.template.compilerOptions = {}
             const isCustomElement = bundlerOptions.vuePluginOptions.template.compilerOptions.isCustomElement
             bundlerOptions.vuePluginOptions.template.compilerOptions.isCustomElement = (tag) => {
                 if (isCustomElement?.(tag)) return true
