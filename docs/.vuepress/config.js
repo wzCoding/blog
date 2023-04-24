@@ -105,7 +105,7 @@ export default defineUserConfig({
     define: {
         CSSProperty
     },
-    //clientConfigFile: path.resolve(__dirname, './client.js'),
+    clientConfigFile: path.resolve(__dirname, './client.js'),
     extendsBundlerOptions: (bundlerOptions, app) => {
         // 修改 @vuepress/bundler-vite 的配置项
         if (app.options.bundler.name === '@vuepress/bundler-vite') {
