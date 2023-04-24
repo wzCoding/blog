@@ -102,7 +102,6 @@ export default defineUserConfig({
             componentsDir:path.resolve(__dirname, './components'),
             components:{
                 Mtable: path.resolve(__dirname, './components/Mtable.vue'),
-                LinkIcon: path.resolve(__dirname, './components/LinkIcon.vue')
             },
         }),
     ],
@@ -115,7 +114,6 @@ export default defineUserConfig({
                 rollupOptions: {
                     external: [
                         path.resolve(__dirname, './components/Mtable.vue'),
-                        path.resolve(__dirname, './components/LinkIcon.vue'),
                         CSSProperty
                     ]
                 }

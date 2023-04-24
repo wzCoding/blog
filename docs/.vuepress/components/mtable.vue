@@ -1,5 +1,6 @@
 <script>
 import { computed } from 'vue'
+import LinkIcon from './LinkIcon.vue'
 export default {
     name: "Mtable",
     props: {
@@ -23,6 +24,7 @@ export default {
             }
         }
     },
+    components:{LinkIcon},
     setup(props, context) {
         const showDataProps = computed(() => {
             const list = []
