@@ -1,6 +1,6 @@
 <script>
 import { computed } from 'vue'
-import LinkIcon from './LinkIcon.vue'
+import LinkIcon from './linkIcon.vue'
 export default {
     name: "Mtable",
     props: {
