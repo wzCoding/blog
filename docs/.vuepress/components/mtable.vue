@@ -91,10 +91,10 @@ export default {
                     <template v-if="prop == 'code'">
                         <a v-if="!item.link" :href="getLink(item.linkParam, item.lang, item[prop])" target="_blank"
                             rel="noopener noreferrer">
-                            <code>{{ item[prop] }}</code>
+                            <code class="table-code">{{ item[prop] }}</code>
                             <LinkIcon></LinkIcon>
                         </a>
-                        <code v-else>{{ item[prop] }}</code>
+                        <code v-else class="table-code">{{ item[prop] }}</code>
                     </template>
                     <template v-else>
                         <span v-html="handleStr(item[prop])"></span>
@@ -104,3 +104,8 @@ export default {
         </tbody>
     </table>
 </template>
+<style lang="scss" scoped>
+.table-code{
+    display:contents;
+}
+</style>

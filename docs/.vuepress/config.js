@@ -1,8 +1,6 @@
 import { defineUserConfig, defaultTheme } from 'vuepress'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 import { getDirname, path } from '@vuepress/utils'
-import { viteBundler } from '@vuepress/bundler-vite'
-
 
 import { CSSProperty } from './public/data/cssData'
 
@@ -95,25 +93,15 @@ export default defineUserConfig({
     }),
     plugins: [
         docsearchPlugin({
-            //do something
+            apiKey:"f4378560edb22187170e12514250cef6",
+            appId:"8MTXEY4RRL",
+            indexName:"wzcodingio"
         })
     ],
-    clientConfigFile: path.resolve(__dirname,'client.js'),
     define: {
         CSSProperty
     },
-    // bundler: viteBundler({
-    //     viteOptions: {
-    //         build: {
-    //             rollupOptions: {
-    //                 external: [
-    //                     path.resolve(__dirname, './components/Mtable.vue'),
-    //                     CSSProperty
-    //                 ]
-    //             }
-    //         }
-    //     }
-    // }),
+    clientConfigFile: path.resolve(__dirname,'client.js') 
 })
 
 
