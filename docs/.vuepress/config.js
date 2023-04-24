@@ -1,6 +1,5 @@
 import { defineUserConfig, defaultTheme } from 'vuepress'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
-import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 import { getDirname, path } from '@vuepress/utils'
 import { viteBundler } from '@vuepress/bundler-vite'
 
@@ -97,14 +96,9 @@ export default defineUserConfig({
     plugins: [
         docsearchPlugin({
             //do something
-        }),
-        registerComponentsPlugin({
-            componentsDir:path.resolve(__dirname, './components'),
-            components:{
-                Mtable: path.resolve(__dirname, './components/Mtable.vue'),
-            },
-        }),
+        })
     ],
+    clientConfigFile: path.resolve(__dirname,'client.js'),
     define: {
         CSSProperty
     },
