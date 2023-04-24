@@ -102,18 +102,18 @@ export default defineUserConfig({
     define: {
         CSSProperty
     },
-    bundler: viteBundler({
-        viteOptions: {
-            build: {
-                rollupOptions: {
-                    external: [
-                        path.resolve(__dirname, './components/Mtable.vue'),
-                        CSSProperty
-                    ]
-                }
-            }
-        }
-    }),
+    // bundler: viteBundler({
+    //     viteOptions: {
+    //         build: {
+    //             rollupOptions: {
+    //                 external: [
+    //                     path.resolve(__dirname, './components/Mtable.vue'),
+    //                     CSSProperty
+    //                 ]
+    //             }
+    //         }
+    //     }
+    // }),
 })
 
 
