@@ -102,7 +102,6 @@ export default defineUserConfig({
             components: {
                 Mtable: path.resolve(__dirname, './components/Mtable.vue'),
             }
-
         }),
     ],
     define: {
@@ -112,7 +111,9 @@ export default defineUserConfig({
         viteOptions: {
             build: {
                 rollupOptions: {
-                    external: ['Mtable']
+                    external: [
+                        path.resolve(__dirname, './components/Mtable.vue')
+                    ]
                 }
             }
         }
