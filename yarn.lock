@@ -522,7 +522,7 @@
   resolved "https://registry.npmmirror.com/@vue/shared/-/shared-3.2.47.tgz#e597ef75086c6e896ff5478a6bfc0a7aa4bbd14c"
   integrity sha512-BHGyyGN3Q97EZx0taMQ+OLNuZcW3d37ZEVmEAyeoA9ERdGvm9Irc/0Fua8SNyOtV1w6BS4q25wbMzJujO9HIfQ==
 
-"@vuepress/bundler-vite@2.0.0-beta.61":
+"@vuepress/bundler-vite@2.0.0-beta.61", "@vuepress/bundler-vite@^2.0.0-beta.61":
   version "2.0.0-beta.61"
   resolved "https://registry.npmmirror.com/@vuepress/bundler-vite/-/bundler-vite-2.0.0-beta.61.tgz#cd14f061733dfd63b917738fa4b72de6dfc166d1"
   integrity sha512-J9/DGfsqr9rGJT+0osL9uL+jrrGHeAsWuZoCCbQIDbe0rEO2whvou51PJpwko3R0vvCTWsolh6rXYeb0N0+yFg==

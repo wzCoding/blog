@@ -105,6 +105,7 @@ export default defineUserConfig({
     define: {
       CSSProperty
     },
+    clientConfigFile: path.resolve(__dirname,'./client.js')
 })
 
 
