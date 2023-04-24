@@ -1,1 +1,0 @@
-const e=JSON.parse('{"key":"v-a1aeed58","path":"/blog-js/","title":"JavaScript 相关的知识","lang":"zh-CN","frontmatter":{},"headers":[],"git":{"updatedTime":1681211101000,"contributors":[{"name":"wzCodeing","email":"1429354968@qq.com","commits":1}]},"filePathRelative":"blog-js/README.md"}');export{e as data};

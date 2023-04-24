@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-3231ce78","path":"/blog-html/03.html","title":"HTML 废弃标签（元素）","lang":"en-US","frontmatter":{"pageClass":"custom-page"},"headers":[],"git":{"updatedTime":1681749105000,"contributors":[{"name":"wzCodeing","email":"1429354968@qq.com","commits":2}]},"filePathRelative":"blog-html/03.md"}');export{t as data};
