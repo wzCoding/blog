@@ -99,9 +99,7 @@ export default defineUserConfig({
             //do something
         }),
         registerComponentsPlugin({
-            components: {
-                Mtable: path.resolve(__dirname, './components/Mtable.vue'),
-            }
+            componentsDir: path.resolve(__dirname, './components'),
         }),
     ],
     define: {
@@ -113,7 +111,7 @@ export default defineUserConfig({
                 rollupOptions: {
                     external: [
                         path.resolve(__dirname, './components/Mtable.vue'),
-                        path.resolve(__dirname, './public/data/cssData.js')
+                        CSSProperty
                     ]
                 }
             }
