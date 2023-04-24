@@ -1,13 +1,12 @@
 <script>
 import { computed } from 'vue'
-import LinkIcon from './linkIcon.vue'
 export default {
     name: "Mtable",
     props: {
         head: {
             type: Array,
             default() {
-                return [{ label: "表头1", prop: "prop1" }]
+                return []
             }
         },
         data: {
@@ -73,8 +72,7 @@ export default {
             getLink,
             handleStr
         };
-    },
-    components: { LinkIcon }
+    }
 }
 </script>
 <template>
@@ -94,7 +92,6 @@ export default {
                             <code>{{ item[prop] }}</code>
                             <LinkIcon></LinkIcon>
                         </a>
-                        
                         <code v-else>{{ item[prop] }}</code>
                     </template>
                     <template v-else>
