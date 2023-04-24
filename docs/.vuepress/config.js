@@ -2,6 +2,9 @@ import { defineUserConfig, defaultTheme } from 'vuepress'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 import { registerComponentsPlugin } from '@vuepress/plugin-register-components'
 import { getDirname, path } from '@vuepress/utils'
+import { viteBundler } from '@vuepress/bundler-vite'
+
+
 import { CSSProperty } from './public/data/cssData'
 
 const __dirname = getDirname(import.meta.url)
@@ -105,20 +108,15 @@ export default defineUserConfig({
     define: {
         CSSProperty
     },
-    clientConfigFile: path.resolve(__dirname, './client.js'),
-    extendsBundlerOptions: (bundlerOptions, app) => {
-        // 修改 @vuepress/bundler-vite 的配置项
-        if (app.options.bundler.name === '@vuepress/bundler-vite') {
-            bundlerOptions.vuePluginOptions = {}
-            bundlerOptions.vuePluginOptions.template = {}
-            bundlerOptions.vuePluginOptions.template.compilerOptions = {}
-            const isCustomElement = bundlerOptions.vuePluginOptions.template.compilerOptions.isCustomElement
-            bundlerOptions.vuePluginOptions.template.compilerOptions.isCustomElement = (tag) => {
-                if (isCustomElement?.(tag)) return true
-                if (tag === 'Mtable') return true
+    bundler: viteBundler({
+        viteOptions: {
+            build: {
+                rollupOptions: {
+                    external: ['vue']
+                }
             }
         }
-    }
+    }),
 })
 
 
