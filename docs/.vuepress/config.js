@@ -93,7 +93,7 @@ export default defineUserConfig({
     }),
     plugins: [
         docsearchPlugin({
-            apiKey:"f4378560edb22187170e12514250cef6",
+            apiKey:"a5b7d51605c449deea8a2761d05a618f",
             appId:"8MTXEY4RRL",
             indexName:"wzcodingio"
         })
