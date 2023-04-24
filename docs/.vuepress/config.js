@@ -112,7 +112,8 @@ export default defineUserConfig({
             build: {
                 rollupOptions: {
                     external: [
-                        path.resolve(__dirname, './components/Mtable.vue')
+                        path.resolve(__dirname, './components/Mtable.vue'),
+                        path.resolve(__dirname, './public/data/cssData.js')
                     ]
                 }
             }
