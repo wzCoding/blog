@@ -99,10 +99,11 @@ export default defineUserConfig({
             //do something
         }),
         registerComponentsPlugin({
+            componentsDir:path.resolve(__dirname, './components'),
             components:{
                 Mtable: path.resolve(__dirname, './components/Mtable.vue'),
                 LinkIcon: path.resolve(__dirname, './components/LinkIcon.vue')
-            }
+            },
         }),
     ],
     define: {
