@@ -112,7 +112,7 @@ export default defineUserConfig({
         viteOptions: {
             build: {
                 rollupOptions: {
-                    external: ['vue']
+                    external: ['Mtable.vue']
                 }
             }
         }
