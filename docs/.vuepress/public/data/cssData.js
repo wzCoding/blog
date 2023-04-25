@@ -1,4 +1,4 @@
-const CSSSelector = {
+const Selectors = {
     类型选择器: [
         { code: '标签（元素）名称', desc: '标签（元素）名称就是选择器', linkParam: 'Type_selectors' }
     ],
@@ -99,7 +99,7 @@ const CSSSelector = {
         { code: ',（逗号）', desc: '用 `,` 将两个或者多个选择器隔开，表示选择多个匹配的元素', linkParam: 'Selector_list' }
     ]
 }
-const CSSProperty = {
+const Propertys = {
     A: [
         { code: 'abs()', desc: 'CSS 函数，返回参数的绝对值', lang: 'en-US', linkParam: 'abs' },
         { code: 'accent-color', desc: '为某些元素生成控件设置强调色', lang: 'en-US' },
@@ -134,6 +134,6 @@ const CSSProperty = {
     ]
 }
 export {
-    CSSProperty,
-    CSSSelector
+    Selectors,
+    Propertys
 }

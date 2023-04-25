@@ -2,8 +2,6 @@ import { defineUserConfig, defaultTheme } from 'vuepress'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 import { getDirname, path } from '@vuepress/utils'
 
-import { CSSProperty,CSSSelector } from './public/data/cssData'
-
 const __dirname = getDirname(import.meta.url)
 
 export default defineUserConfig({
@@ -141,9 +139,8 @@ export default defineUserConfig({
             }
         })
     ],
-    define: {
-        CSSProperty,
-        CSSSelector
+    alias: {
+        '@data': path.resolve(__dirname, './public/data'),
     },
     clientConfigFile: path.resolve(__dirname, 'client.js')
 })

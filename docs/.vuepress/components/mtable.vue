@@ -1,6 +1,5 @@
 <script>
 import { computed } from 'vue'
-import LinkIcon from './linkIcon.vue'
 export default {
     name: "Mtable",
     props: {
@@ -24,36 +23,32 @@ export default {
             }
         }
     },
-    components:{LinkIcon},
-    setup(props, context) {
+    setup(props) {
         const showDataProps = computed(() => {
             const list = []
             props.head.forEach(item => {
                 list.push(item.prop)
             });
             return list
-        });
+        })
         const aligns = computed(() => {
             return props.head.map(item => {
                 return item.align ? item.align : `left`
             })
         })
-        const getLink = (param, lang, prop) => {
-            let url
-            if (param) {
-                url = `${props.linkUrl}${param}`
-            }else{
-                const regExp = /.+[a-zA-Z]+/g
-                const str = prop.match(regExp)[0]
-                url = `${props.linkUrl}${str}`
-            }
-
+        const getLinkUrl = (param, lang, prop) => {
+            let linkParam
+            let url = props.linkUrl
             const defaultLang = 'zh-CN'
+            const regExp = [/\<|\>/g, /\:*[-*\w]+/g]
+            const res = prop.replace(regExp[0], '').match(regExp[1])
+            linkParam = param ? param : (res ? res[0] : '')
+            url = `${props.linkUrl}${linkParam}`
             if (lang && lang !== defaultLang) {
-                return `${url.replace(defaultLang, lang)}`
+                return url.replace(defaultLang, lang)
             }
 
-            return `${url}`
+            return url
         };
         const handleStr = (str) => {
             const regExp = /`\<*\:*[a-z-0-9-\+-\~-\>]+\>*`/ig
@@ -71,9 +66,9 @@ export default {
         return {
             aligns,
             showDataProps,
-            getLink,
+            getLinkUrl,
             handleStr
-        };
+        }
     }
 }
 </script>
@@ -89,10 +84,10 @@ export default {
             <tr v-for="item in data" :key="item.code">
                 <td v-for="(prop, index) in showDataProps" :key="prop" :style="{ textAlign: aligns[index] }">
                     <template v-if="prop == 'code'">
-                        <a v-if="!item.link" :href="getLink(item.linkParam, item.lang, item[prop])" target="_blank"
+                        <a v-if="!item.link" :href="getLinkUrl(item.linkParam, item.lang, item[prop])" target="_blank"
                             rel="noopener noreferrer">
                             <code class="table-code">{{ item[prop] }}</code>
-                            <LinkIcon></LinkIcon>
+                            <img src="/images/link.svg" class="external-link-icon">
                         </a>
                         <code v-else class="table-code">{{ item[prop] }}</code>
                     </template>
@@ -105,7 +100,13 @@ export default {
     </table>
 </template>
 <style lang="scss" scoped>
-.table-code{
-    display:contents;
+.table-code {
+    display: contents;
+
+    &+.external-link-icon {
+        width: 0.75rem;
+        height: auto;
+        margin-left: .25rem;
+    }
 }
 </style>
