@@ -56,7 +56,7 @@ export default {
             return `${url}`
         };
         const handleStr = (str) => {
-            const regExp = /`\<*[a-z-0-9]+\>*`/ig
+            const regExp = /`\<*\:*[a-z-0-9-\+-\~-\>]+\>*`/ig
             const code = str.match(regExp)
             if (code) {
                 code.forEach(item => {

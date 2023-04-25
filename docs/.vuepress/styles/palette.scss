@@ -3,15 +3,15 @@
     --c-brand: #409eff;
     --c-brand-light: #409eff;
     --c-tip:#409eff;
-    .custom-page{
-        tr:nth-child(2n) {
-            background-color: transparent;
-            transition: background-color;
-        }
-        tr:nth-child(2n) code {
-            background-color: #f3f4f5;
-        }
-    }
+    // .custom-page{
+    //     tr:nth-child(2n) {
+    //         background-color: transparent;
+    //         transition: background-color;
+    //     }
+    //     tr:nth-child(2n) code {
+    //         background-color: #f3f4f5;
+    //     }
+    //}
     
 }
 html.dark {
@@ -19,13 +19,13 @@ html.dark {
     --c-brand: #409eff;
     --c-brand-light: #409eff;
     --c-tip:#409eff;
-    .custom-page{
-        tr:nth-child(2n) {
-            background-color: transparent;
-            transition: background-color;
-        }
-        tr:nth-child(2n) code {
-            background-color: #2b313a;
-        }
-    }
+    // .custom-page{
+    //     tr:nth-child(2n) {
+    //         background-color: transparent;
+    //         transition: background-color;
+    //     }
+    //     tr:nth-child(2n) code {
+    //         background-color: #2b313a;
+    //     }
+    // }
 }
