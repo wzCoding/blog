@@ -97,7 +97,7 @@ export default {
                         <code v-else class="table-code">{{ item[prop] }}</code>
                     </template>
                     <template v-else>
-                        <span v-html="handleStr(item[prop])"></span>
+                        <span class="table-desc" v-html="handleStr(item[prop])"></span>
                     </template>
                 </td>
             </tr>

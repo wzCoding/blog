@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /images/knowledge.png
+heroImage: /images/lore.svg
 heroText: 知识是颗树
 tagline: 木欣欣以向荣，泉涓涓而始流.....
 actions:
