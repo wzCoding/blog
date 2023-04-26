@@ -47,12 +47,13 @@ export default {
             if (lang && lang !== defaultLang) {
                 return url.replace(defaultLang, lang)
             }
-
+            
             return url
         };
         const handleStr = (str) => {
+            let code
             const regExp = /`\<*\:*[a-z-0-9-\+-\~-\>]+\>*`/ig
-            const code = str.match(regExp)
+            if(str) code = str.match(regExp)
             if (code) {
                 code.forEach(item => {
                     const tag = item.replace(/</g, "&lt").replace(/>/g, "&gt")
@@ -87,7 +88,7 @@ export default {
                         <a v-if="!item.link" :href="getLinkUrl(item.linkParam, item.lang, item[prop])" target="_blank"
                             rel="noopener noreferrer">
                             <code class="table-code">{{ item[prop] }}</code>
-                            <img src="/images/link.svg" class="external-link-icon">
+                            <img src="/images/icons/link.svg" class="external-link-icon">
                         </a>
                         <code v-else class="table-code">{{ item[prop] }}</code>
                     </template>

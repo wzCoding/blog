@@ -1,4 +1,5 @@
-const CommonElements = {
+//HTML 常用元素
+export const EffectElements = {
     主根元素: [
         { code: '<html>', desc: '表示一个 HTML 文档的根（顶级元素），所以它也被称为根元素所有其它元素必须是此元素的后代' },
     ],
@@ -19,7 +20,7 @@ const CommonElements = {
         { code: '<aside>', desc: ' 表示文档的一部分，其内容仅与文档的主要内容间接相关其通常以侧边栏或标注框（call-out box）的形式出现 ' },
         { code: '<footer>', desc: ' 表示最近的一个父分段内容或分段的根元素的页脚`<footer>` 通常包含该章节作者、版权数据或者与文档相关的链接等信息 ' },
         { code: '<header>', desc: ' 表示介绍性内容，通常包含一组介绍性的或是辅助导航的实用元素它可能包含一些标题元素，但也可能包含其它元素，比如 Logo、搜索框、作者名称和其它元素 ' },
-        { code: '<h1>`、`<h2>`、`<h3>`、`<h4>`、`<h5>`、`<h6>', desc: ' 表示六个不同的级别的章节标题，`<h1>` 级别最高，而 `<h6>` 级别最低 ', linkParam: 'Heading_Elements' },
+        { code: '<h1>、<h2>、<h3>、<h4>、<h5>、<h6>', desc: ' 表示六个不同的级别的章节标题，`<h1>` 级别最高，而 `<h6>` 级别最低 ', linkParam: 'Heading_Elements' },
         { code: '<main>', desc: ' 呈现了文档正文的主体部分主体部分由与文档直接相关，或者扩展于文档的中心主题、应用的主要功能部分的内容组成 ' },
         { code: '<nav>', desc: ' 表示页面的一部分，其目的是在当前文档或其它文档中提供导航链接导航部分的常见示例是菜单、目录和索引 ' },
         { code: '<section>', desc: ' 表示 HTML 文档中一个通用独立章节，它没有更具体的语义元素来表示一般来说会包含一个标题 ' },
@@ -88,8 +89,8 @@ const CommonElements = {
         { code: '<source>', desc: ' 为 picture、audio 或 video 元素指定多个媒体资源这是一个空元素，这意味这它没有内容，也没有封闭标签它通常用于以多种格式提供相同的媒体内容，以提供不同浏览器的兼容性，因为浏览器对图像文件和媒体文件格式的支持不同 ' },
     ],
     SVG和MathML: [
-        { code: '<svg>', desc: ' 定义新坐标系和视口的容器它被用作 SVG 文档的最外层元素，但也可用于在 SVG 或 HTML 文档中嵌入 SVG 片段 ' },
-        { code: '<math>', desc: ' 顶级的 MathML 元素每一个有效的 MathML 实例都必须封装在其中此外，不能在另一个此类元素中嵌套第二个 `<math>` 元素，但可以在其中包含任意个其他的子元素 ' },
+        { code: '<svg>', desc: ' 定义新坐标系和视口的容器它被用作 SVG 文档的最外层元素，但也可用于在 SVG 或 HTML 文档中嵌入 SVG 片段',linkParam:'SVG/Element/svg' },
+        { code: '<math>', desc: ' 顶级的 MathML 元素每一个有效的 MathML 实例都必须封装在其中此外，不能在另一个此类元素中嵌套第二个 `<math>` 元素，但可以在其中包含任意个其他的子元素 ',linkParam:'MathML/Element/math' },
     ],
     脚本: [
         { code: '<canvas>', desc: ' 用来通过 canvas scripting API 或 WebGL API 绘制图形及图形动画的容器元素 ' },
@@ -137,38 +138,4 @@ const CommonElements = {
         { code: '<slot>', desc: ' 作为 Web 组件技术套件的一部分，该元素是 web 组建内的占位符，你可以使用你自己的标记填充它，从而让你创建单独的 DOM 树并一起呈现它们 ' },
         { code: '<template>', desc: ' 一种保存 HTML 的机制，它不会在加载页面时立即渲染，但随后可以在运行时使用 JavaScript 实例化 ' },
     ]
-}
-const DiscardElements = [
-    { code: '<acronym>', desc: ' 允许作者明确地声明一个字符序列，它们构成一个单词的首字母缩写或简略语 ' },
-    { code: '<applet>', desc: ' 将 Java applet 嵌入到文档中；此元素以被废弃，请使用 `<object>` 代替 ' },
-    { code: '<bgsound>', desc: ' 设置一个音频文件，以在使用页面时在后台播放；请使用 `<audio>` 代替 ' },
-    { code: '<big>', desc: ' 以比周围文本大一号的字体渲染其封闭的文本（例如，medium 变 large）最大不超过浏览器允许的最大字体 ' },
-    { code: '<blink>', desc: ' 使包含其中的文本缓慢闪烁 ' },
-    { code: '<center>', desc: ' 以水平居中的形式显示包含在元素中的块级或内联内容 ' },
-    { code: '<content>', desc: ' Web 组件技术套件的废弃部分——用于 Shadow DOM 内部作为插入点，并且不可用于任何正常的 HTML现在已被 `<slot>` 元素代替，它在 DOM 中创建一个位置，Shadow DOM 会插入这里 ' },
-    { code: '<dir>', desc: ' 被作为一个文件和/或文件夹的目录的容器，可能还有用户代理应用的样式与图标请不要使用此过时的元素；请使用用于列表的 `<ul>` 元素代替，包含文件列表 ' },
-    { code: '<font>', desc: ' 定义内容的字体大小、颜色与外观 ' },
-    { code: '<frame>', desc: ' 定义一个特定区域，另一个 HTML 文档可以在里面展示frame 应该在 `<frameset>` 中使用 ' },
-    { code: '<frameset>', desc: ' 用于包含 `<frame>` 元素 ' },
-    { code: '<image>`', desc: '<img>` 元素古老而又缺乏支持的前身它不应被使用 ' },
-    { code: '<keygen>', desc: ' 是为了方便生成密钥材料和提交作为 HTML 表单的一部分的公钥这种机制被用于设计基于 Web 的证书管理系统按照预想，`<keygen>` 元素将用于 HTML 表单与其他的所需信息一起构造一个证书请求，该处理的结果将是一个带有签名的证书 ' },
-    { code: '<marquee>', desc: ' 用来插入一段滚动的文字你可以使用它的属性控制当文本到达容器边缘发生的事情 ' },
-    { code: '<menuitem>', desc: ' 表示一个用户可以通过弹出式菜单来执行的命令这包括上下文菜单，以及按钮可能附带的菜单 ' },
-    { code: '<nobr>', desc: ' 阻止文本自动拆分成新行，可能导致用户必须水平滚动才能看到文本的所有内容 ' },
-    { code: '<noembed>', desc: ' 是个废除的和不标准的方式，用于向不支持 `<embed>` 或不支持作者希望的嵌入内容的浏览器提供替代（回退）内容这个元素在 HTML 4.01 起废除，后备内容应该插在 `<object>` 的开始和结束标签之间 ' },
-    { code: '<noframes>', desc: ' 在不支持（或禁用支持）`<frame>` 元素的浏览器中提供要显示的内容虽然大多数常用浏览器都支持 frame，但也有例外，包括一些特殊用途的浏览器（移动终端的浏览器和文本模式浏览器） ' },
-    { code: '<param>', desc: ' 为 `<object>` 元素定义参数 ' },
-    { code: '<plaintext>', desc: ' 将起始标签后面的任何东西渲染为纯文本，忽略随后的任何 HTML 内容它没有闭合标签，因为任何后面的东西都会看做纯文本 ' },
-    { code: '<rb>', desc: ' 用于分隔 ruby 注解的基本文本组件（即正在注解的文本）一个 `<rb>` 元素应该包装基本文本的每个单独的原子段 ' },
-    { code: '<rtc>', desc: ' 包含文字的语义注解，用于在 `<rb>` 元素中展示`<rb>` 元素可以拥有发音 `<rt>` 和语义 `<rtc>` 注解 ' },
-    { code: '<shadow>', desc: ' Web 组件技术套件的废弃部分——目的是用作 Shadow DOM 插入点如果你在 shadow host 下面创建了多个 shadow root，你就可能已经使用了它 ' },
-    { code: '<spacer>', desc: ' 它可以向页面插入空白间隔它由 Netscape 设计，用于实现单像素布局图像的相同效果，Web 设计师用它来向页面添加空白，而不需要实际使用图片但是，`<spacer>` 不再受任何主流浏览器支持，并且相同效果可以简单由 CSS 实现 ' },
-    { code: '<strike>', desc: ' 在文本上放置水平的删除线 ' },
-    { code: '<tt>', desc: ' 创建内联文本，使用用户代理默认的等宽字体渲染这个元素用于给文本排版，使其等宽展示，就像电报、纯文本屏幕或行式打印机那样 ' },
-    { code: '<xmp>', desc: ' 渲染在开始和结束标签之间的文本，而不解释中间的 HTML 内容，并使用等宽字体HTML2 规范建议它应该渲染得足够宽以允许每行 80 个字符 ' },
-]
-
-export {
-    CommonElements,
-    DiscardElements
 }
