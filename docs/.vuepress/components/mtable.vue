@@ -88,7 +88,7 @@ export default {
                         <a v-if="!item.link" :href="getLinkUrl(item.linkParam, item.lang, item[prop])" target="_blank"
                             rel="noopener noreferrer">
                             <code class="table-code">{{ item[prop] }}</code>
-                            <img src="/images/icons/link.svg" class="external-link-icon">
+                            <svg t="1682437644694" class="icon external-link-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3454" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="128"><path d="M912 1008.512H15.488V112h448.256v96H111.488v704.512H816V560.256h96z" p-id="3455" fill="#999999"></path><path d="M918.208 37.888l67.904 67.904L545.984 545.92l-67.904-67.84z" p-id="3456" fill="#999999"></path><path d="M1007.168 310.656h-96V112h-208V16h304z" p-id="3457" fill="#999999"></path></svg>
                         </a>
                         <code v-else class="table-code">{{ item[prop] }}</code>
                     </template>
