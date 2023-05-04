@@ -211,7 +211,7 @@ export const Propertys = {
         { code: 'ex', desc: 'CSS 数据类型，用于表示距离尺寸',linkParam:'length#ex' },
     ],
     F:[
-        { code: 'fallback', desc: '如果当前计数器样式（`@counter-style`）无法为特定计数器值创建标记表示，则回退描述符可用于指定回退到的计数器样式',lang:'en-US',linkParam:'@counter-style/fallback' },
+        { code: 'fallback', desc: '如果当前计数器样式（`@counter-style`）无法为特定计数器值创建标记表示，回退描述符可用于指定回退到的计数器样式',lang:'en-US',linkParam:'@counter-style/fallback' },
         { code: 'filter', desc: '将模糊或颜色偏移等图形效果应用于元素。通常用于调整图像、背景和边框的渲染' },
         { code: '<filter-function>', desc: 'CSS 数据类型，代表可以改变输入图像外观的图形效果，它可以用于 `filter` 和 `backdrop-filter` 属性' },
         // { code: 'calc()', desc: 'CSS 函数，允许在声明 CSS 属性值时执行一些计算' },
