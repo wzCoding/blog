@@ -74,7 +74,7 @@ export default {
 }
 </script>
 <template>
-    <table>
+    <table class="m-table">
         <thead>
             <tr>
                 <th v-for="(item, index) in head" :key="item.prop" :style="{ textAlign: aligns[index] }">{{ item.label }}
@@ -101,6 +101,10 @@ export default {
     </table>
 </template>
 <style lang="scss" scoped>
+table.m-table{
+    content-visibility: auto;
+    contain-intrinsic-size: auto 30rem;
+}
 .table-code {
     display: contents;
 
