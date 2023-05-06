@@ -74,56 +74,23 @@ export default {
 }
 </script>
 <template>
-    <div class="card" v-for="item in data" :key="item.code">
+    <div v-for="item in data" :key="item.code" class="card" >
         <h4 :id="item.code" tabindex="-1">
             <a class="header-anchor" :href="`#${item.code}`" aria-hidden="true">#</a> 
             <code>{{ item.code }}</code>
         </h4>
-        <p>{{ item.desc }}</p>
+        <p v-html="handleStr(item.desc)"></p>
     </div>
-    <!-- <table class="m-table">
-        <thead>
-            <tr>
-                <th v-for="(item, index) in head" :key="item.prop" :style="{ textAlign: aligns[index] }">{{ item.label }}
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr v-for="item in data" :key="item.code">
-                <td v-for="(prop, index) in showDataProps" :key="prop" :style="{ textAlign: aligns[index] }">
-                    <template v-if="prop == 'code'">
-                        <a v-if="!item.link" :href="getLinkUrl(item.linkParam, item.lang, item[prop])" target="_blank"
-                            rel="noopener noreferrer">
-                            <code class="table-code">{{ item[prop] }}</code>
-                            <svg t="1682437644694" class="icon external-link-icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3454" xmlns:xlink="http://www.w3.org/1999/xlink" width="128" height="128"><path d="M912 1008.512H15.488V112h448.256v96H111.488v704.512H816V560.256h96z" p-id="3455" fill="#999999"></path><path d="M918.208 37.888l67.904 67.904L545.984 545.92l-67.904-67.84z" p-id="3456" fill="#999999"></path><path d="M1007.168 310.656h-96V112h-208V16h304z" p-id="3457" fill="#999999"></path></svg>
-                        </a>
-                        <code v-else class="table-code">{{ item[prop] }}</code>
-                    </template>
-                    <template v-else>
-                        <span class="table-desc" v-html="handleStr(item[prop])"></span>
-                    </template>
-                </td>
-            </tr>
-        </tbody>
-    </table> -->
 </template>
 <style lang="scss" scoped>
 .card{
+    display:block;
+    border:1px solid #d9d9d9;
+    border-radius: 3px;
+    margin:10px 0;
+    padding:0 20px;
     p{
-        margin:0 !important;
-    }
-}
-table.m-table{
-    content-visibility: auto;
-    contain-intrinsic-size: auto 30rem;
-}
-.table-code {
-    display: contents;
-
-    &+.external-link-icon {
-        width: 0.75rem;
-        height: auto;
-        margin-left: .25rem;
+        margin-top:0 !important;
     }
 }
 </style>

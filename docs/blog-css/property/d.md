@@ -1,24 +1,11 @@
----
-next:
-  text: B
-  link: /blog-css/property/b.html
----
-
-
-# A
+# D
 
 <script setup> 
     import { Propertys } from '@data/css/property.js'       
     const baseCssUrl = 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/'       
-    const { A } = Propertys  
+    const { D } = Propertys  
                   
     //下面表格将使用自定义组件               
 </script>   
 
-<Mtable :data=A></Mtable>
-
-
-
-
-
-       
+<Mtable :data=D></Mtable>

@@ -4,15 +4,27 @@ import { getDirname, path } from '@vuepress/utils'
 import { Propertys } from './public/data/css/property'
 const __dirname = getDirname(import.meta.url)
 
-const getSideBar = type => {
+const getSide = (sideObj, name, url) => {
     const list = []
-    if (Propertys[type] && Propertys[type].length > 0) {
-        Propertys[type].forEach(item => {
-            list.push({
-                text: item.code,
-                link: `#${item.code}`
-            })
+    if (url) {
+        Object.keys(sideObj).forEach(item => {
+            const sideItem = {
+                text: name ? name : item,
+                collapsible: true,
+                link: `${url}${item.toLocaleLowerCase()}.html`,
+                children: getSide(sideObj, item)
+            }
+            list.push(sideItem)
         })
+    } else {
+        if (sideObj[name] && sideObj[name].length > 0) {
+            sideObj[name].forEach(item => {
+                list.push({
+                    text: item.code,
+                    link: `#${item.code}`
+                })
+            })
+        }
     }
     return list
 
@@ -79,23 +91,9 @@ export default defineUserConfig({
                         '/blog-css/01.html',
                         {
                             text: 'CSS 属性',
-                            //link:'/blog-css/02.html',
-                            //collapsible:true,
-                            children: [
-                                {
-                                    text: 'A',
-                                    collapsible: true,
-                                    link: '/blog-css/property/a.html',
-                                    children: getSideBar('A')
-                                },
-                                {
-                                    text: 'B',
-                                    collapsible: true,
-                                    link: '/blog-css/property/b.html',
-                                    children: getSideBar('B')
-                                },
-
-                            ]
+                            link: '/blog-css/property/a.html',
+                            collapsible: true,
+                            children: getSide(Propertys, null, '/blog-css/property/')
                         },
                     ],
                 },
