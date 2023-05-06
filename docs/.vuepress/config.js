@@ -1,9 +1,22 @@
 import { defineUserConfig, defaultTheme } from 'vuepress'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 import { getDirname, path } from '@vuepress/utils'
-
+import { Propertys } from './public/data/css/property'
 const __dirname = getDirname(import.meta.url)
 
+const getSideBar = type => {
+    const list = []
+    if (Propertys[type] && Propertys[type].length > 0) {
+        Propertys[type].forEach(item => {
+            list.push({
+                text: item.code,
+                link: `#${item.code}`
+            })
+        })
+    }
+    return list
+
+}
 export default defineUserConfig({
     base: '/blog/',
     title: '知识是颗树',
@@ -65,12 +78,23 @@ export default defineUserConfig({
                         '/blog-css/guide.html',
                         '/blog-css/01.html',
                         {
-                            text:'CSS 属性',
-                            link:'/blog-css/02.html',
-                            collapsible:true,
-                            children:[
-                                '/blog-css/property/a.md',
-                                
+                            text: 'CSS 属性',
+                            //link:'/blog-css/02.html',
+                            //collapsible:true,
+                            children: [
+                                {
+                                    text: 'A',
+                                    collapsible: true,
+                                    link: '/blog-css/property/a.html',
+                                    children: getSideBar('A')
+                                },
+                                {
+                                    text: 'B',
+                                    collapsible: true,
+                                    link: '/blog-css/property/b.html',
+                                    children: getSideBar('B')
+                                },
+
                             ]
                         },
                     ],
@@ -102,7 +126,7 @@ export default defineUserConfig({
             apiKey: "a5b7d51605c449deea8a2761d05a618f",
             appId: "8MTXEY4RRL",
             indexName: "wzcodingio",
-            placeholder:"请输入关键词",
+            placeholder: "请输入关键词",
             translations: {
                 button: {
                     buttonText: '搜索',

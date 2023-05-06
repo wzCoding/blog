@@ -74,7 +74,14 @@ export default {
 }
 </script>
 <template>
-    <table class="m-table">
+    <div class="card" v-for="item in data" :key="item.code">
+        <h4 :id="item.code" tabindex="-1">
+            <a class="header-anchor" :href="`#${item.code}`" aria-hidden="true">#</a> 
+            <code>{{ item.code }}</code>
+        </h4>
+        <p>{{ item.desc }}</p>
+    </div>
+    <!-- <table class="m-table">
         <thead>
             <tr>
                 <th v-for="(item, index) in head" :key="item.prop" :style="{ textAlign: aligns[index] }">{{ item.label }}
@@ -98,9 +105,14 @@ export default {
                 </td>
             </tr>
         </tbody>
-    </table>
+    </table> -->
 </template>
 <style lang="scss" scoped>
+.card{
+    p{
+        margin:0 !important;
+    }
+}
 table.m-table{
     content-visibility: auto;
     contain-intrinsic-size: auto 30rem;
