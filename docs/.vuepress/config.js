@@ -64,7 +64,15 @@ export default defineUserConfig({
                     children: [
                         '/blog-css/guide.html',
                         '/blog-css/01.html',
-                        '/blog-css/02.html',
+                        {
+                            text:'CSS 属性',
+                            link:'/blog-css/02.html',
+                            collapsible:true,
+                            children:[
+                                '/blog-css/property/a.md',
+                                
+                            ]
+                        },
                     ],
                 },
             ],

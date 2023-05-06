@@ -74,16 +74,7 @@ export default {
 }
 </script>
 <template>
-       <div v-for="item in data" :key="item.code">
-        <h6 class="code" >
-           {{ item.code }}
-        </h6> 
-        <div class="desc"></div>
-       </div>
-       
-       
-    
-    <!-- <table class="m-table">
+    <table class="m-table">
         <thead>
             <tr>
                 <th v-for="(item, index) in head" :key="item.prop" :style="{ textAlign: aligns[index] }">{{ item.label }}
@@ -107,24 +98,9 @@ export default {
                 </td>
             </tr>
         </tbody>
-    </table> -->
+    </table>
 </template>
 <style lang="scss" scoped>
-.code{
-    font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
-    color: #4e6e8e;
-    padding: 0.25rem 0.5rem;
-    margin: 0.5rem 0;
-    font-size: 0.85em;
-    background-color: #f3f4f5;
-    border-radius: 3px;
-    overflow-wrap: break-word;
-    transition: background-color 0.3s ease;
-    display: inline-block;
-}
-.desc{
-   display: block;
-}
 table.m-table{
     content-visibility: auto;
     contain-intrinsic-size: auto 30rem;
