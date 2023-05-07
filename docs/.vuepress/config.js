@@ -167,7 +167,7 @@ export default defineUserConfig({
                     },
                 },
             }
-        })
+        }),
     ],
     alias: {
         '@data': path.resolve(__dirname, './public/data'),

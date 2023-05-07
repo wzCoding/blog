@@ -8,4 +8,4 @@
     //下面表格将使用自定义组件               
 </script>   
 
-<Mtable :data=F></Mtable>
+<Mcard :data=F :linkUrl=baseCssUrl></Mcard>

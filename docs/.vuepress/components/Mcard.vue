@@ -1,14 +1,7 @@
 <script>
-import { computed } from 'vue'
 export default {
-    name: "Mtable",
+    name: "Mcard",
     props: {
-        head: {
-            type: Array,
-            default() {
-                return []
-            }
-        },
         data: {
             type: Array,
             default() {
@@ -23,19 +16,8 @@ export default {
             }
         }
     },
+
     setup(props) {
-        const showDataProps = computed(() => {
-            const list = []
-            props.head.forEach(item => {
-                list.push(item.prop)
-            });
-            return list
-        })
-        const aligns = computed(() => {
-            return props.head.map(item => {
-                return item.align ? item.align : `left`
-            })
-        })
         const getLinkUrl = (param, lang, prop) => {
             let linkParam
             let url = props.linkUrl
@@ -47,13 +29,13 @@ export default {
             if (lang && lang !== defaultLang) {
                 return url.replace(defaultLang, lang)
             }
-            
+
             return url
         };
         const handleStr = (str) => {
             let code
             const regExp = /`\<*\:*[a-z-0-9-\+-\~-\>]+\>*`/ig
-            if(str) code = str.match(regExp)
+            if (str) code = str.match(regExp)
             if (code) {
                 code.forEach(item => {
                     const tag = item.replace(/</g, "&lt").replace(/>/g, "&gt")
@@ -65,32 +47,42 @@ export default {
             return str
         }
         return {
-            aligns,
-            showDataProps,
             getLinkUrl,
             handleStr
         }
     }
 }
 </script>
+
 <template>
-    <div v-for="item in data" :key="item.code" class="card" >
+    <div v-for="item in data" :key="item.code" class="card">
         <h4 :id="item.code" tabindex="-1">
-            <a class="header-anchor" :href="`#${item.code}`" aria-hidden="true">#</a> 
-            <code>{{ item.code }}</code>
+            <a class="header-anchor" :href="`#${item.code}`" aria-hidden="true">#</a>
+            <a class="mdn-link" :href="getLinkUrl(item.linkParam, item.lang, item.code)" target="_blank"
+                rel="noopener noreferrer">
+                <code>{{ item.code }}</code>
+            </a>
         </h4>
         <p v-html="handleStr(item.desc)"></p>
+
     </div>
 </template>
 <style lang="scss" scoped>
-.card{
-    display:block;
-    border:1px solid #d9d9d9;
+.card {
+    display: block;
+    border: 1px dotted transparent;
     border-radius: 3px;
-    margin:10px 0;
-    padding:0 20px;
-    p{
-        margin-top:0 !important;
+    margin: 15px 0;
+    padding: 0 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+    p {
+        margin-top: 0 !important;
     }
+
 }
+.dark .card{
+    background: rgba(64, 158, 255, .05);
+}
+
 </style>

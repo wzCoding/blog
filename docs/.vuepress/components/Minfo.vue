@@ -1,6 +1,6 @@
 <script>
 import { computed } from 'vue'
-export default {
+export default{
     name: "InfoBox",
     props: {
         type: String,

@@ -1,18 +1,18 @@
 import { defineClientConfig } from '@vuepress/client'
-import Mtable from './components/mtable.vue'
-import InfoBox from './components/infobox.vue'
+import Mcard from './components/Mcard.vue'
+import Minfo from './components/Minfo.vue'
 
-import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
+// import ElementPlus from 'element-plus'
+// import 'element-plus/dist/index.css'
 
 const componentList = [
-  { name: 'Mtable', component: Mtable },
-  { name: 'InfoBox', component: InfoBox },
+  { name: 'Mcard', component: Mcard },
+  { name: 'Minfo', component: Minfo },
 ]
 
 export default defineClientConfig({
   enhance({ app }) {
-    app.use(ElementPlus)
+    // app.use(ElementPlus)
     componentList.forEach(c => {
       app.component(c.name, c.component)
     })
