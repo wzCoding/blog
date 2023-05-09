@@ -8,4 +8,6 @@
     //下面表格将使用自定义组件               
 </script>   
 
-<Mcard :data=E :linkUrl=baseCssUrl></Mcard>
+<template v-for="item in E">
+<Mcard :item=item :linkUrl=baseCssUrl></Mcard>
+</template>

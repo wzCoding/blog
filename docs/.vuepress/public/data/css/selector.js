@@ -88,15 +88,15 @@ export const Selectors = {
         { code: '单个空格', desc: '用单个空格将两个选择器隔开，表示选中空格前面元素的后代元素 ', linkParam: 'Descendant_combinator' }
     ],
     子代关系选择器: [
-        { code: '>（大于号）', desc: '用 `>` 连接两个或多个选择器，选择 `>` 前面元素的直接子元素', linkParam: 'Child_combinator' }
+        { code: '>', desc: '用 `>` 连接两个或多个选择器，选择 `>` 前面元素的直接子元素', linkParam: 'Child_combinator' }
     ],
     相邻兄弟选择器: [
-        { code: '+（加号）', desc: '用 `+` 连接两个选择器，选择 `+` 前面元素的相邻兄弟元素（用 `+` 连接的两个元素的父元素相同）', linkParam: 'Adjacent_sibling_combinator' }
+        { code: '+', desc: '用 `+` 连接两个选择器，选择 `+` 前面元素的相邻兄弟元素（用 `+` 连接的两个元素的父元素相同）', linkParam: 'Adjacent_sibling_combinator' }
     ],
     通用兄弟选择器: [
-        { code: '~（波浪号）', desc: '用 `~` 连接两个选择器，选择前面元素的所有兄弟元素（用 `~` 连接的两个元素的父元素相同）', linkParam: 'General_sibling_combinator' }
+        { code: '~', desc: '用 `~` 连接两个选择器，选择前面元素的所有兄弟元素（用 `~` 连接的两个元素的父元素相同）', linkParam: 'General_sibling_combinator' }
     ],
     选择器列表: [
-        { code: ',（逗号）', desc: '用 `,` 将两个或者多个选择器隔开，表示选择多个匹配的元素', linkParam: 'Selector_list' }
+        { code: ',', desc: '用 `,` 将两个或者多个选择器隔开，表示选择多个匹配的元素', linkParam: 'Selector_list' }
     ]
 }

@@ -1,11 +1,12 @@
 <script>
+import { computed } from 'vue'
 export default {
     name: "Mcard",
     props: {
-        data: {
-            type: Array,
+        item: {
+            type: Object,
             default() {
-                return []
+                return {}
             }
         },
         linkUrl: {
@@ -18,6 +19,18 @@ export default {
     },
 
     setup(props) {
+        const cardHead = computed(() => {
+            const { linkParam, lang, code } = props.item
+            const obj = {
+                title: code,
+                link: props.linkUrl ? getLinkUrl(linkParam, lang, code) : ''
+            }
+            return obj
+        })
+        const cardText = computed(() => {
+            const { desc } = props.item
+            return handleStr(desc)
+        })
         const getLinkUrl = (param, lang, prop) => {
             let linkParam
             let url = props.linkUrl
@@ -33,9 +46,8 @@ export default {
             return url
         };
         const handleStr = (str) => {
-            let code
             const regExp = /`\<*\:*[a-z-0-9-\+-\~-\>]+\>*`/ig
-            if (str) code = str.match(regExp)
+            let code = str.match(regExp)
             if (code) {
                 code.forEach(item => {
                     const tag = item.replace(/</g, "&lt").replace(/>/g, "&gt")
@@ -47,42 +59,94 @@ export default {
             return str
         }
         return {
-            getLinkUrl,
-            handleStr
+            cardHead,
+            cardText
         }
     }
 }
 </script>
 
 <template>
-    <div v-for="item in data" :key="item.code" class="card">
-        <h4 :id="item.code" tabindex="-1">
-            <a class="header-anchor" :href="`#${item.code}`" aria-hidden="true">#</a>
-            <a class="mdn-link" :href="getLinkUrl(item.linkParam, item.lang, item.code)" target="_blank"
-                rel="noopener noreferrer">
-                <code>{{ item.code }}</code>
-            </a>
-        </h4>
-        <p v-html="handleStr(item.desc)"></p>
-
+    <div class="card">
+        <div class="card-head">
+            <slot name="head" :head="cardHead">
+                <h4 :id="cardHead.title" tabindex="-1">
+                    <a class="header-anchor" :href="`#${cardHead.title}`" aria-hidden="true">#</a>
+                    <code>{{ cardHead.title }}</code>
+                </h4>
+            </slot>
+        </div>
+        <div class="card-content">
+            <slot name="text" :text="cardText">
+                <p v-html="cardText"></p>
+            </slot>
+        </div>
+        <div class="card-link">
+            <a v-if="cardHead.link" class="mdn-link" :href="cardHead.link" target="_blank" rel="noopener noreferrer"></a>
+        </div>
     </div>
 </template>
 <style lang="scss" scoped>
+.card-transition {
+    transition: all 0.5s ease-in-out;
+}
+
 .card {
     display: block;
-    border: 1px dotted transparent;
+    border-top: 1px solid transparent;
     border-radius: 3px;
     margin: 15px 0;
-    padding: 0 20px;
-    box-sizing: border-box;
+    padding: 0 20px 20px 20px;
+    box-sizing: content-box;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
-    p {
-        margin-top: 0 !important;
+    position: relative;
+    @extend .card-transition;
+
+    .card-content {
+        p {
+            margin: 0 !important;
+        }
     }
 
-}
-.dark .card{
-    background: rgba(64, 158, 255, .05);
+    .card-link {
+        @extend .card-transition;
+        display: block;
+        width: 100%;
+        height: 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: #f3f4f5;
+        border-bottom-left-radius: 3px;
+        border-bottom-right-radius: 3px;
+        text-align: center;
+        a{  
+            @extend .card-transition;      
+        }
+    }
+
+    &:hover {
+        --link-height: 2rem;
+        padding-bottom: calc(var(--link-height) + 10px);
+        z-index: 10;
+        .card-link {
+            
+            height: var(--link-height);
+            line-height: var(--link-height);
+            a::after {
+                content:'Learn more →';
+                color: #409eff;
+            }
+        }
+    }
 }
 
-</style>
+.dark {
+    .card {
+        background: rgba(64, 158, 255, .05);
+
+        .card-link {
+            background-color: rgba(105, 192, 255, .2);
+        }
+    }
+}</style>

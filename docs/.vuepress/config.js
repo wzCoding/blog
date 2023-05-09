@@ -2,33 +2,10 @@ import { defineUserConfig, defaultTheme } from 'vuepress'
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 import { getDirname, path } from '@vuepress/utils'
 import { Propertys } from './public/data/css/property'
+import { getSide } from './public/utils'
+
 const __dirname = getDirname(import.meta.url)
 
-const getSide = (sideObj, name, url) => {
-    const list = []
-    if (url) {
-        Object.keys(sideObj).forEach(item => {
-            const sideItem = {
-                text: name ? name : item,
-                collapsible: true,
-                link: `${url}${item.toLocaleLowerCase()}.html`,
-                children: getSide(sideObj, item)
-            }
-            list.push(sideItem)
-        })
-    } else {
-        if (sideObj[name] && sideObj[name].length > 0) {
-            sideObj[name].forEach(item => {
-                list.push({
-                    text: item.code,
-                    link: `#${item.code}`
-                })
-            })
-        }
-    }
-    return list
-
-}
 export default defineUserConfig({
     base: '/blog/',
     title: '知识是颗树',
@@ -93,7 +70,7 @@ export default defineUserConfig({
                             text: 'CSS 属性',
                             link: '/blog-css/property/a.html',
                             collapsible: true,
-                            children: getSide(Propertys, null, '/blog-css/property/')
+                            children: getSide(Propertys, null, '/blog-css/property/', true)
                         },
                     ],
                 },
