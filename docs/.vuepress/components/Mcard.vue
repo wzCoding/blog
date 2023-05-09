@@ -116,7 +116,7 @@ export default {
         position: absolute;
         bottom: 0;
         left: 0;
-        background-color: #f3f4f5;
+        background-color: rgba(105, 192, 255, .2);
         border-bottom-left-radius: 3px;
         border-bottom-right-radius: 3px;
         text-align: center;
@@ -144,9 +144,5 @@ export default {
 .dark {
     .card {
         background: rgba(64, 158, 255, .05);
-
-        .card-link {
-            background-color: rgba(105, 192, 255, .2);
-        }
     }
 }</style>
