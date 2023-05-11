@@ -17,7 +17,6 @@ export default {
             }
         }
     },
-
     setup(props) {
         const cardHead = computed(() => {
             const { linkParam, lang, code } = props.item
@@ -58,9 +57,17 @@ export default {
             }
             return str
         }
+        const handleTouch = event => {
+            console.log(event)
+        }
+        const handleMove = event => {
+            console.log(event)
+        }
         return {
             cardHead,
-            cardText
+            cardText,
+            handleTouch,
+            handleMove
         }
     }
 }
@@ -82,27 +89,33 @@ export default {
             </slot>
         </div>
         <div class="card-link">
-            <a v-if="cardHead.link" class="mdn-link" :href="cardHead.link" target="_blank" rel="noopener noreferrer"></a>
+            <a v-if="cardHead.link" class="mdn-link" :href="cardHead.link" target="_blank" rel="noopener noreferrer">learn
+                more →</a>
         </div>
     </div>
 </template>
 <style lang="scss" scoped>
 .card-transition {
-    transition: all 0.5s ease-in-out;
+    transition: transform .8s ease-in-out .2s;
 }
 
 .card {
+    @extend .card-transition;
+    --card-padding: 1.25rem;
     display: block;
     border-top: 1px solid transparent;
     border-radius: 3px;
-    margin: 15px 0;
-    padding: 0 20px 20px 20px;
+    margin: calc(var(--card-padding) - 5px) 0;
+    padding: var(--card-padding);
+    padding-top: 0;
     box-sizing: content-box;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     position: relative;
-    @extend .card-transition;
+    overflow: hidden;
 
     .card-content {
+        position: relative;
+
         p {
             margin: 0 !important;
         }
@@ -110,39 +123,100 @@ export default {
 
     .card-link {
         @extend .card-transition;
-        display: block;
-        width: 100%;
-        height: 0;
+        transform: scale(0);
         position: absolute;
-        bottom: 0;
         left: 0;
-        background-color: rgba(105, 192, 255, .2);
-        border-bottom-left-radius: 3px;
-        border-bottom-right-radius: 3px;
-        text-align: center;
-        a{  
-            @extend .card-transition;      
+        bottom: 0;
+        top: 0;
+        right: 0;
+        line-height: 100%;
+        //background: linear-gradient(to bottom, #409eff33 0%, transparent 50%, #409eff33 100%);
+        //transform: translateY(100%);
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        padding: var(--card-padding);
+
+        a {
+            color: #1890ff;
+            padding: calc(var(--card-padding) * 0.4) calc(var(--card-padding) * 0.8);
+            border-radius: calc(var(--card-padding) * 0.8);
+            border: 2px dashed #1890ff;
+            text-decoration: none;
+            background: linear-gradient(to bottom, #69c0ff4d 0%, #409eff33 50%, #69c0ff33 100%);
+            font-size: .9rem;
+
         }
     }
 
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 50%;
+        background: linear-gradient(to bottom, #409eff33 0%, transparent 100%);
+        transform: translateY(-100%);
+        @extend .card-transition;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, transparent 0%, #409eff33 100%);
+        transform: translateY(100%);
+        @extend .card-transition;
+    }
+
     &:hover {
-        --link-height: 2rem;
-        padding-bottom: calc(var(--link-height) + 10px);
-        z-index: 10;
-        .card-link {
-            
-            height: var(--link-height);
-            line-height: var(--link-height);
-            a::after {
-                content:'Learn more →';
-                color: #409eff;
+
+        &::before,
+        &::after {
+            transform: translateY(0);
+        }
+
+        h4 code,
+        .card-content {
+            color: #d9d9d9;
+
+            p code,
+            code {
+                color: #d9d9d9;
             }
         }
+
+        .card-link {
+            transform: scale(1);
+            z-index: 5;
+        }
+
+
     }
 }
 
 .dark {
     .card {
         background: rgba(64, 158, 255, .05);
+
+        &:hover {
+
+            h4 code,
+            .card-content {
+                color: #d9d9d933;
+
+                p code,
+                code {
+                    color: #d9d9d933;
+                }
+            }
+
+        }
     }
 }</style>

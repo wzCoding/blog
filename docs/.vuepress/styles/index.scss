@@ -1,0 +1,18 @@
+::-webkit-scrollbar {
+    width: 7px !important;
+    background-color: #ddd;
+}
+::-webkit-scrollbar-thumb {
+    width: 7px !important;
+    background-color: #4890ff;
+    border-radius: 3px;
+}
+pre,
+pre[class*="language-"] {
+    display: block;
+    white-space: pre-wrap;
+    word-spacing: normal;
+    word-break: break-word;
+    word-wrap: break-word;
+    overflow: hidden;
+}
