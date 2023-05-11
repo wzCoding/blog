@@ -96,7 +96,7 @@ export default {
 </template>
 <style lang="scss" scoped>
 .card-transition {
-    transition: transform .8s ease-in-out .2s;
+    transition: all .6s ease-in-out;
 }
 
 .card {
@@ -123,7 +123,7 @@ export default {
 
     .card-link {
         @extend .card-transition;
-        transform: scale(0);
+        transform: translateY(100%) scale(0);
         position: absolute;
         left: 0;
         bottom: 0;
@@ -131,10 +131,9 @@ export default {
         right: 0;
         line-height: 100%;
         //background: linear-gradient(to bottom, #409eff33 0%, transparent 50%, #409eff33 100%);
-        //transform: translateY(100%);
         display: flex;
-        justify-content: flex-end;
-        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
         padding: var(--card-padding);
 
         a {
@@ -185,7 +184,7 @@ export default {
         h4 code,
         .card-content {
             color: #d9d9d9;
-
+            p,
             p code,
             code {
                 color: #d9d9d9;
@@ -193,7 +192,7 @@ export default {
         }
 
         .card-link {
-            transform: scale(1);
+            transform: translateY(0) scale(1);
             z-index: 5;
         }
 
@@ -211,6 +210,7 @@ export default {
             .card-content {
                 color: #d9d9d933;
 
+                p,
                 p code,
                 code {
                     color: #d9d9d933;
