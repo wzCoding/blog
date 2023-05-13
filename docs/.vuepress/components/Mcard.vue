@@ -80,6 +80,8 @@ export default {
                 <h4 :id="cardHead.title" tabindex="-1">
                     <a class="header-anchor" :href="`#${cardHead.title}`" aria-hidden="true">#</a>
                     <code>{{ cardHead.title }}</code>
+                    <a v-if="cardHead.link" class="mdn-link" :href="cardHead.link" target="_blank"
+                        rel="noopener noreferrer">ℹ️</a>
                 </h4>
             </slot>
         </div>
@@ -87,10 +89,6 @@ export default {
             <slot name="text" :text="cardText">
                 <p v-html="cardText"></p>
             </slot>
-        </div>
-        <div class="card-link">
-            <a v-if="cardHead.link" class="mdn-link" :href="cardHead.link" target="_blank" rel="noopener noreferrer">learn
-                more →</a>
         </div>
     </div>
 </template>
@@ -113,38 +111,16 @@ export default {
     position: relative;
     overflow: hidden;
 
+    .mdn-link {
+        position: relative;
+        top: 1px;
+    }
+
     .card-content {
         position: relative;
 
         p {
             margin: 0 !important;
-        }
-    }
-
-    .card-link {
-        @extend .card-transition;
-        transform: translateY(100%) scale(0);
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        top: 0;
-        right: 0;
-        line-height: 100%;
-        //background: linear-gradient(to bottom, #409eff33 0%, transparent 50%, #409eff33 100%);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: var(--card-padding);
-
-        a {
-            color: #1890ff;
-            padding: calc(var(--card-padding) * 0.4) calc(var(--card-padding) * 0.8);
-            border-radius: calc(var(--card-padding) * 0.8);
-            border: 2px dashed #1890ff;
-            text-decoration: none;
-            background: linear-gradient(to bottom, #69c0ff4d 0%, #409eff33 50%, #69c0ff33 100%);
-            font-size: .9rem;
-
         }
     }
 
@@ -156,7 +132,7 @@ export default {
         left: 0;
         right: 0;
         bottom: 50%;
-        background: linear-gradient(to bottom, #409eff33 0%, transparent 100%);
+        background: linear-gradient(to bottom, transparent 0%, #69c0ff33 100%);
         transform: translateY(-100%);
         @extend .card-transition;
     }
@@ -169,7 +145,7 @@ export default {
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(to bottom, transparent 0%, #409eff33 100%);
+        background: linear-gradient(to bottom, #69c0ff33 0%, transparent 100%);
         transform: translateY(100%);
         @extend .card-transition;
     }
@@ -181,42 +157,14 @@ export default {
             transform: translateY(0);
         }
 
-        h4 code,
-        .card-content {
-            color: #d9d9d9;
-            p,
-            p code,
-            code {
-                color: #d9d9d9;
-            }
+        .mdn-link {
+            z-index: 3;
         }
-
-        .card-link {
-            transform: translateY(0) scale(1);
-            z-index: 5;
-        }
-
-
     }
 }
 
 .dark {
     .card {
         background: rgba(64, 158, 255, .05);
-
-        &:hover {
-
-            h4 code,
-            .card-content {
-                color: #d9d9d933;
-
-                p,
-                p code,
-                code {
-                    color: #d9d9d933;
-                }
-            }
-
-        }
     }
 }</style>
