@@ -93,12 +93,7 @@ export default {
     </div>
 </template>
 <style lang="scss" scoped>
-.card-transition {
-    transition: all .6s ease-in-out;
-}
-
 .card {
-    @extend .card-transition;
     --card-padding: 1.25rem;
     display: block;
     border-top: 1px solid transparent;
@@ -110,55 +105,39 @@ export default {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     position: relative;
     overflow: hidden;
-
+    code{
+        position: relative;
+        z-index: 3;
+    }
     .mdn-link {
         position: relative;
         top: 1px;
+        z-index: 3;
     }
 
     .card-content {
         position: relative;
-
+        z-index: 3;
         p {
             margin: 0 !important;
         }
-    }
-
-    &::before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 50%;
-        background: linear-gradient(to bottom, transparent 0%, #69c0ff33 100%);
-        transform: translateY(-100%);
-        @extend .card-transition;
     }
 
     &::after {
         content: '';
         display: block;
         position: absolute;
-        top: 50%;
+        top: 0;
         left: 0;
-        right: 0;
         bottom: 0;
-        background: linear-gradient(to bottom, #69c0ff33 0%, transparent 100%);
-        transform: translateY(100%);
-        @extend .card-transition;
+        width:100%;
+        background: linear-gradient(to left, transparent 0%, #409eff33 100%);
+        opacity: 0;
+        transition: opacity .6s ease-in-out;
     }
-
     &:hover {
-
-        &::before,
         &::after {
-            transform: translateY(0);
-        }
-
-        .mdn-link {
-            z-index: 3;
+           opacity: 1;
         }
     }
 }
@@ -166,5 +145,6 @@ export default {
 .dark {
     .card {
         background: rgba(64, 158, 255, .05);
+        
     }
 }</style>
