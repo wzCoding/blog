@@ -101,10 +101,9 @@ export default {
     margin: calc(var(--card-padding) - 5px) 0;
     padding: var(--card-padding);
     padding-top: 0;
-    box-sizing: content-box;
+    box-sizing: border-box;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     position: relative;
-    overflow: hidden;
     code{
         position: relative;
         z-index: 3;
@@ -127,12 +126,9 @@ export default {
         content: '';
         display: block;
         position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        width:100%;
-        background: linear-gradient(to left, transparent 0%, #409eff33 100%);
+        inset: 0;
         opacity: 0;
+        background: linear-gradient(to left, transparent 0%, #409eff33 100%);
         transition: opacity .6s ease-in-out;
     }
     &:hover {
