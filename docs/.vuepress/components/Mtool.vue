@@ -9,7 +9,7 @@ export default {
     setup() {
         const toolActive = ref(false)
         const pageProgress = ref(0)
-        const sideStore = useSideStore(createPinia())
+        const sideStore = useSideStore()
         const { hasSide, sideActive, sideId, sideList } = storeToRefs(sideStore)
         const backTopClassObject = computed(() => {
             return {
@@ -99,7 +99,7 @@ export default {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     text-align: center;
     line-height: var(--tool-height);
-    z-index: 2;
+    z-index: 50;
     transition: all .3s linear;
 
     img {
@@ -113,7 +113,7 @@ export default {
         border-radius: 50%;
         box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
         transition: all .3s linear;
-        z-index: 20;
+        z-index: 45;
         transform: translate(0) scale(0);
         border: 3px solid #66b1ff;
         background-color: #fff;

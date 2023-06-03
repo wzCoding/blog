@@ -2,7 +2,7 @@
 home: true
 heroImage: /images/lore.svg
 heroText: 知识是颗树
-tagline: 👍 And You, My Friends, You Are Really Hero
+tagline: 心有所向，日复一日，必有精进...
 actions:
   - text: 开始探索 →
     link: /blog-html/guide.html

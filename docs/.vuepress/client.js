@@ -1,4 +1,7 @@
 import { defineClientConfig } from '@vuepress/client'
+import { onMounted } from 'vue'
+import { createPinia } from 'pinia'
+
 import { useComponent } from '@public/utils'
 import { useSideStore } from '@public/store/sideStore'
 
@@ -17,7 +20,7 @@ const componentList = [
 export default defineClientConfig({
   enhance({ app, router }) {
     // app.use(ElementPlus)
-
+    
     //注册自定义组件
     componentList.forEach(c => {
       app.component(c.name, c.component)
@@ -33,9 +36,16 @@ export default defineClientConfig({
       })
       next()
     })
-
-    //通过js来调用自定义组件
-    useComponent(Mtool)
+    
+    //使用Pinia管理公共数据及状态
+    const pinia = createPinia()
+    app.use(pinia)
+  },
+  setup() {
+    onMounted(() => {
+      //通过js来调用自定义组件
+      useComponent(Mtool)
+    })
   },
 
 })

@@ -1,8 +1,5 @@
 <script>
 import { computed, toRefs } from 'vue'
-import { createPinia } from 'pinia'
-import { useSideStore } from '@public/store/sideStore'
-
 export default {
     name: "Mcard",
     props: {
