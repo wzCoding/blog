@@ -17,6 +17,7 @@
   },
   "description": "myblog",
   "dependencies": {
-    "element-plus": "^2.3.4"
+    "element-plus": "^2.3.4",
+    "pinia": "^2.0.0-rc.10"
   }
 }

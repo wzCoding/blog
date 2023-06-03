@@ -70,7 +70,7 @@ export default defineUserConfig({
                             text: 'CSS 属性',
                             link: '/blog-css/property/a.html',
                             collapsible: true,
-                            children: getSide(Propertys, null, '/blog-css/property/', true)
+                            children: getSide(Propertys, null, '/blog-css/property/')
                         },
                     ],
                 },
@@ -147,6 +147,7 @@ export default defineUserConfig({
         }),
     ],
     alias: {
+        '@public': path.resolve(__dirname, './public'),
         '@data': path.resolve(__dirname, './public/data'),
     },
     clientConfigFile: path.resolve(__dirname, 'client.js')

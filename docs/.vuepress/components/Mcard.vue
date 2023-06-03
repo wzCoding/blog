@@ -1,5 +1,8 @@
 <script>
-import { computed } from 'vue'
+import { computed, toRefs } from 'vue'
+import { createPinia } from 'pinia'
+import { useSideStore } from '@public/store/sideStore'
+
 export default {
     name: "Mcard",
     props: {
@@ -18,8 +21,10 @@ export default {
         }
     },
     setup(props) {
+        const { item } = toRefs(props)
+        const isActive = item.value.active
         const cardHead = computed(() => {
-            const { linkParam, lang, code } = props.item
+            const { linkParam, lang, code} = item.value
             const obj = {
                 title: code,
                 link: props.linkUrl ? getLinkUrl(linkParam, lang, code) : ''
@@ -27,7 +32,7 @@ export default {
             return obj
         })
         const cardText = computed(() => {
-            const { desc } = props.item
+            const { desc } = item.value
             return handleStr(desc)
         })
         const getLinkUrl = (param, lang, prop) => {
@@ -57,27 +62,21 @@ export default {
             }
             return str
         }
-        const handleTouch = event => {
-            console.log(event)
-        }
-        const handleMove = event => {
-            console.log(event)
-        }
         return {
+            isActive,
             cardHead,
-            cardText,
-            handleTouch,
-            handleMove
+            cardText
         }
     }
 }
 </script>
 
 <template>
-    <div class="card">
+    <div class="card" :class="{ active: isActive }">
         <div class="card-head">
             <slot name="head" :head="cardHead">
                 <h4 :id="cardHead.title" tabindex="-1">
+
                     <a class="header-anchor" :href="`#${cardHead.title}`" aria-hidden="true">#</a>
                     <code>{{ cardHead.title }}</code>
                     <a v-if="cardHead.link" class="mdn-link" :href="cardHead.link" target="_blank"
@@ -104,10 +103,12 @@ export default {
     box-sizing: border-box;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     position: relative;
-    code{
+
+    code {
         position: relative;
         z-index: 3;
     }
+
     .mdn-link {
         position: relative;
         top: 1px;
@@ -117,6 +118,7 @@ export default {
     .card-content {
         position: relative;
         z-index: 3;
+
         p {
             margin: 0 !important;
         }
@@ -124,16 +126,23 @@ export default {
 
     &::after {
         content: '';
+        opacity: 0;
         display: block;
         position: absolute;
         inset: 0;
-        opacity: 0;
         background: linear-gradient(to left, transparent 0%, #409eff33 100%);
         transition: opacity .6s ease-in-out;
     }
+
     &:hover {
         &::after {
-           opacity: 1;
+            opacity: 1;
+        }
+    }
+
+    &.active {
+        &::after {
+            opacity: 1;
         }
     }
 }
@@ -141,6 +150,7 @@ export default {
 .dark {
     .card {
         background: rgba(64, 158, 255, .05);
-        
+
     }
-}</style>
+}
+</style>
