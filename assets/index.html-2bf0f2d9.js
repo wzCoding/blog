@@ -1,0 +1,1 @@
+const t=JSON.parse('{"key":"v-f1de809c","path":"/blog-html/","title":"HTML 相关的知识","lang":"en-US","frontmatter":{"next":{"text":"开始学习 HTML","link":"/blog-html/guide.md"}},"headers":[],"git":{"updatedTime":1685904433000,"contributors":[{"name":"wzCoding","email":"1429354968@qq.com","commits":1}]},"filePathRelative":"blog-html/README.md"}');export{t as data};
