@@ -11,7 +11,7 @@ export const useSideStore = defineStore('customSide', {
     },
     getters: {
         sideList: (state) => {
-            return Propertys[state.sideId]
+            return Propertys[state.sideId] ? Propertys[state.sideId] : []
         }
     }
 })

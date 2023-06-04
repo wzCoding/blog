@@ -1,6 +1,6 @@
 <script>
-import { computed, ref } from 'vue'
-import { createPinia, storeToRefs } from 'pinia'
+import { ref } from 'vue'
+import { storeToRefs } from 'pinia'
 import { debounce } from '@public/utils'
 import { useSideStore } from '@public/store/sideStore'
 import Mside from './Mside.vue'
@@ -10,18 +10,8 @@ export default {
         const toolActive = ref(false)
         const pageProgress = ref(0)
         const sideStore = useSideStore()
-        const { hasSide, sideActive, sideId, sideList } = storeToRefs(sideStore)
-        const backTopClassObject = computed(() => {
-            return {
-                'back-top-hover': !hasSide.value,
-                'back-top-translate': hasSide.value
-            }
-        })
-
-        const sideState = computed(() => {
-            return hasSide.value && sideActive.value
-        })
-
+        const { hasSide,sideActive, sideId} = storeToRefs(sideStore)
+       
         const backTop = () => {
             document.documentElement.scrollTop = 0
             toolActive.value = false
@@ -34,15 +24,6 @@ export default {
             if (e.target.className && e.target.className.length) {
                 toolActive.value = e.target.className.includes('pg-progress') ? !toolActive.value : false
             }
-            // if (e.target.className.includes('DocSearch-Hit')) {
-            //     const text = e.target.parentNode.children[0].innerText.replace('ℹ️', '')
-            //     sideList.value.forEach((item, index) => {
-            //         if (item.code == text && item.id.includes(sideId)) {
-            //             const targetEl = document.querySelector(`#${item.id}`)
-            //             targetEl.scrollIntoView()
-            //         }
-            //     })
-            // }
         }
         window.onscroll = debounce(function () {
             const st = document.documentElement.scrollTop
@@ -56,11 +37,9 @@ export default {
             showSide,
             handleToolClick,
             toolActive,
-            sideState,
+            sideActive,
             pageProgress,
             hasSide,
-            backTopClassObject,
-            sideList,
             sideId
         }
     },
@@ -75,14 +54,14 @@ export default {
             <span class="pg-progress">{{ `${pageProgress}%` }}</span>
             <div class="bg-progress" :style="{ transform: `translateY(${100 - pageProgress}%)` }"></div>
         </div>
-        <div class="tool-box back-top" :class="backTopClassObject" @click="backTop">
+        <div class="tool-box back-top back-top-translate" @click="backTop">
             <img src="../public/images/top.png" alt="menu">
         </div>
         <div v-if="hasSide" class="tool-box side-menu" @click="showSide">
             <img src="../public/images/menu.png" alt="menu">
         </div>
     </div>
-    <Mside :sideActive="sideState" :sideTitle="sideId" :sideList="sideList" @changeSideState="showSide"></Mside>
+    <Mside :sideActive="sideActive" :sideTitle="sideId" @changeSideState="showSide"></Mside>
 </template>
 <style lang="scss" scoped>
 .m-tool {
@@ -99,8 +78,9 @@ export default {
     box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
     text-align: center;
     line-height: var(--tool-height);
-    z-index: 50;
+    z-index:10;
     transition: all .3s linear;
+    outline: none;
 
     img {
         width: 1.5rem;

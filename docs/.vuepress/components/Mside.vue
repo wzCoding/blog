@@ -1,5 +1,7 @@
 <script>
 import { computed, ref, toRefs } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useCardStore } from '@public/store/cardStore'
 export default {
     name: 'Mside',
     props: {
@@ -16,11 +18,25 @@ export default {
         }
     },
     setup(props, { emit }) {
+        const cardStore = useCardStore()
+        const { activeItemList } = storeToRefs(cardStore)
+        console.log(activeItemList.value)
+        const selectItem = (item) => {
+            clearActive()
+            item.active = true
+        }
         const closeSide = () => {
             emit('changeSideState')
         }
+        const clearActive = () => {
+            activeItemList.value.forEach(item => {
+                item.active = false
+            })
+        }
         return {
             closeSide,
+            selectItem,
+            activeItemList
         }
     }
 }
@@ -37,8 +53,8 @@ export default {
             </div>
         </div>
         <ul class="side-content">
-            <li v-for="item in sideList" :key="item.code" class="list-item">
-                <a :href="`#${item.code}`">{{ item.code }}</a>
+            <li v-for="item in activeItemList" :key="item.code" class="list-item" @click="selectItem(item)">
+                <a :href="`#${item.code}`" :class="{ active: item.active }">{{ item.code }}</a>
             </li>
         </ul>
     </div>
@@ -97,6 +113,10 @@ export default {
         li.list-item {
             display: block;
             margin-bottom: .75rem;
+
+            a.active {
+                color: #1890ff;
+            }
         }
     }
 
