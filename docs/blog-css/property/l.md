@@ -8,6 +8,7 @@
     //下面表格将使用自定义组件               
 </script>   
 
+#### 以 L 为首的属性
 <template v-for="item in L">
 <Mcard :item=item :linkUrl=baseCssUrl></Mcard>
 </template>

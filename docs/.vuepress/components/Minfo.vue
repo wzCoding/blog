@@ -28,12 +28,12 @@ export default{
 </script>
 <template>
     <div class="info-box custom-container" :class="boxClass">
-        <h6 class="info-title">
+        <div class="info-title">
             <span v-if="boxClass == 'tip'">ℹ️</span>
             <span v-if="boxClass == 'warning'">⚠️</span>
             <span v-if="boxClass == 'danger'">🚫</span>
             <span>{{ boxTitle(boxClass) }}</span>
-        </h6>
+        </div>
         <p class="info-content">
             <slot>
                 内容区域
@@ -50,7 +50,8 @@ export default{
     border-radius: .75rem;
     .info-title {
         margin: 0;
-        padding:0 0 .75rem 0;
+        padding-top:0;
+        padding-bottom: .75rem;
         span {
             padding-right: .25rem;
         }

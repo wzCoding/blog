@@ -1,21 +1,63 @@
-::-webkit-scrollbar {
-    width: 7px !important;
-    background-color: #ddd;
+// place your custom styles here
+:root {
+    --font-family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif';
+    --font-family-heading: var(--font-family);
+    --font-family-mono: var(--font-family);
 }
-::-webkit-scrollbar-thumb {
-    width: 7px !important;
-    background-color: #4890ff;
-    border-radius: 3px;
+html[data-theme=dark] {
+    --bg-color: #22272e;
+    --text-color: #adbac7;
+    --light-grey:var(--text-color);
+    --code-demo-header-bg-color:#282c34;
+    code {
+        background: #2b313a;
+    }
+   
 }
-pre,
-pre[class*="language-"] {
-    display: block;
-    white-space: pre-wrap;
-    word-spacing: normal;
-    word-break: break-word;
-    word-wrap: break-word;
-    overflow: hidden;
+.nav-link.vp-action.default {
+    background-color: unset;
+    border: 2px solid var(--theme-color);
+    color: var(--theme-color);
+    &:hover {
+        background-color: var(--theme-color);
+        color: var(--bg-color);
+    }
 }
-.back-to-top{
-    display:none;
+.vp-sidebar {
+    background: var(--bg-color);
+}
+.vp-navbar {
+    background: var(--bg-color);
+    .nav-item {
+        button,
+        svg,
+        a {
+            color: var(--text-color);
+        }
+        > .nav-link {
+            color: var(--text-color);
+        }
+    }
+}
+#toc .toc-link,
+.vp-breadcrumb li.is-active a,
+.page-info,
+.vp-footer-wrapper{
+    color: var(--text-color);
+}
+.disabled-elements {
+    h3 {
+        font-size: 1.15rem;
+    }
+}
+
+.theme-hope-content:not(.custom) h1:first-child,
+.theme-hope-content:not(.custom) h2:first-child,
+.theme-hope-content:not(.custom) h3:first-child,
+.theme-hope-content:not(.custom) h4:first-child,
+.theme-hope-content:not(.custom) h5:first-child,
+.theme-hope-content:not(.custom) h6:first-child {
+    margin-bottom: 1rem;
+    margin-top: calc(0.5rem - var(--navbar-height)) !important;
+    padding-top: calc(1rem + var(--navbar-height)) !important;
 }
