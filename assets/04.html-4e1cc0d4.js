@@ -1,1 +1,0 @@
-const t=JSON.parse('{"key":"v-2ec81d3a","path":"/blog-html/04.html","title":"HTML 总结","lang":"en-US","frontmatter":{"next":{"text":"开始学习 CSS","link":"/blog-css/guide.md"}},"headers":[],"git":{"updatedTime":1685904433000,"contributors":[{"name":"wzCoding","email":"1429354968@qq.com","commits":1}]},"filePathRelative":"blog-html/04.md"}');export{t as data};
