@@ -26,7 +26,7 @@ export default hopeTheme({
 
   footer: "",
 
-  displayFooter: true,
+  displayFooter: false,
 
   // encrypt: {
   //   config: {
@@ -49,7 +49,7 @@ export default hopeTheme({
       // category: "Announcements",
       // categoryId: "DIC_kwDOG_Pt2M4COD69",
     },
-
+    activeHeaderLinks: false,
     // All features are enabled for demo, only preserve features you need here
     mdEnhance: {
       align: true,

@@ -20,5 +20,5 @@ features:
   details: 这里收集整理了一些 Web 相关的基础知识，以供查阅参考。
 - title: 3️⃣问题记录
   details: 这里记录了部分在 Web 开发中常见的问题，以供理解学习。
-footer: ""
+footer: true
 ---

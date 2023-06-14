@@ -1,5 +1,5 @@
 import { defineClientConfig } from '@vuepress/client'
-
+import { onMounted } from 'vue'
 import Mcard from './components/Mcard.vue'
 import Minfo from './components/Minfo.vue'
 // import ElementPlus from 'element-plus'
@@ -18,5 +18,5 @@ export default defineClientConfig({
     componentList.forEach(c => {
       app.component(c.name, c.component)
     })
-  }
+  },
 })

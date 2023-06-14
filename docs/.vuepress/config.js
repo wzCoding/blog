@@ -1,6 +1,6 @@
 import { defineUserConfig } from "vuepress"
 import { getDirname, path } from '@vuepress/utils'
-import  docsearchPlugin  from './public/utils/docsearch'
+import  docsearchPlugin  from './public/plugin/docsearch'
 import theme from "./theme.js"
 
 const __dirname = getDirname(import.meta.url)
@@ -10,11 +10,11 @@ export default defineUserConfig({
 
   // lang: "en-US",
   title: "web-docs",
-  head: [['link', { rel: 'icon', href: '/lore.svg' }]],
+  head: [['link', { rel: 'icon', href: '/blog/lore.svg' }]],
   description: "wzCoding-web-docs",
   theme,
   plugins: [
-    docsearchPlugin
+    docsearchPlugin,
   ],
   alias: {
     '@public': path.resolve(__dirname, './public'),

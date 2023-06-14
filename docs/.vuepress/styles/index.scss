@@ -4,15 +4,14 @@
     --font-family-heading: var(--font-family);
     --font-family-mono: var(--font-family);
 }
-html[data-theme=dark] {
+html[data-theme="dark"] {
     --bg-color: #22272e;
     --text-color: #adbac7;
-    --light-grey:var(--text-color);
-    --code-demo-header-bg-color:#282c34;
+    --light-grey: var(--text-color);
+    --code-demo-header-bg-color: #282c34;
     code {
         background: #2b313a;
     }
-   
 }
 .nav-link.vp-action.default {
     background-color: unset;
@@ -42,7 +41,7 @@ html[data-theme=dark] {
 #toc .toc-link,
 .vp-breadcrumb li.is-active a,
 .page-info,
-.vp-footer-wrapper{
+.vp-footer-wrapper {
     color: var(--text-color);
 }
 .disabled-elements {
@@ -60,4 +59,19 @@ html[data-theme=dark] {
     margin-bottom: 1rem;
     margin-top: calc(0.5rem - var(--navbar-height)) !important;
     padding-top: calc(1rem + var(--navbar-height)) !important;
+}
+
+//组件自定义样式
+.m-card {
+    --card-font-size: 1.15rem;
+    h3 {
+        font-size: var(--card-font-size);
+        a {
+            position: relative;
+            z-index: 10;
+        }
+    }
+    p{
+        margin: 0;
+    }
 }

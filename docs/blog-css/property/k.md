@@ -1,14 +1,18 @@
 # K
 
-<script setup> 
-    import { Propertys } from '@data/css/property.js'       
-    const baseCssUrl = 'https://developer.mozilla.org/zh-CN/docs/Web/CSS/'       
-    const { K } = Propertys  
-                  
-    //下面表格将使用自定义组件               
-</script>   
+#### 以 k 为首的属性
 
-#### 以 K 为首的属性
-<template v-for="item in K">
-<Mcard :item=item :linkUrl=baseCssUrl></Mcard>
-</template>
+<Mcard>
+
+### [`khz`][zh-link]{ .mdn-link linkparam=frequency#khz}
+CSS 数据类型，表示频率维度，例如语音的音高。目前它未在任何 CSS 属性中被使用
+</Mcard>
+
+<Mcard>
+
+### [`@keyframes`][zh-link]{ .mdn-link linkparam=@keyframes}
+CSS at-rule，通过在动画序列中定义关键帧（或 waypoints）的样式来控制 CSS 动画序列中的中间步骤
+</Mcard>
+
+[zh-link]:https://developer.mozilla.org/zh-CN/docs/Web/CSS/
+[en-link]:https://developer.mozilla.org/en-US/docs/Web/CSS/

@@ -19,9 +19,8 @@ export default {
     },
     setup(props) {
         const { item } = toRefs(props)
-        const isActive = item.value.active
         const cardHead = computed(() => {
-            const { linkParam, lang, code} = item.value
+            const { linkParam, lang, code } = item.value
             const obj = {
                 title: code,
                 link: props.linkUrl ? getLinkUrl(linkParam, lang, code) : ''
@@ -32,6 +31,17 @@ export default {
             const { desc } = item.value
             return handleStr(desc)
         })
+        const cardClick = (event) => {
+            if (!props.linkUrl && event.srcElement.nodeName == 'CODE') {
+                event.preventDefault()
+                const parentNode = event.target.parentNode
+                const href = parentNode.href
+                const param = parentNode.getAttribute('linkparam')
+                const mdnLink = href + param
+
+                window.open(mdnLink)
+            }
+        }
         const getLinkUrl = (param, lang, prop) => {
             let linkParam
             let url = props.linkUrl
@@ -60,7 +70,7 @@ export default {
             return str
         }
         return {
-            isActive,
+            cardClick,
             cardHead,
             cardText
         }
@@ -69,27 +79,29 @@ export default {
 </script>
 
 <template>
-    <div class="card" :class="{ active: isActive }">
-        <div class="card-head">
-            <slot name="head" :head="cardHead">
-                <h4 :id="cardHead.title" tabindex="-1">
-
-                    <a class="header-anchor" :href="`#${cardHead.title}`" aria-hidden="true">#</a>
-                    <code>{{ cardHead.title }}</code>
-                    <a v-if="cardHead.link" class="mdn-link" :href="cardHead.link" target="_blank"
-                        rel="noopener noreferrer">ℹ️</a>
-                </h4>
-            </slot>
-        </div>
-        <div class="card-content">
-            <slot name="text" :text="cardText">
-                <p v-html="cardText"></p>
-            </slot>
-        </div>
+    <div class="m-card" @click="cardClick">
+        <slot>
+            <div class="card-head">
+                <slot name="head" :head="cardHead">
+                    <h4 :id="cardHead.title" tabindex="-1">
+                        <a class="header-anchor" :href="`#${cardHead.title}`" aria-hidden="true">#</a>
+                        <a v-if="cardHead.link" class="mdn-link" :href="cardHead.link" target="_blank" rel="noopener noreferrer">
+                            <code>{{ cardHead.title }}</code>
+                            <img src="../public/assets/icon/link.png" alt="link">
+                        </a>
+                    </h4>
+                </slot>
+            </div>
+            <div class="card-content">
+                <slot name="text" :text="cardText">
+                    <p v-html="cardText"></p>
+                </slot>
+            </div>
+        </slot>
     </div>
 </template>
 <style lang="scss" scoped>
-.card {
+.m-card {
     --card-padding: 1.25rem;
     display: block;
     border-top: 1px solid transparent;
@@ -110,6 +122,10 @@ export default {
         position: relative;
         top: 1px;
         z-index: 3;
+        img{
+            padding-left: .2rem;
+            width:.75rem;
+        }
     }
 
     .card-content {
@@ -145,7 +161,7 @@ export default {
 }
 
 .dark {
-    .card {
+    .m-card {
         background: rgba(64, 158, 255, .05);
 
     }
