@@ -107,7 +107,7 @@ CSS 简写属性，是 `flex-direction` 和 `flex-wrap` 的简写
 <Mcard>
 
 ### [`fr`][zh-link]{ .mdn-link linkparam=flex_value#fr}
-<flex> 数据类型的单位，<number> 后加单位 `fr`
+CSS数据类型，flex 布局的单位，`number` 后加单位 `fr`
 </Mcard>
 
 <Mcard>
@@ -197,7 +197,7 @@ CSS at-rule，允许作者在 `font-variant-alternates` 中使用通用名称，
 <Mcard>
 
 ### [`font-size`][zh-link]{ .mdn-link linkparam=font-size}
-设置字体大小。更改字体大小还会更新字体大小相关的 <length> 单位，例如 `em`、`ex` 等
+设置字体大小。更改字体大小还会更新字体大小相关的 `length` 单位，例如 `em`、`ex` 等
 </Mcard>
 
 <Mcard>
