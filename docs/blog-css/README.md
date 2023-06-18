@@ -1,3 +1,12 @@
+---
+prev:
+  text: HTML 介绍
+  link: /blog-html/
+next: 
+  text: CSS 属性(样式)
+  link: /blog-css/property/a  
+---
+
 
 # CSS 介绍
 **CSS** 由许多部分组成，这里会介绍关于 **CSS** 的一些知识
@@ -11,9 +20,8 @@
 ## 如何使用 CSS
 **CSS** 样式需要在 **HTML** 文档中使用才能展现出效果，在文档中使用 **CSS** 的方法共有3钟：  
 1. **外部样式表**：将 **CSS** 编写在扩展名为 ```.css``` 的单独文件中，并在 **HTML** 头部 ```<head>``` 中使用 ```<link>``` 标签引用它  
-    
-<CodeGroup>
-  <CodeGroupItem title="HTML">
+
+::: normal-demo 代码示例
 
 ```html{6}
 <!DOCTYPE html>
@@ -28,11 +36,7 @@
      <p>this is an example</p>
   </body>
 </html>
-```  
-
- </CodeGroupItem>
-
- <CodeGroupItem title="CSS">
+```
 
 ```css
 /* style.css */
@@ -42,15 +46,13 @@ h1{
 p{
   background-color: yellow; /* 段落的背景色设置为黄色 */  
 }
-```  
-
-  </CodeGroupItem>
-</CodeGroup>  
+```
+:::    
 
 2. **内部样式表**：内部样式表是指不使用外部 **CSS** 文件，而是将 **CSS** 放在 **HTML** 文件 ```<head>``` 标签里的 ```<style>``` 标签之中  
-    
-<CodeGroup>
-  <CodeGroupItem title="HTML">
+
+
+::: normal-demo 代码示例
 
 ```html{6-13}
 <!DOCTYPE html>
@@ -72,16 +74,16 @@ p{
      <p>this is an example</p>
   </body>
 </html>
-```    
-  </CodeGroupItem>
-</CodeGroup>  
+```
+:::  
+
 
 3. **内联样式**：内联样式表存在于 **HTML** 元素的 **style** 属性之中。其特点是每个 **CSS** 表只影响一个元素  
-  
-<CodeGroup>
-  <CodeGroupItem title="HTML">
 
-```html{8-9}
+
+::: normal-demo 代码示例
+
+```html{8,9}
 <!DOCTYPE html>
 <html>
   <head>
@@ -93,9 +95,8 @@ p{
      <p style="background-color: yellow;">this is an example</p>
   </body>
 </html>
-```    
-  </CodeGroupItem>
-</CodeGroup>  
+```
+:::  
 
 在上面的代码中我们使用了一些简单的 **CSS** 样式，但这只是 **CSS** 的冰山一角，我们将会在接下来的内容里介绍更多的 **CSS** 样式以及其他跟 **CSS** 相关的知识。   
 <Minfo>

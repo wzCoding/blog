@@ -1,9 +1,9 @@
 ---
 prev:
-  text: css 选择器
-  link: /blog-css/selector/
-containerClass: property  
+  text: CSS 介绍
+  link: /blog-css/
 ---
+
 
 # A
 #### 以 A 为首的属性
