@@ -1,5 +1,5 @@
 <script>
-import { computed, toRefs } from 'vue'
+import { computed, toRefs,onMounted } from 'vue'
 export default {
     name: "Mcard",
     props: {
@@ -69,6 +69,11 @@ export default {
             }
             return str
         }
+
+        onMounted(()=>{
+            const externalLinks = document.querySelector('.external-link-icon-sr-only')
+            externalLinks.innerHTML = ''
+        })
         return {
             cardClick,
             cardHead,
