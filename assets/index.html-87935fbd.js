@@ -1,1 +1,0 @@
-import{_ as s,o as t,c,e,f as a}from"./app-c7184e79.js";const n={},o=e("h1",{id:"css-属性-样式",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#css-属性-样式","aria-hidden":"true"},"#"),a(" CSS 属性（样式）")],-1),r=[o];function _(d,i){return t(),c("div",null,r)}const l=s(n,[["render",_],["__file","index.html.vue"]]);export{l as default};
