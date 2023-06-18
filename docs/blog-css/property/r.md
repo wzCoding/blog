@@ -12,7 +12,7 @@ CSS 数据类型，表示角的大小（弧度）
 <Mcard>
 
 ### [`rem`][zh-link]{ .mdn-link linkparam=length#rem}
-CSS 数据类型，表示距离尺寸，代表根元素（通常为<html> 元素）的 font-size 大小
+CSS 数据类型，表示距离尺寸，代表根元素（通常为 `<html>` 元素）的 font-size 大小
 </Mcard>
 
 <Mcard>
