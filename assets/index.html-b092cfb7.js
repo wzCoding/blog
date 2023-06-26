@@ -1,0 +1,1 @@
+import{_ as s,o as t,c,e,f as a}from"./app-e7f41617.js";const n={},o=e("h1",{id:"css-选择器",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#css-选择器","aria-hidden":"true"},"#"),a(" CSS 选择器")],-1),r=[o];function _(d,i){return t(),c("div",null,r)}const l=s(n,[["render",_],["__file","index.html.vue"]]);export{l as default};
