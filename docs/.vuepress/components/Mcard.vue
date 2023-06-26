@@ -70,10 +70,6 @@ export default {
             return str
         }
 
-        onMounted(()=>{
-            const externalLinks = document.querySelector('.external-link-icon-sr-only')
-            externalLinks.innerHTML = ''
-        })
         return {
             cardClick,
             cardHead,
