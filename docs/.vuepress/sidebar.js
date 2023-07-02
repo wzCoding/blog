@@ -45,7 +45,22 @@ export default sidebar({
   '/blog-css/': [
     {
       text: 'CSS 相关',
-      children: "structure",
+      children: [
+        'README.md',
+        {
+          text: '选择器',
+          collapsible: true,
+          prefix: '/blog-css/selector/',
+          children: ['01', '02', '03', '04', '05'],
+        },
+        {
+          text: '属性(样式)',
+          collapsible: true,
+          prefix: '/blog-css/property/',
+          children: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'z']
+        },
+        '01','02','03','04'
+      ]
     },
   ],
   '/blog-js/': [
