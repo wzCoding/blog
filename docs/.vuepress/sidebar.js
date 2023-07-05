@@ -59,7 +59,16 @@ export default sidebar({
           prefix: '/blog-css/property/',
           children: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'z']
         },
-        '01','02','03','04'
+        '01',
+        '02',
+        {
+          text: '常见布局',
+          collapsible: true,
+          prefix: '/blog-css/layout/',
+          children: ['01', '02', '03', '04', '05'],
+        },
+        '03',
+        '04'
       ]
     },
   ],
