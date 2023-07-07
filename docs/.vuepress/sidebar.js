@@ -65,7 +65,7 @@ export default sidebar({
           text: '常见布局',
           collapsible: true,
           prefix: '/blog-css/layout/',
-          children: ['01', '02', '03', '04', '05'],
+          children: ['01', '02', '03'],
         },
         '03',
         '04'
