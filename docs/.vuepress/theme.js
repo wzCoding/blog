@@ -3,20 +3,20 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-  hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
+  //hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
 
   author: {
     name: "wzCoding",
-    url: "https://mrhope.site",
+    url: "https://github.com/wzCoding/blog",
   },
 
   iconAssets: "iconfont",
 
   logo: "/lore.svg",
 
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
+  repo: "https://github.com/wzCoding/blog",
 
-  docsDir: "src",
+  docsDir: "docs",
   darkmode:'toggle',
   // navbar
   navbar,
