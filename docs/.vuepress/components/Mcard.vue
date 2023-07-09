@@ -1,5 +1,5 @@
 <script>
-import { computed, toRefs,onMounted } from 'vue'
+import { computed, toRefs } from 'vue'
 export default {
     name: "Mcard",
     props: {
