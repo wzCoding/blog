@@ -86,4 +86,16 @@ export default sidebar({
       children: "structure",
     },
   ],
+  '/blog-question/': [
+    {
+      text: '常见问题',
+      children: "structure",
+    },
+  ],
+  '/about/': [
+    {
+      text: '关于我',
+      children: "structure",
+    },
+  ]
 });

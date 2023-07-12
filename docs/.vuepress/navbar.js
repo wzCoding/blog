@@ -25,11 +25,11 @@ export default navbar([
   {
     text: "问题收集",
     icon: "symbol",
-    link: "/"
+    link: "/blog-question/"
   },
   {
     text: "关于我",
     icon: "profile",
-    link: "/"
+    link: "/about/"
   }
 ]);

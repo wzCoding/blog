@@ -1,3 +1,6 @@
-# JavaScript 相关的知识
+# 介绍
 
-这里开始介绍一些在前端开发中常用到的 JavaScript 知识与技巧
+## 什么是 javascript
+
+## javascript 的组成
+## JavaScript 可以做什么
