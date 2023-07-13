@@ -75,8 +75,12 @@ export default sidebar({
   '/blog-js/': [
     {
       text: 'JavaScript 相关',
-      collapsible: true,
-      children: "structure",
+      children: [
+         "README.md",
+         "01",
+         "02",
+         "03"
+      ]
     },
   ],
   '/blog-demo/': [
