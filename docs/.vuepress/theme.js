@@ -3,8 +3,6 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
-  //hostname: "https://vuepress-theme-hope-docs-demo.netlify.app",
-
   author: {
     name: "wzCoding",
     url: "https://github.com/wzCoding/blog",
@@ -17,11 +15,11 @@ export default hopeTheme({
   repo: "https://github.com/wzCoding/blog",
 
   docsDir: "docs",
+
   darkmode:'toggle',
-  // navbar
+
   navbar,
 
-  // sidebar
   sidebar,
 
   footer: "",
