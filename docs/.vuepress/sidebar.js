@@ -76,10 +76,7 @@ export default sidebar({
     {
       text: 'JavaScript 相关',
       children: [
-         "README.md",
-         "01",
-         "02",
-         "03"
+        "README.md", "01", "02", "03", "04", "05", "06", "07", "08",
       ]
     },
   ],
