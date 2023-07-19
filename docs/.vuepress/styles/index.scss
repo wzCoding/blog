@@ -64,25 +64,32 @@ html[data-theme="dark"] {
 //组件自定义样式
 .m-card {
     --card-font-size: 1.15rem;
-    h3,h4 {
+    h3,
+    h4 {
         font-size: var(--card-font-size);
         a {
             position: relative;
             z-index: 10;
         }
     }
-    p{
+    p {
         margin: 0;
     }
 }
-.disabled-elements{
-    --disabled-color:#f11e3f;
-    .m-card{
-        h3{ 
-            color:var(--disabled-color);
-            a,code{
-                color:var(--disabled-color) !important;
+.disabled-elements {
+    --disabled-color: #f11e3f;
+    .m-card {
+        h3 {
+            color: var(--disabled-color);
+            a,
+            code {
+                color: var(--disabled-color) !important;
             }
         }
+    }
+}
+.theme-hope-content {
+    li {
+        margin: 0.5rem 0;
     }
 }

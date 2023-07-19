@@ -7,8 +7,8 @@ heroImage: /lore.svg
 # bgImageDark: https://theme-hope-assets.vuejs.press/bg/6-dark.svg
 # bgImageStyle:
 #   background-attachment: fixed
-heroText: web-docs
-tagline: 心有所向，日复一日，必有精进...
+heroText: 知识是棵树
+tagline: 木欣欣以向荣，泉涓涓而始流...
 actions:
   - text: 开始探索 →
     link: ./blog-html/

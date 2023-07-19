@@ -8,9 +8,9 @@ const __dirname = getDirname(import.meta.url)
 
 export default defineUserConfig({
   base: "/blog/",
-  title: "web-docs",
+  title: "知识是棵树",
   head: [['link', { rel: 'icon', href: '/blog/lore.svg' }]],
-  description: "wzCoding-web-docs",
+  description: "wzCoding-blog",
   theme,
   plugins: [
     docsearchPlugin,
