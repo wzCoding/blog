@@ -22,7 +22,7 @@ export default hopeTheme({
 
   sidebar,
 
-  footer: "MIT Licensed | Copyright © 2023-present wzCoding",
+  footer: "",
 
   displayFooter: false,
 
