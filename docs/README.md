@@ -21,5 +21,5 @@ features:
 - title: 3️⃣问题记录
   details: 这里记录了部分在 Web 开发中常见的问题，以供理解学习。
 footer: true
-copyrightText: MIT LICENSE | Copyright © 2023-present wzCoding
+copyright: MIT LICENSE | copyright © 2023-present wzCoding
 ---
