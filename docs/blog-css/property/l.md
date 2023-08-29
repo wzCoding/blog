@@ -1,11 +1,12 @@
 ---
 category:
-   - Web
    - CSS
-tag:
-   - CSS
-   - 样式(属性)  
+   - 属性(样式) 
 ---
+
+以 L 为首的 CSS 属性(样式) 
+
+<!-- more -->
 
 # L
 

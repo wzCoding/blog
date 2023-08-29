@@ -1,13 +1,11 @@
 ---
-category:
-  - Web
-  - JavaScript
-tag:
-  - JavaScript
-  - 介绍
+category: 
+   - JavaScript
+   - JavaScript 介绍
+excerpt: JavaScript 简单介绍
 ---
 
-# 介绍
+# JavaScript 介绍
 
 ## 什么是 JavaScript
 JavaScript 是一种通过解释执行的高级编程语言，同时也是一门动态，弱类型的脚本语言，适合面向对象 (基于原型)和函数式的编程风格，它用于创建和控制动态网站内容，使网页变得更加生动，提供更好的用户体验

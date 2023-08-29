@@ -1,15 +1,16 @@
 ---
 order: 0
 category:
-   - Web
    - HTML
-tag:
-   - HTML
-   - 介绍
+   - HTML 介绍
+tag: HTML 介绍
+excerpt: HTML 简单介绍
 ---
 
+<!--more-->
 
-# 介绍
+
+# HTML 介绍
 
 ## 什么是HTML
 **HTML** 是超文本标记语言 **HyperText Markup Language** 的简称，是一种用来结构化 Web 网页及其内容的标记语言，它可以告知浏览器来如何组织你的Web页面

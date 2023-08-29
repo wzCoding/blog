@@ -3,12 +3,13 @@ prev:
   text: CSS 介绍
   link: /blog-css/
 category:
-   - Web
    - CSS
-tag:
-   - CSS
-   - 样式(属性)   
+   - 属性(样式) 
 ---
+
+以 A 为首的 CSS 属性(样式) 
+
+<!-- more -->
 
 
 # A

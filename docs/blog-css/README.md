@@ -6,15 +6,17 @@ next:
   text: CSS 属性(样式)
   link: /blog-css/property/a 
 category:
-   - Web
    - CSS
-tag:
-   - CSS
-   - 介绍 
+   - CSS 介绍
+excerpt: CSS 简单介绍
 ---
 
 
-# 介绍
+
+<!--more-->
+
+
+# CSS 介绍
 **CSS** 由许多部分组成，这里会介绍关于 **CSS** 的一些知识
 
 ## 什么是 CSS

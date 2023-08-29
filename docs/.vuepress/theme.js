@@ -33,12 +33,13 @@ export default hopeTheme({
 
   displayFooter: false,
 
+  breadcrumb: false,
   // encrypt: {
   //   config: {
   //     "/demo/encrypt.html": ["1234"],
   //   },
   // },
-
+   
   // page meta
   metaLocales: {
     editLink: "在 GitHub 上编辑此页",

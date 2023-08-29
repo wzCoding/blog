@@ -80,13 +80,6 @@ export default sidebar({
       ]
     },
   ],
-  '/blog-demo/': [
-    {
-      text: 'Demo 展示',
-      collapsible: true,
-      children: "structure",
-    },
-  ],
   '/blog-question/': [
     {
       text: '常见问题',
