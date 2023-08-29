@@ -2,6 +2,12 @@
 next:
   text: CSS 选择器
   link: /blog-css/selector/01
+category:
+   - Web
+   - CSS
+tag:
+   - CSS
+   - 样式(属性)  
 ---
 
 

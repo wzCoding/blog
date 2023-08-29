@@ -7,7 +7,14 @@ export default hopeTheme({
     name: "wzCoding",
     url: "https://github.com/wzCoding/blog",
   },
+  blog: {
+    medias: {
+      "QQ": "1429354968",
+      "Email": "1429354968@qq.com",
+      "GitHub": "https://github.com/wzCoding/blog",
 
+    }
+  },
   iconAssets: "iconfont",
 
   logo: "/lore.svg",
@@ -16,7 +23,7 @@ export default hopeTheme({
 
   docsDir: "docs",
 
-  darkmode:'toggle',
+  darkmode: 'toggle',
 
   navbar,
 
@@ -36,11 +43,10 @@ export default hopeTheme({
   metaLocales: {
     editLink: "在 GitHub 上编辑此页",
   },
-  breadcrumb: false,
   plugins: {
     // You should generate and use your own comment service
     comment: {
-      comment:false
+      comment: false
       // provider: "Giscus",
       // repo: "vuepress-theme-hope/giscus-discussions",
       // repoId: "R_kgDOG_Pt2A",
@@ -90,7 +96,9 @@ export default hopeTheme({
       vPre: true,
       vuePlayground: true,
     },
-
+    blog: {
+      excerptLength: 0,
+    },
     // uncomment these if you want a pwa
     // pwa: {
     //   favicon: "/favicon.ico",

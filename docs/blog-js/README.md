@@ -1,3 +1,12 @@
+---
+category:
+  - Web
+  - JavaScript
+tag:
+  - JavaScript
+  - 介绍
+---
+
 # 介绍
 
 ## 什么是 JavaScript

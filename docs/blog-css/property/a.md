@@ -2,6 +2,12 @@
 prev:
   text: CSS 介绍
   link: /blog-css/
+category:
+   - Web
+   - CSS
+tag:
+   - CSS
+   - 样式(属性)   
 ---
 
 

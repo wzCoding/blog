@@ -4,7 +4,13 @@ prev:
   link: /blog-html/
 next: 
   text: CSS 属性(样式)
-  link: /blog-css/property/a  
+  link: /blog-css/property/a 
+category:
+   - Web
+   - CSS
+tag:
+   - CSS
+   - 介绍 
 ---
 
 
