@@ -1,6 +1,7 @@
 ---
 title: Foo 功能
 # icon: lightbulb
+article: false
 ---
 
 ## 介绍

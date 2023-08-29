@@ -1,8 +1,10 @@
 ---
+date: 2023-07-06
 category: 
    - JavaScript
    - JavaScript 介绍
-excerpt: JavaScript 简单介绍
+excerpt: 了解 JavaScript
+sticky: 9997
 ---
 
 # JavaScript 介绍

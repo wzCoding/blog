@@ -9,6 +9,7 @@ heroImage: /lore.svg
 # bgImageStyle:
 #   background-attachment: fixed
 heroText: 知识是棵树
+heroFullScreen: true
 tagline: 木欣欣以向荣，泉涓涓而始流...
 actions:
   - text: 开始探索 →

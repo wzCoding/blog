@@ -1,4 +1,5 @@
 ---
+article: false
 # 这是文章的标题
 title: 页面配置
 # 这是页面的图标

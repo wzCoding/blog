@@ -1,4 +1,5 @@
 ---
+date: 2023-04-28
 prev:
   text: HTML 介绍
   link: /blog-html/
@@ -8,7 +9,8 @@ next:
 category:
    - CSS
    - CSS 介绍
-excerpt: CSS 简单介绍
+excerpt: 了解 CSS 
+sticky: 9998
 ---
 
 
