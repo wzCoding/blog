@@ -32,21 +32,7 @@ export default hopeTheme({
     action: "前往",
     errorText: "没有这一页哦"
   },
-  metaLocales: {
-    author: "作者",
-    date: "日期",
-    category: "分类",
-    tag: "标签",
-    words: "字数",
-    readingTime: "阅读时间",
-    toc: "此页内容",
-    prev: "上一篇",
-    next: "下一篇",
-    editLink: "在 GitHub 上编辑此页",
-    contributors: "更新人",
-    lastUpdated: "最后更新时间",
-    
-  },
+ 
   iconAssets: "iconfont",
 
   logo: "/lore.svg",
@@ -64,21 +50,25 @@ export default hopeTheme({
   footer: "",
 
   displayFooter: false,
-
+  lastUpdated:true,
+  contributors:true,
   breadcrumb: false,
-
+  metaLocales: {
+    author: "作者",
+    date: "日期",
+    category: "分类",
+    tag: "标签",
+    words: "字数",
+    readingTime: "阅读时间",
+    toc: "此页内容",
+    prev: "上一篇",
+    next: "下一篇",
+    lastUpdated: "最后更新时间",
+    contributors: "更新人",
+    editLink: "在 GitHub 上编辑此页",
+  },
   plugins: {
-    // You should generate and use your own comment service
-    comment: {
-      comment: false
-      // provider: "Giscus",
-      // repo: "vuepress-theme-hope/giscus-discussions",
-      // repoId: "R_kgDOG_Pt2A",
-      // category: "Announcements",
-      // categoryId: "DIC_kwDOG_Pt2M4COD69",
-    },
     activeHeaderLinks: false,
-    // All features are enabled for demo, only preserve features you need here
     mdEnhance: {
       align: true,
       attrs: true,

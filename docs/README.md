@@ -4,10 +4,10 @@ layout: BlogHome
 icon: home
 title: 主页
 heroImage: /lore.svg
-# bgImage: https://theme-hope-assets.vuejs.press/bg/6-light.svg
-# bgImageDark: https://theme-hope-assets.vuejs.press/bg/6-dark.svg
-# bgImageStyle:
-#   background-attachment: fixed
+bgImage: /assets/background/bg12.jpg
+bgImageDark: /assets/background/bg13.jpg
+bgImageStyle: 
+  background-attachment: fixed
 heroText: 知识是棵树
 heroFullScreen: true
 tagline: 木欣欣以向荣，泉涓涓而始流...
