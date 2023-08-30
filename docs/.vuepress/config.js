@@ -8,14 +8,19 @@ const __dirname = getDirname(import.meta.url)
 
 export default defineUserConfig({
   base: "/blog/",
-  title: "知识是棵树",
   head: [['link', { rel: 'icon', href: '/blog/lore.svg' }]],
-  description: "wzCoding-blog",
-  theme,
+  locales: {
+    "/": {
+      lang: "zh-CN",
+      title: "知识是棵树",
+      description: "wzCoding的个人博客",
+    },
+  },
   plugins: [
     docsearchPlugin,
     externalLinkIconPlugin
   ],
+  theme,
   clientConfigFile: path.resolve(__dirname, 'client.js')
   // Enable it with pwa
   // shouldPrefetch: false,
