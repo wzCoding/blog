@@ -3,6 +3,7 @@ import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
 export default hopeTheme({
+  hostname: "https://wzcoding.github.io/blog/",
   author: {
     name: "wzCoding",
     url: "https://github.com/wzCoding/blog",
