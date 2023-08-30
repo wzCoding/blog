@@ -1,5 +1,4 @@
 import { hopeTheme } from "vuepress-theme-hope";
-import { blogConfig } from "./blog.js";
 import navbar from "./navbar.js";
 import sidebar from "./sidebar.js";
 
@@ -12,18 +11,25 @@ export default hopeTheme({
   logo: "/head.png",
   repo: "https://github.com/wzCoding/blog",
   docsDir: "docs",
-  darkmode: 'toggle',
-  displayFooter: false,
+  darkmode:"toggle",
   breadcrumb: false,
+  displayFooter:true,
   locales: {
     "/": {
       navbar,
       sidebar,
       footer: "",
-      blog: blogConfig.blog,
-      blogLocales: blogConfig.blogLocales,
-      paginationLocales: blogConfig.paginationLocales,
-      metaLocales: blogConfig.metaLocales,
+      copyright:"MIT LICENSE | copyright © 2023-present wzCoding",
+      blog: {
+        description: "前端开发者，持续学习中...",
+        timeline: "昨日重现",
+        medias: {
+          "Email": "mailto:1429354968@qq.com",
+          "GitHub": "https://github.com/wzCoding",
+          "QQ": "http://wpa.qq.com/msgrd?v=3&uin=1429354968&site=qq&menu=yes"
+        },
+        roundAvatar: true
+      },
     }
   },
   plugins: {
@@ -72,6 +78,5 @@ export default hopeTheme({
     blog: {
       excerptLength: 75,
     },
-
   },
 });

@@ -1,41 +1,6 @@
 import { sidebar } from "vuepress-theme-hope";
 
 export default sidebar({
-  // "/": [
-  //   //"",
-  //   // {
-  //   //   text: "案例",
-  //   //   icon: "laptop-code",
-  //   //   prefix: "demo/",
-  //   //   link: "demo/",
-  //   //   children: "structure",
-  //   // },
-  //   // {
-  //   //   text: "文档",
-  //   //   icon: "book",
-  //   //   prefix: "guide/",
-  //   //   children: "structure",
-  //   // },
-  //   // "slides",
-  //   {
-  //     text: 'HTML 相关',
-  //     icon: "html",
-  //     prefix: "blog-html/",
-  //     children: "structure",
-  //   },
-  //   {
-  //     text: 'CSS 相关',
-  //     icon: "css",
-  //     prefix: "blog-css/",
-  //     children: "structure",
-  //   },
-  //   {
-  //     text: 'Javascript 相关',
-  //     icon: "javascript",
-  //     prefix: "blog-js/",
-  //     children: "structure",
-  //   }
-  // ],
   '/blog-html/': [
     {
       text: 'HTML 相关',
@@ -91,5 +56,12 @@ export default sidebar({
       text: '关于我',
       children: "structure",
     },
-  ]
+  ],
+  '/article/':false,
+  '/category/':false,
+  '/categoryItem/':false,
+  '/tag/':false,
+  '/tagItem/':false,
+  '/star/':false,
+  '/timeline/':false
 });

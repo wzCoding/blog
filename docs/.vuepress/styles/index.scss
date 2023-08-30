@@ -1,6 +1,11 @@
 // place your custom styles here
+@font-face {
+    font-family: FangYuan;
+    src: url(../assets/font/7isTenjrxLF1.woff);
+}
+
 :root {
-    --font-family: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif';
+    --font-family: "FangYuan";
     --font-family-heading: var(--font-family);
     --font-family-mono: var(--font-family);
 }
@@ -11,6 +16,22 @@ html[data-theme="dark"] {
     --code-demo-header-bg-color: #282c34;
     code {
         background: #2b313a;
+    }
+    .vp-page.vp-blog .vp-blog-hero.fullscreen .vp-blog-mask {
+        background-position-y: top !important;
+    }
+    .vp-blog-hero-description,
+    .vp-blog-hero-title {
+        background: linear-gradient(135deg, #9b9999, #d9ddde 30%, #969a9b 100%);
+    }
+}
+html[data-theme="light"] {
+    .vp-page.vp-blog .vp-blog-hero.fullscreen .vp-blog-mask {
+        background-position-y: center !important;
+    }
+    .vp-blog-hero-description,
+    .vp-blog-hero-title {
+        background: linear-gradient(135deg, #ff8383, #b6d4db 30%, #ffffff 100%);
     }
 }
 .nav-link.vp-action.default {
@@ -61,7 +82,7 @@ html[data-theme="dark"] {
     padding-top: calc(1rem + var(--navbar-height)) !important;
 }
 .vp-nav-logo,
-.vp-blog-hero-image{
+.vp-blog-hero-image {
     border-radius: 50% !important;
 }
 //组件自定义样式
@@ -95,4 +116,10 @@ html[data-theme="dark"] {
     li {
         margin: 0.5rem 0;
     }
+}
+.vp-blog-hero-description,
+.vp-blog-hero-title {
+    color: transparent;
+    -webkit-background-clip: text !important;
+    background-clip: text;
 }

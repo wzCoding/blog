@@ -8,9 +8,9 @@ bgImage: /assets/background/bg12.jpg
 bgImageDark: /assets/background/bg13.jpg
 bgImageStyle: 
   background-attachment: fixed
-heroText: 知识是棵树
+heroText: wzCoding
 heroFullScreen: true
-tagline: 木欣欣以向荣，泉涓涓而始流...
+tagline: 心有所向，日复一日，必有精进
 actions:
   - text: 开始探索 →
     link: ./blog-html/
@@ -22,6 +22,4 @@ features:
   details: 这里收集整理了一些 Web 相关的基础知识，以供查阅参考。
 - title: 3️⃣问题记录
   details: 这里记录了部分在 Web 开发中常见的问题，以供理解学习。
-footer: true
-copyright: MIT LICENSE | copyright © 2023-present wzCoding
 ---
