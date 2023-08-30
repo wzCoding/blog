@@ -3,7 +3,7 @@ home: true
 layout: BlogHome
 icon: home
 title: 主页
-heroImage: /lore.svg
+heroImage: /head.png
 bgImage: /assets/background/bg12.jpg
 bgImageDark: /assets/background/bg13.jpg
 bgImageStyle: 

@@ -8,21 +8,13 @@ export default hopeTheme({
     name: "wzCoding",
     url: "https://github.com/wzCoding/blog",
   },
-
   iconAssets: "iconfont",
-
-  logo: "/lore.svg",
-
+  logo: "/head.png",
   repo: "https://github.com/wzCoding/blog",
-
   docsDir: "docs",
-
   darkmode: 'toggle',
-
   displayFooter: false,
-
   breadcrumb: false,
-
   locales: {
     "/": {
       navbar,
@@ -34,7 +26,6 @@ export default hopeTheme({
       metaLocales: blogConfig.metaLocales,
     }
   },
-
   plugins: {
     activeHeaderLinks: false,
     mdEnhance: {

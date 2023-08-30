@@ -6,7 +6,8 @@ const blogConfig = {
             "Email": "mailto:1429354968@qq.com",
             "GitHub": "https://github.com/wzCoding",
             "QQ": "http://wpa.qq.com/msgrd?v=3&uin=1429354968&site=qq&menu=yes"
-        }
+        },
+        roundAvatar: true
     },
     blogLocales: {
         article: "文章",
