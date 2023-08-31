@@ -1,9 +1,9 @@
 import { docsearchPlugin } from '@vuepress/plugin-docsearch'
 
 export default docsearchPlugin({
-    apiKey: "a5b7d51605c449deea8a2761d05a618f",
+    apiKey: "34dce41a4a05173b371754e97ae27d58",
     appId: "8MTXEY4RRL",
-    indexName: "wzcodingio",
+    indexName: "wz_blog",
     placeholder: "请输入关键词",
     translations: {
         button: {
