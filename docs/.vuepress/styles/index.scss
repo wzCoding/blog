@@ -24,7 +24,6 @@ html[data-theme="dark"] {
     .vp-blog-hero-title {
         background: linear-gradient(135deg, #9b9999, #d9ddde 30%, #969a9b 100%);
     }
-
 }
 html[data-theme="light"] {
     .vp-page.vp-blog .vp-blog-hero.fullscreen .vp-blog-mask {
@@ -123,4 +122,16 @@ html[data-theme="light"] {
     color: transparent;
     -webkit-background-clip: text !important;
     background-clip: text;
+}
+
+.mermaid-content {
+    .nodeLabel{
+        white-space: pre-line;
+        display: block;
+    }
+    .edgeLabel {
+        font-size: .75rem;
+        display: block;
+        border: 2px;
+    }
 }
