@@ -14,7 +14,6 @@
     "@vuepress/client": "^2.0.0-beta.62",
     "@vuepress/plugin-docsearch": "^2.0.0-beta.62",
     "@vuepress/plugin-external-link-icon": "^2.0.0-beta.62",
-    "element-plus": "^2.3.7",
     "vue": "^3.2.47",
     "vuepress": "2.0.0-beta.62",
     "vuepress-theme-hope": "2.0.0-beta.221"
