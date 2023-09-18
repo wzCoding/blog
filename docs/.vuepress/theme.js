@@ -30,7 +30,7 @@ export default hopeTheme({
           "QQ": "http://wpa.qq.com/msgrd?v=3&uin=1429354968&site=qq&menu=yes"
         },
         roundAvatar: true,
-
+        
       },
     }
   },
