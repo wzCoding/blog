@@ -1,10 +1,9 @@
 ---
 category: JavaScript
-tag: 事件循环
+tag: 异步
 
 ---
 
 
 
-
-# 事件循环
+# 异步
