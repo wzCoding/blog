@@ -18,16 +18,21 @@ export default defineClientConfig({
   },
   setup() {
     onMounted(() => {
-
+      const switchBtn = document.getElementById("appearance-switch");
+      const html = document.getElementsByTagName("html")
+      switchBtn.addEventListener("click",(event)=>{
+          const theme = html[0].getAttribute("data-theme");
+          console.log(theme)
+      })
       const width = window.innerWidth, height = window.innerHeight;
-      const bgContainer = document.getElementsByClassName("vp-blog-mask");
+      const bgContainer = document.getElementsByClassName("vp-blog-mask")[0];
       const myCanvas = document.createElement("canvas");
       const ctx = myCanvas.getContext("2d");
       myCanvas.width = width;
       myCanvas.height = height;
       myCanvas.style.backgroundColor = "#000000";
-      bgContainer[0].style.overflow = "hidden";
-      bgContainer[0].append(myCanvas);
+      bgContainer.style.overflow = "hidden";
+      bgContainer.append(myCanvas);
 
       const fontSize = 16;
       const fontWeight = 700;
