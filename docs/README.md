@@ -4,10 +4,7 @@ layout: BlogHome
 icon: home
 title: 主页
 heroImage: /head.png
-bgImage: /assets/background/bg12.jpg
-bgImageDark: /assets/background/bg13.jpg
-bgImageStyle: 
-  background-attachment: fixed
+
 heroText: wzCoding
 heroFullScreen: true
 tagline: 心有所向，日复一日，必有精进
