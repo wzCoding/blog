@@ -26,7 +26,7 @@ export default defineClientConfig({
       myCanvas.width = width;
       myCanvas.height = height;
       myCanvas.style.backgroundColor = "#000000";
-
+      bgContainer[0].style.overflow = "hidden";
       bgContainer[0].append(myCanvas);
 
       const fontSize = 16;
@@ -37,7 +37,7 @@ export default defineClientConfig({
       const text = "wzCoding".split("");
 
       const codeRain = function () {
-        ctx.fillStyle = "rgba(0,0,0,0.1)";
+        ctx.fillStyle = "rgba(0,0,0,0.08)";
         ctx.fillRect(0, 0, width, height);
         ctx.font = `${fontWeight} ${fontSize}px ${fontFamily}`;
         ctx.fillStyle = "#0f0";
