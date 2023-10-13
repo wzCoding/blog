@@ -1,6 +1,6 @@
 import { defineClientConfig } from '@vuepress/client'
 import { Timer } from './public/util/timer'
-import { MyCanvas } from './public/util/canvas'
+import { createCanvas } from './public/util/canvas'
 import { onMounted } from 'vue'
 import Mcard from './components/Mcard.vue'
 import Minfo from './components/Minfo.vue'
@@ -27,12 +27,11 @@ export default defineClientConfig({
       })
 
       const width = window.innerWidth, height = window.innerHeight;
-      const myCanvas = new MyCanvas("vp-blog-mask", {
+      const myCanvas = new createCanvas("vp-blog-mask", {
         backgroundColor: "#000000",
         width,
         height,
       });
-      console.log(myCanvas)
       const ctx = myCanvas.getContext("2d");
 
       const fontSize = 16;
