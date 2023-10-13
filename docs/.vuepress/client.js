@@ -1,5 +1,6 @@
 import { defineClientConfig } from '@vuepress/client'
-import { Timer } from './public/util/utils'
+import { Timer } from './public/util/timer'
+import { MyCanvas } from './public/util/canvas'
 import { onMounted } from 'vue'
 import Mcard from './components/Mcard.vue'
 import Minfo from './components/Minfo.vue'
@@ -20,19 +21,19 @@ export default defineClientConfig({
     onMounted(() => {
       const switchBtn = document.getElementById("appearance-switch");
       const html = document.getElementsByTagName("html")
-      switchBtn.addEventListener("click",(event)=>{
-          const theme = html[0].getAttribute("data-theme");
-          console.log(theme)
+      switchBtn.addEventListener("click", (event) => {
+        const theme = html[0].getAttribute("data-theme");
+        console.log(theme)
       })
+
       const width = window.innerWidth, height = window.innerHeight;
-      const bgContainer = document.getElementsByClassName("vp-blog-mask")[0];
-      const myCanvas = document.createElement("canvas");
+      const myCanvas = new MyCanvas("vp-blog-mask", {
+        backgroundColor: "#000000",
+        width,
+        height,
+      });
+      console.log(myCanvas)
       const ctx = myCanvas.getContext("2d");
-      myCanvas.width = width;
-      myCanvas.height = height;
-      myCanvas.style.backgroundColor = "#000000";
-      bgContainer.style.overflow = "hidden";
-      bgContainer.append(myCanvas);
 
       const fontSize = 16;
       const fontWeight = 700;
