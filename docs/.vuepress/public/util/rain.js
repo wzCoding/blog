@@ -2,6 +2,7 @@ import { Timer } from "./timer";
 
 let cvs = null;
 let ctx = null;
+const timer = new Timer();
 
 class Rain {
     constructor(canvas) {
@@ -32,10 +33,12 @@ class Rain {
         })
     }
     start(text, speed) {
-        const timer = new Timer();
         timer.interval(() => {
             this.createRain(text);
         }, speed);
+    }
+    stop(){
+        timer.stop();
     }
 }
 

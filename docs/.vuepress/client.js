@@ -22,20 +22,27 @@ export default defineClientConfig({
   setup() {
     onMounted(() => {
       const switchBtn = document.getElementById("appearance-switch");
-      const html = document.getElementsByTagName("html")
+      const html = document.getElementsByTagName("html");
+
+      const myCanvas = createCanvas("vp-blog-mask", {
+        backgroundColor: "#000000",
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+      const rain = new Rain(myCanvas);
       switchBtn.addEventListener("click", (event) => {
         const theme = html[0].getAttribute("data-theme");
         console.log(theme)
+        if (theme == "dark") {
+          rain.start("wzCoding", 60);
+        }else{
+          rain.stop(); 
+        }
       })
-      const myCanvas = createCanvas("vp-blog-mask", {
-        backgroundColor: "#000000",
-        width:window.innerWidth,
-        height:window.innerHeight,
-      });
 
-      const rain = new Rain(myCanvas);
-      rain.start("wzCoding",60);
-      
+
+
+
     })
   }
 })
