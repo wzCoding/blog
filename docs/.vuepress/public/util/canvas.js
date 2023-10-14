@@ -1,3 +1,9 @@
+/**
+ * 
+ * @param {string} container - 放置canvas的容器的class或者id
+ * @param {object} styles - 样式配置对象，设置canvas样式（宽、高、背景色等）
+ * @returns
+ */
 function createCanvas(container, styles) {
     const bgContainer = document.getElementById(container) || document.getElementsByClassName(container)[0];
     const canvas = document.createElement("canvas");
