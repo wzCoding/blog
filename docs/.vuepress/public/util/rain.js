@@ -1,42 +1,51 @@
 import { Timer } from "./timer";
 
 let ctx = null;
+
 const timer = new Timer();
 
+/**
+ * 
+ * @param {object} canvas - 画布对象，用来绘制 rain
+ * @param {string} text - 形成rain的文字字符串
+ * @returns
+ */
 class Rain {
-    constructor(context,width,height) {
+    constructor(canvas, text) {
+
+        this.canvas = canvas;
+
         this.fontSize = 16;
         this.fontWeight = 700;
         this.fontFamily = "微软雅黑";
+        
+        this.text = text.length ? text.split("") : "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
+        this.letters = Array(Math.ceil(this.canvas.width / this.fontSize)).fill(0);
+        
+        ctx = canvas.context;
 
-        this.width = width;
-        this.height = height;
+        this.onResize(this.canvas);
 
-        this.letters = Array(Math.ceil(this.width / this.fontSize)).fill(0);
-
-        ctx = context;
     }
-    createRain(text) {
-
-        const textList = text.length ? text.split("") : "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");;
-
+    createRain() {
         ctx.fillStyle = "rgba(0,0,0,0.08)";
-        ctx.fillRect(0, 0, this.width, this.height);
+        ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
         ctx.font = `${this.fontWeight} ${this.fontSize}px ${this.fontFamily}`;
         ctx.fillStyle = "#0f0";
 
         this.letters.forEach((item, index) => {
-            ctx.fillText(textList[Math.floor(Math.random() * textList.length)], index * this.fontSize, item + this.fontSize);
-            this.letters[index] = item >= this.height || item > 8888 * Math.random() ? 0 : item + this.fontSize;
+            ctx.fillText(this.text[Math.floor(Math.random() * this.text.length)], index * this.fontSize, item + this.fontSize);
+            this.letters[index] = item >= this.canvas.height || item > 8888 * Math.random() ? 0 : item + this.fontSize;
         })
     }
-    start(text, speed) {
-        timer.interval(() => {
-            this.createRain(text);
-        }, speed);
+    start(speed) {
+        timer.interval(this.createRain.bind(this), speed);
     }
-    stop(){
+    stop() {
         timer.stop();
+    }
+    onResize(canvas) {
+        canvas.resizeCanvas();
     }
 }
 

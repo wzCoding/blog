@@ -24,19 +24,14 @@ export default defineClientConfig({
       const switchBtn = document.getElementById("appearance-switch");
       const html = document.getElementsByTagName("html");
 
-      const canvas = new Canvas("vp-blog-mask", {
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
+      const canvas = new Canvas("vp-blog-mask", window.innerWidth, window.innerHeight);
+      const rain = new Rain(canvas,"wzCoding");
       
-      const ctx = canvas.getContext("2d")
-      const rain = new Rain(ctx, canvas.width, canvas.height);
-
       switchBtn.addEventListener("click", (event) => {
         const theme = html[0].getAttribute("data-theme");
         console.log(theme)
         if (theme == "dark") {
-          rain.start("wzCoding", 60);
+          rain.start(60);
         } else {
           rain.stop();
 

@@ -37,7 +37,7 @@ class Timer {
         //定时! 启动!
         this.timerId = requestAnimationFrame(_loop)
     }
-
+    
     interval(callback, delay = 1000) {
         const type = "interval";
         this.timerStop = false;
