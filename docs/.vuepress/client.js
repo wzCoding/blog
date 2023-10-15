@@ -1,7 +1,7 @@
 import { defineClientConfig } from '@vuepress/client'
 import { onMounted } from 'vue'
 
-import { createCanvas } from './public/util/canvas'
+import { Canvas } from './public/util/canvas'
 import { Rain } from './public/util/rain'
 
 import Mcard from './components/Mcard.vue'
@@ -24,19 +24,22 @@ export default defineClientConfig({
       const switchBtn = document.getElementById("appearance-switch");
       const html = document.getElementsByTagName("html");
 
-      const myCanvas = createCanvas("vp-blog-mask", {
-        backgroundColor: "#000000",
+      const canvas = new Canvas("vp-blog-mask", {
         width: window.innerWidth,
         height: window.innerHeight,
       });
-      const rain = new Rain(myCanvas);
+      
+      const ctx = canvas.getContext("2d")
+      const rain = new Rain(ctx, canvas.width, canvas.height);
+
       switchBtn.addEventListener("click", (event) => {
         const theme = html[0].getAttribute("data-theme");
         console.log(theme)
         if (theme == "dark") {
           rain.start("wzCoding", 60);
-        }else{
-          rain.stop(); 
+        } else {
+          rain.stop();
+
         }
       })
 

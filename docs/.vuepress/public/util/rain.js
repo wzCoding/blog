@@ -1,22 +1,20 @@
 import { Timer } from "./timer";
 
-let cvs = null;
 let ctx = null;
 const timer = new Timer();
 
 class Rain {
-    constructor(canvas) {
+    constructor(context,width,height) {
         this.fontSize = 16;
         this.fontWeight = 700;
         this.fontFamily = "微软雅黑";
 
-        this.width = canvas.width;
-        this.height = canvas.height;
+        this.width = width;
+        this.height = height;
 
         this.letters = Array(Math.ceil(this.width / this.fontSize)).fill(0);
 
-        cvs = canvas;
-        ctx = canvas.getContext("2d");
+        ctx = context;
     }
     createRain(text) {
 
