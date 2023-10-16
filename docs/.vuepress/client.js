@@ -3,6 +3,7 @@ import { onMounted } from 'vue'
 
 import { Canvas } from './public/util/canvas'
 import { Rain } from './public/util/rain'
+import { Sea } from './public/util/sea'
 
 import Mcard from './components/Mcard.vue'
 import Minfo from './components/Minfo.vue'
@@ -25,7 +26,7 @@ export default defineClientConfig({
       const html = document.getElementsByTagName("html")[0];
       const canvas = new Canvas("vp-blog-mask", window.innerWidth, window.innerHeight);
       const rain = new Rain(canvas, "wzCoding");
-
+      const sea = new Sea(canvas);
       const callback = function (list) {
         const target = list[0];
         const theme = target.target.getAttribute("data-theme");
@@ -33,6 +34,7 @@ export default defineClientConfig({
           rain.start(60);
         } else {
           rain.stop();
+          
         }
       }
 
