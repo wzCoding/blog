@@ -23,9 +23,6 @@ class Rain {
         this.letters = Array(Math.ceil(this.canvas.width / this.fontSize)).fill(0);
         
         ctx = canvas.context;
-
-        this.onResize(this.canvas);
-
     }
     createRain() {
         ctx.fillStyle = "rgba(0,0,0,0.08)";
@@ -35,7 +32,7 @@ class Rain {
 
         this.letters.forEach((item, index) => {
             ctx.fillText(this.text[Math.floor(Math.random() * this.text.length)], index * this.fontSize, item + this.fontSize);
-            this.letters[index] = item >= this.canvas.height || item > 8888 * Math.random() ? 0 : item + this.fontSize;
+            this.letters[index] = item >= this.canvas.height || item > 9999 * Math.random() ? 0 : item + this.fontSize;
         })
     }
     start(speed) {
@@ -43,9 +40,7 @@ class Rain {
     }
     stop() {
         timer.stop();
-    }
-    onResize(canvas) {
-        canvas.resizeCanvas();
+        ctx.clearRect(0,0,this.canvas.width,this.canvas.height);
     }
 }
 

@@ -18,6 +18,7 @@ export default defineClientConfig({
     componentList.forEach(c => {
       app.component(c.name, c.component)
     })
+    console.log(router);
   },
   setup() {
     onMounted(() => {
@@ -35,10 +36,9 @@ export default defineClientConfig({
         }
       }
 
-      // 观察器的配置
-      const config = { attributes: true };
+      // 观察器
       const observer = new MutationObserver(callback);
-      observer.observe(html, config);
+      observer.observe(html, { attributes: true });
     })
   }
 })
