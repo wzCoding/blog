@@ -21,26 +21,24 @@ export default defineClientConfig({
   },
   setup() {
     onMounted(() => {
-      const switchBtn = document.getElementById("appearance-switch");
-      const html = document.getElementsByTagName("html");
-
+      const html = document.getElementsByTagName("html")[0];
       const canvas = new Canvas("vp-blog-mask", window.innerWidth, window.innerHeight);
-      const rain = new Rain(canvas,"wzCoding");
-      
-      switchBtn.addEventListener("click", (event) => {
-        const theme = html[0].getAttribute("data-theme");
-        console.log(theme)
+      const rain = new Rain(canvas, "wzCoding");
+
+      const callback = function (list) {
+        const target = list[0];
+        const theme = target.target.getAttribute("data-theme");
         if (theme == "dark") {
           rain.start(60);
         } else {
           rain.stop();
-
         }
-      })
+      }
 
-
-
-
+      // 观察器的配置
+      const config = { attributes: true };
+      const observer = new MutationObserver(callback);
+      observer.observe(html, config);
     })
   }
 })

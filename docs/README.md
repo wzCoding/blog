@@ -24,10 +24,6 @@ projects:
     desc: 免费生成网页线性渐变背景色的网站
     link: https://webgradients.com/
     icon: link
-  - name: CSS Gradient 
-    desc: 免费生成网页线性渐变背景色的网站
-    link: https://cssgradient.io/
-    icon: link
   - name: remove bg 
     desc: 去除图片背景的网站
     link: https://www.remove.bg/
@@ -60,4 +56,8 @@ projects:
     desc: 使用 CSS 生成各种形状的网站
     link: https://css-doodle.com/
     icon: link 
+  - name: Google Fonts 
+    desc: 开源的字体网站
+    link: https://fonts.google.com/
+    icon: link
 ---
