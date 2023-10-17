@@ -12,6 +12,8 @@ class Canvas {
 
         bgContainer = document.getElementById(container) || document.getElementsByClassName(container)[0];
         bgContainer.style.overflow = "hidden";
+        bgContainer.style.backgroundImage = "unset"
+        bgContainer.style.backgroundColor = "#fff"
 
         this.width = width;
         this.height = height;
