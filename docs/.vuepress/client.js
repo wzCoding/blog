@@ -34,7 +34,16 @@ export default defineClientConfig({
           rain.start(60);
         } else {
           rain.stop();
-          
+          sea.addWave({
+            canvas:canvas,
+            wavePeriod: 3,
+            waveHeight: 30,
+            wavexAxisCoord: 0,
+            waveyAxisCoord: 500,
+            wavexAxisMove: 0,
+            horizontalSpeed: 0.03,
+            waveColor: "#093da8"
+          }) 
         }
       }
 
