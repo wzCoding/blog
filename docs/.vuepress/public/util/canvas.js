@@ -3,28 +3,39 @@ import { debounce } from './utils'
 let bgContainer = null;
 /**
  * 
- * @param {string} container - 放置canvas的容器的class或者id
- * @param {object} styles - 样式配置对象，设置canvas样式（宽、高、背景色等）
- * @returns
+ * 
+ * 
+ * @param {string} canvas.parent - 放置canvas的容器（父元素）的id或class
+ * @param {string} canvas.canvasId - 将要创建的canvas的id
+ * @param {number} canvas.width - 将要创建的canvas的宽度
+ * @param {number} canvas.height - 将要创建的canvas的高度
+ * @returns {Object} 包含canvas信息的对象
  */
 class Canvas {
-    constructor(container, width, height) {
+    constructor({
+        parent, 
+        canvasId,
+        width, 
+        height
+    }) {
 
-        bgContainer = document.getElementById(container) || document.getElementsByClassName(container)[0];
+        bgContainer = document.getElementById(parent) || document.getElementsByClassName(parent)[0];
         bgContainer.style.overflow = "hidden";
         bgContainer.style.backgroundImage = "unset"
         bgContainer.style.backgroundColor = "#fff"
 
         this.width = width;
         this.height = height;
-        this.container = container;
+        this.parent = parent;
+        this.id = canvasId;
         this.canvas = this.createCanvas();
         this.context = this.canvas.getContext("2d");
         this.resizeCanvas();
     }
     createCanvas() {
         const canvas = document.createElement("canvas");
-        canvas.className = `${this.container}-canvas`;
+        canvas.className = `${this.parent}-canvas`;
+        canvas.id = this.id;
         canvas.width = this.width;
         canvas.height = this.height;
 
@@ -33,20 +44,17 @@ class Canvas {
         return canvas;
     }
     appendCanvas(canvas) {
-        const classList = [];
+        const idList = [];
         Array.from(bgContainer.children).forEach(element => {
-            classList.push(element.className)
+            idList.push(element.id)
         });
-        if (!classList.includes(canvas.className)) {
+        if (!idList.includes(canvas.id)) {
             bgContainer.append(canvas);
         }
     }
     removeCanvas(canvas) {
-        const removeItem = Array.from(bgContainer.children).filter(element => element.className == canvas.className);
+        const removeItem = Array.from(bgContainer.children).filter(element => element.id == canvas.id);
         bgContainer.remove(removeItem);
-    }
-    clearCanvas() {
-        this.context.clearRect(0, 0, this.width, this.height);
     }
     resizeCanvas() {
         const setSize = (event) => {
