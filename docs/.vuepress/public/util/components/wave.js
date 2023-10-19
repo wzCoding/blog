@@ -29,20 +29,23 @@ class Wave {
         this.verticalSpeed = verticalSpeed; //波形垂直移动速度
         this.waveColor = waveColor || "#409eff";
 
-        this.createWave()
+        this.startyAxisCoord = 0;
     }
     createWave() {
         this.wavexAxisMove += this.horizontalSpeed;
-        if(this.verticalSpeed) {
-            this.waveyAxisMove = this.waveyAxisMove >= Math.PI ? 0 : this.verticalSpeed++;
+        if (this.verticalSpeed) {
+            this.waveyAxisMove += this.verticalSpeed;
+            if (this.waveyAxisMove >= Math.PI) {
+                this.waveyAxisMove = 0
+            }
         }
         ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         ctx.beginPath();
-        ctx.moveTo(this.wavexAxisCoord, this.waveyAxisCoord);
+        ctx.moveTo(this.wavexAxisCoord, this.startyAxisCoord);
         for (let x = 0; x < this.canvas.width; x++) {
             const period = 2 * Math.PI * this.period * x / this.canvas.width;
-            this.waveyAxisCoord = this.waveHeight * Math.sin(period + this.wavexAxisMove) + this.waveyAxisCoord + (this.waveyAxisMove > 0 ? Math.sin(this.waveyAxisMove) * 100 : 0);
-            ctx.lineTo(x, this.waveyAxisCoord);
+            this.startyAxisCoord = this.waveHeight * Math.sin(period + this.wavexAxisMove) + this.waveyAxisCoord + Math.sin(this.waveyAxisMove) * 100;
+            ctx.lineTo(x, this.startyAxisCoord);
         }
 
         ctx.strokeStyle = "#4c9af0";
@@ -51,21 +54,21 @@ class Wave {
 
         ctx.lineTo(this.canvas.width, this.canvas.height);
         ctx.lineTo(this.wavexAxisCoord, this.canvas.height);
-        ctx.lineTo(this.wavexAxisCoord, this.waveyAxisCoord);
-       
+        ctx.lineTo(this.wavexAxisCoord, this.startyAxisCoord);
+
         ctx.shadowColor = "rgba(0,0,0,0.8)";
-        ctx.shadowBlur = 10;
+        ctx.shadowBlur = 0;
         ctx.fillStyle = this.waveColor;
 
         ctx.fill();
         ctx.closePath();
     }
-    start(speed){
-        // timer.interval(()=>{
-        //     this.createWave()
-        // },speed)
+    start(speed) {
+        timer.interval(() => {
+            this.createWave()
+        }, speed)
     }
-    stop(){
+    stop() {
         timer.clear();
     }
 }

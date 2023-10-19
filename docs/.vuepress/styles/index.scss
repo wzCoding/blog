@@ -60,6 +60,9 @@ html[data-theme="light"] {
         }
     }
 }
+.vp-blog-mask::after{
+    display:none;
+}
 #toc .toc-link,
 .vp-breadcrumb li.is-active a,
 .page-info,

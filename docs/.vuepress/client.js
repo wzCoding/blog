@@ -41,12 +41,12 @@ export default defineClientConfig({
 
       sea.addWave({
         canvas: seaCanvas,
-        wavePeriod: 3,
-        waveHeight: 3,
+        wavePeriod: 2,
+        waveHeight: 50,
         wavexAxisCoord: 0,
-        waveyAxisCoord: 500,
+        waveyAxisCoord: 0,
         wavexAxisMove: 0,
-        horizontalSpeed: 0.03,
+        horizontalSpeed: 0.05,
         waveColor: "#093da8"
       })
       const changeCanvas = function (theme) {
