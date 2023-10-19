@@ -38,30 +38,36 @@ export default defineClientConfig({
 
       const sea = new Sea(seaCanvas);
       const rain = new Rain(rainCanvas, "wzCoding");
-      const showcanvas = ref(true);
-      const shows = ["none", "block"];
-      seaCanvas.canvas.style.display = shows[Number(showcanvas.value)]
-      rainCanvas.canvas.style.display = shows[Number(!showcanvas.value)]
-
+      
+      sea.addWave({
+        canvas: seaCanvas,
+        wavePeriod: 3,
+        waveHeight: 30,
+        wavexAxisCoord: 0,
+        waveyAxisCoord: 500,
+        wavexAxisMove: 0,
+        horizontalSpeed: 0.03,
+        waveColor: "#093da8"
+      })
+      const changeCanvas = function (theme) {
+        const themeObj = {
+          "light": seaCanvas,
+          "dark": rainCanvas
+        }
+        for (let t in themeObj) {
+          const { canvas } = themeObj[t];
+          canvas.style.display = t == theme ? "block" : "none";
+        }
+      }
+      changeCanvas("light");
       const callback = function (list) {
         const target = list[0];
         const theme = target.target.getAttribute("data-theme");
-        showcanvas.value = !showcanvas.value;
+        changeCanvas(theme);
         if (theme == "dark") {
           rain.start(60);
         } else {
           rain.stop();
-
-          // sea.addWave({
-          //   canvas: canvas,
-          //   wavePeriod: 3,
-          //   waveHeight: 30,
-          //   wavexAxisCoord: 0,
-          //   waveyAxisCoord: 500,
-          //   wavexAxisMove: 0,
-          //   horizontalSpeed: 0.03,
-          //   waveColor: "#093da8"
-          // })
         }
       }
 
