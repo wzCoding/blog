@@ -38,11 +38,11 @@ export default defineClientConfig({
 
       const sea = new Sea(seaCanvas);
       const rain = new Rain(rainCanvas, "wzCoding");
-      
+
       sea.addWave({
         canvas: seaCanvas,
         wavePeriod: 3,
-        waveHeight: 30,
+        waveHeight: 3,
         wavexAxisCoord: 0,
         waveyAxisCoord: 500,
         wavexAxisMove: 0,

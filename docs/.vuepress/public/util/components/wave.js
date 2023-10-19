@@ -19,22 +19,29 @@ class Wave {
         this.canvas = canvas;
         ctx = canvas.context;
 
-        this.period = wavePeriod || this.lineWidth; //周期，波形宽度
+        this.period = wavePeriod || 3; //周期，波形宽度
         this.waveHeight = waveHeight || 30; //振幅，波形高度
         this.wavexAxisMove = wavexAxisMove || 0; //相移，波形水平移动
+        this.waveyAxisMove = 0; //波形垂直移动
         this.wavexAxisCoord = wavexAxisCoord || 0; //x轴波形位置
         this.waveyAxisCoord = waveyAxisCoord || 500; //y轴波形位置
         this.horizontalSpeed = horizontalSpeed || 0.05; //波形水平移动速度
         this.verticalSpeed = verticalSpeed; //波形垂直移动速度
         this.waveColor = waveColor || "#409eff";
+
+        this.createWave()
     }
     createWave() {
+        this.wavexAxisMove += this.horizontalSpeed;
+        if(this.verticalSpeed) {
+            this.waveyAxisMove = this.waveyAxisMove >= Math.PI ? 0 : this.verticalSpeed++;
+        }
         ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
         ctx.beginPath();
         ctx.moveTo(this.wavexAxisCoord, this.waveyAxisCoord);
-        for (let x = 0; x < this.canvas.length; x++) {
+        for (let x = 0; x < this.canvas.width; x++) {
             const period = 2 * Math.PI * this.period * x / this.canvas.width;
-            this.waveyAxisCoord = this.waveHeight * Math.sin(period + this.wavexAxisMove) + this.waveyAxisCoord + (this.verticalSpeed ? Math.sin(this.verticalSpeed) * 100 : 0);
+            this.waveyAxisCoord = this.waveHeight * Math.sin(period + this.wavexAxisMove) + this.waveyAxisCoord + (this.waveyAxisMove > 0 ? Math.sin(this.waveyAxisMove) * 100 : 0);
             ctx.lineTo(x, this.waveyAxisCoord);
         }
 
@@ -53,10 +60,10 @@ class Wave {
         ctx.fill();
         ctx.closePath();
     }
-    start(){
-        timer.interval(()=>{
-            this.createWave()
-        },60)
+    start(speed){
+        // timer.interval(()=>{
+        //     this.createWave()
+        // },speed)
     }
     stop(){
         timer.clear();

@@ -29,7 +29,8 @@ class Sea {
             verticalSpeed,
             waveColor
         })
-        wave.start();
+        console.log(wave)
+        wave.start(60);
     }
     addCloud() {
 
