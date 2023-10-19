@@ -19,7 +19,7 @@ export default defineClientConfig({
     componentList.forEach(c => {
       app.component(c.name, c.component)
     })
-    console.log(router);
+    
   },
   setup() {
     onMounted(() => {

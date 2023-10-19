@@ -20,7 +20,6 @@ class Canvas {
         this.container = container;
         this.canvas = this.createCanvas();
         this.context = this.canvas.getContext("2d");
-
         this.resizeCanvas();
     }
     createCanvas() {

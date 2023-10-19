@@ -22,7 +22,7 @@ class Rain {
         this.text = text.length ? text.split("") : "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
         this.letters = Array(Math.ceil(this.canvas.width / this.fontSize)).fill(0);
         
-        ctx = canvas.context;
+        ctx = canvas.context
     }
     createRain() {
         ctx.fillStyle = "rgba(0,0,0,0.08)";
