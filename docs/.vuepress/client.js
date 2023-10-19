@@ -23,6 +23,7 @@ export default defineClientConfig({
   },
   setup() {
     onMounted(() => {
+
       const seaCanvas = new Canvas({
         parent: "vp-blog-mask",
         canvasId: "sea-canvas",
@@ -42,13 +43,35 @@ export default defineClientConfig({
       sea.addWave({
         canvas: seaCanvas,
         wavePeriod: 2,
-        waveHeight: 50,
+        waveHeight: 30,
         wavexAxisCoord: 0,
-        waveyAxisCoord: 0,
+        waveyAxisCoord: 400,
         wavexAxisMove: 0,
-        horizontalSpeed: 0.05,
+        horizontalSpeed: 0.08,
+        waveColor: "#69c0ff"
+      },
+      {
+        canvas: seaCanvas,
+        wavePeriod: 2,
+        waveHeight: 40,
+        wavexAxisCoord: 0,
+        waveyAxisCoord: 420,
+        wavexAxisMove: 0,
+        horizontalSpeed: 0.1,
+        verticalSpeed:0.05,
+        waveColor: "#409eff"
+      },
+      {
+        canvas: seaCanvas,
+        wavePeriod: 2,
+        waveHeight: 35,
+        wavexAxisCoord: 0,
+        waveyAxisCoord: 500,
+        wavexAxisMove: 0,
+        horizontalSpeed: 0.15,
         waveColor: "#093da8"
-      })
+      },
+     )
       const changeCanvas = function (theme) {
         const themeObj = {
           "light": seaCanvas,
@@ -64,11 +87,11 @@ export default defineClientConfig({
         const target = list[0];
         const theme = target.target.getAttribute("data-theme");
         changeCanvas(theme);
-        if (theme == "dark") {
-          rain.start(60);
-        } else {
-          rain.stop();
-        }
+        // if (theme == "dark") {
+        //   rain.start(60);
+        // } else {
+        //   rain.stop();
+        // }
       }
 
       // 观察器

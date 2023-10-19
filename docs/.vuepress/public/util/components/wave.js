@@ -1,6 +1,3 @@
-import { Timer } from "../timer";
-
-const timer = new Timer();
 let ctx = null;
 
 class Wave {
@@ -39,7 +36,7 @@ class Wave {
                 this.waveyAxisMove = 0
             }
         }
-        ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        
         ctx.beginPath();
         ctx.moveTo(this.wavexAxisCoord, this.startyAxisCoord);
         for (let x = 0; x < this.canvas.width; x++) {
@@ -48,28 +45,26 @@ class Wave {
             ctx.lineTo(x, this.startyAxisCoord);
         }
 
-        ctx.strokeStyle = "#4c9af0";
-        ctx.lineWidth = 5;
-        ctx.stroke();
+        // ctx.strokeStyle = "#4c9af0";
+        // ctx.lineWidth = 5;
+        // ctx.stroke();
+
+        ctx.shadowColor = "rgba(0,0,0,0.3)";
+        ctx.shadowBlur = 5;
 
         ctx.lineTo(this.canvas.width, this.canvas.height);
         ctx.lineTo(this.wavexAxisCoord, this.canvas.height);
         ctx.lineTo(this.wavexAxisCoord, this.startyAxisCoord);
 
-        ctx.shadowColor = "rgba(0,0,0,0.8)";
-        ctx.shadowBlur = 0;
+       
         ctx.fillStyle = this.waveColor;
 
         ctx.fill();
         ctx.closePath();
-    }
-    start(speed) {
-        timer.interval(() => {
-            this.createWave()
-        }, speed)
-    }
-    stop() {
-        timer.clear();
+
+       
+
+        ctx.globalCompositeOperation = "source-over";
     }
 }
 
