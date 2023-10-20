@@ -2,9 +2,6 @@ import { debounce } from './utils'
 
 let bgContainer = null;
 /**
- * 
- * 
- * 
  * @param {string} canvas.parent - 放置canvas的容器（父元素）的id或class
  * @param {string} canvas.canvasId - 将要创建的canvas的id
  * @param {number} canvas.width - 将要创建的canvas的宽度
@@ -13,9 +10,9 @@ let bgContainer = null;
  */
 class Canvas {
     constructor({
-        parent, 
+        parent,
         canvasId,
-        width, 
+        width,
         height
     }) {
 
@@ -40,7 +37,7 @@ class Canvas {
         canvas.height = this.height;
 
         this.appendCanvas(canvas);
-        
+
         return canvas;
     }
     appendCanvas(canvas) {
@@ -62,7 +59,7 @@ class Canvas {
             this.canvas.width = this.width = innerWidth;
             this.canvas.height = this.height = innerHeight;
         }
-        window.addEventListener('resize', debounce(setSize, 300));
+        window.addEventListener('resize', debounce(setSize, 100));
     }
 }
 

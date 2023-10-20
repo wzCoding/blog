@@ -61,7 +61,7 @@ html[data-theme="light"] {
     }
 }
 .vp-blog-mask::after{
-    display:none;
+    opacity: 0;
 }
 #toc .toc-link,
 .vp-breadcrumb li.is-active a,

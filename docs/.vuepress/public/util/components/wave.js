@@ -45,9 +45,9 @@ class Wave {
             ctx.lineTo(x, this.startyAxisCoord);
         }
 
-        // ctx.strokeStyle = "#4c9af0";
-        // ctx.lineWidth = 5;
-        // ctx.stroke();
+        ctx.strokeStyle = "#4c9af0";
+        ctx.lineWidth = 5;
+        ctx.stroke();
 
         ctx.shadowColor = "rgba(0,0,0,0.3)";
         ctx.shadowBlur = 5;

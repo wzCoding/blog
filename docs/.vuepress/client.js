@@ -43,7 +43,7 @@ export default defineClientConfig({
       sea.addWave({
         canvas: seaCanvas,
         wavePeriod: 2,
-        waveHeight: 30,
+        waveHeight: 30 / window.devicePixelRatio,
         wavexAxisCoord: 0,
         waveyAxisCoord: 400,
         wavexAxisMove: 0,
@@ -53,7 +53,7 @@ export default defineClientConfig({
       {
         canvas: seaCanvas,
         wavePeriod: 2,
-        waveHeight: 40,
+        waveHeight: 40 / window.devicePixelRatio,
         wavexAxisCoord: 0,
         waveyAxisCoord: 420,
         wavexAxisMove: 0,
@@ -64,7 +64,7 @@ export default defineClientConfig({
       {
         canvas: seaCanvas,
         wavePeriod: 2,
-        waveHeight: 35,
+        waveHeight: 35 / window.devicePixelRatio,
         wavexAxisCoord: 0,
         waveyAxisCoord: 500,
         wavexAxisMove: 0,
@@ -87,11 +87,7 @@ export default defineClientConfig({
         const target = list[0];
         const theme = target.target.getAttribute("data-theme");
         changeCanvas(theme);
-        // if (theme == "dark") {
-        //   rain.start(60);
-        // } else {
-        //   rain.stop();
-        // }
+       
       }
 
       // 观察器
