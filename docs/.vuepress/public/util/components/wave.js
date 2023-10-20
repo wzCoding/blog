@@ -5,9 +5,9 @@ class Wave {
         canvas,
         wavePeriod,
         waveHeight,
-        wavexAxisCoord,
-        waveyAxisCoord,
-        wavexAxisMove,
+        wavexCoord,
+        waveyCoord,
+        wavexMove,
         horizontalSpeed,
         verticalSpeed,
         waveColor
@@ -18,43 +18,44 @@ class Wave {
 
         this.period = wavePeriod || 3; //周期，波形宽度
         this.waveHeight = waveHeight || 30; //振幅，波形高度
-        this.wavexAxisMove = wavexAxisMove || 0; //相移，波形水平移动
-        this.waveyAxisMove = 0; //波形垂直移动
-        this.wavexAxisCoord = wavexAxisCoord || 0; //x轴波形位置
-        this.waveyAxisCoord = waveyAxisCoord || 500; //y轴波形位置
+        this.wavexMove = wavexMove || 0; //相移，波形水平移动
+        this.waveyMove = 0; //波形垂直移动
+        this.wavexCoord = wavexCoord || 0; //x轴波形位置
+        this.waveyCoord = waveyCoord || 500; //y轴波形位置
         this.horizontalSpeed = horizontalSpeed || 0.05; //波形水平移动速度
         this.verticalSpeed = verticalSpeed; //波形垂直移动速度
         this.waveColor = waveColor || "#409eff";
 
-        this.startyAxisCoord = 0;
+        this.startyCoord = 0;
+        this.createWave()
     }
     createWave() {
-        this.wavexAxisMove += this.horizontalSpeed;
+        this.wavexMove += this.horizontalSpeed;
         if (this.verticalSpeed) {
-            this.waveyAxisMove += this.verticalSpeed;
-            if (this.waveyAxisMove >= Math.PI) {
-                this.waveyAxisMove = 0
+            this.waveyMove += this.verticalSpeed;
+            if (this.waveyMove >= Math.PI) {
+                this.waveyMove = 0
             }
         }
         
         ctx.beginPath();
-        ctx.moveTo(this.wavexAxisCoord, this.startyAxisCoord);
+        ctx.moveTo(this.wavexCoord, this.startyCoord);
         for (let x = 0; x < this.canvas.width; x++) {
             const period = 2 * Math.PI * this.period * x / this.canvas.width;
-            this.startyAxisCoord = this.waveHeight * Math.sin(period + this.wavexAxisMove) + this.waveyAxisCoord + Math.sin(this.waveyAxisMove) * 100;
-            ctx.lineTo(x, this.startyAxisCoord);
+            this.startyCoord = this.waveHeight * Math.sin(period + this.wavexMove) + this.waveyCoord + Math.sin(this.waveyMove) * 100;
+            ctx.lineTo(x, this.startyCoord);
         }
 
         ctx.strokeStyle = "#4c9af0";
         ctx.lineWidth = 5;
         ctx.stroke();
 
-        ctx.shadowColor = "rgba(0,0,0,0.3)";
-        ctx.shadowBlur = 5;
+        ctx.shadowColor = "rgba(0,0,0,0.5)";
+        ctx.shadowBlur = 10;
 
         ctx.lineTo(this.canvas.width, this.canvas.height);
-        ctx.lineTo(this.wavexAxisCoord, this.canvas.height);
-        ctx.lineTo(this.wavexAxisCoord, this.startyAxisCoord);
+        ctx.lineTo(this.wavexCoord, this.canvas.height);
+        ctx.lineTo(this.wavexCoord, this.startyCoord);
 
        
         ctx.fillStyle = this.waveColor;

@@ -13,7 +13,8 @@ class Canvas {
         parent,
         canvasId,
         width,
-        height
+        height,
+        styles
     }) {
 
         bgContainer = document.getElementById(parent) || document.getElementsByClassName(parent)[0];
@@ -25,6 +26,7 @@ class Canvas {
         this.height = height;
         this.parent = parent;
         this.id = canvasId;
+        this.styles = styles;
         this.canvas = this.createCanvas();
         this.context = this.canvas.getContext("2d");
         this.resizeCanvas();
@@ -35,6 +37,13 @@ class Canvas {
         canvas.id = this.id;
         canvas.width = this.width;
         canvas.height = this.height;
+
+        if(this.styles){
+            for(let key in this.styles){
+                
+                canvas.style[key] = this.styles[key]
+            }
+        }
 
         this.appendCanvas(canvas);
 
@@ -60,6 +69,13 @@ class Canvas {
             this.canvas.height = this.height = innerHeight;
         }
         window.addEventListener('resize', debounce(setSize, 100));
+    }
+    setGradient({ startX, startY, endX, endY, gradients }) {
+        const gradient = this.context.createLinearGradient(startX, startY, endX, endY);
+        gradients.forEach(item => {
+            gradient.addColorStop(item.value, item.color);
+        });
+        return gradient;
     }
 }
 
