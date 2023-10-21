@@ -16,6 +16,7 @@ class Sea {
     addWave() {
         const args = Array.from(arguments)
         for (let i = 0; i < args.length; i++) {
+            //args[i].canvas = this.canvas
             const wave = new Wave(args[i]);
             this.waves.push(wave)
         }
@@ -30,9 +31,8 @@ class Sea {
     addSun() {
         const args = Array.from(arguments);
         this.sun = new Sun(args[0]);
-       
     }
-    addWhale() {
+    addBoat() {
 
     }
     start() {
@@ -45,7 +45,6 @@ class Sea {
             this.clouds.forEach(cloud => {
                 cloud.createCloud();
             });
-            
         }, 30)
     }
 }

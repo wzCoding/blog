@@ -1,3 +1,4 @@
+import { Boat } from "./boat";
 let ctx = null;
 
 class Wave {
@@ -10,7 +11,8 @@ class Wave {
         wavexMove,
         horizontalSpeed,
         verticalSpeed,
-        waveColor
+        waveColor,
+        boat,
         // y=Asin(2∏/B - C/B) + D
     }) {
         this.canvas = canvas;
@@ -27,7 +29,8 @@ class Wave {
         this.waveColor = waveColor || "#409eff";
 
         this.startyCoord = 0;
-        this.createWave()
+        this.boat = boat;
+        this.createWave();
     }
     createWave() {
         this.wavexMove += this.horizontalSpeed;
@@ -37,13 +40,19 @@ class Wave {
                 this.waveyMove = 0
             }
         }
-        
+
         ctx.beginPath();
         ctx.moveTo(this.wavexCoord, this.startyCoord);
         for (let x = 0; x < this.canvas.width; x++) {
             const period = 2 * Math.PI * this.period * x / this.canvas.width;
             this.startyCoord = this.waveHeight * Math.sin(period + this.wavexMove) + this.waveyCoord + Math.sin(this.waveyMove) * 100;
             ctx.lineTo(x, this.startyCoord);
+
+            // if(this.boat){
+            //     this.boat.xCoord = x;
+            //     this.boat.yCoord = this.startyCoord;
+            //     new Boat(this.boat).createBoat();
+            // }
         }
 
         ctx.strokeStyle = "#4c9af0";
@@ -57,13 +66,13 @@ class Wave {
         ctx.lineTo(this.wavexCoord, this.canvas.height);
         ctx.lineTo(this.wavexCoord, this.startyCoord);
 
-       
+
         ctx.fillStyle = this.waveColor;
 
         ctx.fill();
         ctx.closePath();
 
-       
+
 
         ctx.globalCompositeOperation = "source-over";
     }

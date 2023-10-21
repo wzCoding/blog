@@ -40,7 +40,6 @@ class Canvas {
 
         if(this.styles){
             for(let key in this.styles){
-                
                 canvas.style[key] = this.styles[key]
             }
         }

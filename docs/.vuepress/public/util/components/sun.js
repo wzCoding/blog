@@ -13,8 +13,7 @@ class Sun {
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         this.radius = radius;
-        //(x-a)^2 + (y-b)^2 = r^2
-
+        
         this.sunColor = this.canvas.setGradient({
             startX: this.xCoord - this.radius,
             startY: this.yCoord - this.radius,
@@ -25,6 +24,7 @@ class Sun {
                 { color: "#fa709a", value: 1 },
             ]
         })
+        
     }
 
     createSun() {

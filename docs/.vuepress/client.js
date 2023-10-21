@@ -4,6 +4,7 @@ import { onMounted, ref } from 'vue'
 import { Canvas } from './public/util/canvas'
 import { Rain } from './public/util/rain'
 import { Sea } from './public/util/sea'
+import { waves, clouds, sun } from './public/util/components/data'
 
 import Mcard from './components/Mcard.vue'
 import Minfo from './components/Minfo.vue'
@@ -40,6 +41,7 @@ export default defineClientConfig({
 
       const sea = new Sea(seaCanvas);
       const rain = new Rain(rainCanvas, "wzCoding");
+
       sea.addSun({
         canvas: seaCanvas,
         xCoord: 100 / window.devicePixelRatio,
@@ -48,7 +50,7 @@ export default defineClientConfig({
       });
       sea.addWave({
         canvas: seaCanvas,
-        wavePeriod: 2,
+        wavePeriod: 2 / window.devicePixelRatio,
         waveHeight: 30 / window.devicePixelRatio,
         wavexCoord: 0,
         waveyCoord: 400,
@@ -58,18 +60,18 @@ export default defineClientConfig({
       },
         {
           canvas: seaCanvas,
-          wavePeriod: 2,
+          wavePeriod: 2 / window.devicePixelRatio,
           waveHeight: 40 / window.devicePixelRatio,
           wavexCoord: 0,
           waveyCoord: 420,
           wavexMove: 0,
           horizontalSpeed: 0.1,
           verticalSpeed: 0.05,
-          waveColor: "#409eff"
+          waveColor: "#409eff",
         },
         {
           canvas: seaCanvas,
-          wavePeriod: 2,
+          wavePeriod: 2 / window.devicePixelRatio,
           waveHeight: 35 / window.devicePixelRatio,
           wavexCoord: 0,
           waveyCoord: 500,

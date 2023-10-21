@@ -11,8 +11,9 @@ class Cloud {
     }
     createCloud() {
         this.xCoord += this.speed;
-        if (this.xCoord + this.speed > this.canvas.width || this.xCoord + this.speed < 0) {
-            this.speed = -this.speed;
+        if (this.xCoord - this.radius+ this.speed > this.canvas.width || this.xCoord + this.speed < 0) {
+            // this.speed = -this.speed;
+            this.xCoord = 0;
         }
 
         ctx.beginPath()
