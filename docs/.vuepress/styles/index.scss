@@ -35,6 +35,9 @@ html[data-theme="light"] {
         background: linear-gradient(135deg, #ff8383, #b6d4db 30%, #ffffff 100%);
     }
 }
+body{
+    position: relative;
+}
 .nav-link.vp-action.default {
     background-color: unset;
     border: 2px solid var(--theme-color);

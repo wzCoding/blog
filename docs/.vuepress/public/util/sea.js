@@ -64,6 +64,7 @@ class Sea {
         this.sun = handleMaterial(sun, "sun");
     }
     start(speed) {
+        cvs.hide(false);
         if (materials.length) {
             timer.interval(() => {
                 ctx.clearRect(0, 0, cvs.width, cvs.height);
@@ -78,6 +79,7 @@ class Sea {
     stop() {
         timer.stop();
         ctx.clearRect(0,0,cvs.width,cvs.height);
+        cvs.hide(true);
     }
 }
 

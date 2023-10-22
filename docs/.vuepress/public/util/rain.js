@@ -22,7 +22,6 @@ class Rain {
         
         this.text = text.length ? text.split("") : "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
         this.letters = Array(Math.ceil(cvs.width / this.fontSize)).fill(0);
-        
     }
     createRain() {
         ctx.fillStyle = "rgba(0,0,0,0.08)";
@@ -36,11 +35,13 @@ class Rain {
         })
     }
     start(speed) {
+        cvs.hide(false);
         timer.interval(this.createRain.bind(this), speed);
     }
     stop() {
         timer.stop();
         ctx.clearRect(0,0,cvs.width,cvs.height);
+        cvs.hide(true);
     }
 }
 

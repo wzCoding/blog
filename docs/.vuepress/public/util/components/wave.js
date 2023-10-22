@@ -16,8 +16,8 @@ class Wave {
         this.canvas = canvas;
         ctx = canvas.context;
 
-        this.period = wavePeriod || 3; //周期，波形宽度
-        this.waveHeight = waveHeight || 30; //振幅，波形高度
+        this.period = wavePeriod / window.devicePixelRatio; //周期，波形宽度
+        this.waveHeight = waveHeight / window.devicePixelRatio; //振幅，波形高度
         this.wavexMove = wavexMove || 0; //相移，波形水平移动
         this.waveyMove = 0; //波形垂直移动
         this.wavexCoord = wavexCoord || 0; //x轴波形位置
@@ -27,6 +27,8 @@ class Wave {
         this.waveColor = waveColor || "#409eff";
 
         this.startyCoord = 0;
+
+        this.create();
     }
     create() {
         this.wavexMove += this.horizontalSpeed;

@@ -1,5 +1,5 @@
 import { defineClientConfig } from '@vuepress/client'
-import { onMounted} from 'vue'
+import { onMounted, watchEffect, ref, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 
 import { Canvas } from './public/util/canvas'
@@ -16,67 +16,69 @@ const componentList = [
 ]
 
 export default defineClientConfig({
-  enhance({ app, router }) {
+  enhance({ app }) {
     //注册自定义组件
     componentList.forEach(c => {
       app.component(c.name, c.component)
     })
   },
   setup() {
-    const route = useRoute();
-    onMounted(() => {
-      const seaCanvas = new Canvas({
-        parent: "vp-blog-mask",
-        canvasId: "sea-canvas",
-        width: window.innerWidth,
-        height: window.innerHeight,
-        styles: { background: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)" }
-      });
-      const rainCanvas = new Canvas({
-        parent: "vp-blog-mask",
-        canvasId: "rain-canvas",
-        width: window.innerWidth,
-        height: window.innerHeight
-      });
-
-      const sea = new Sea(seaCanvas);
-      sea.addSun(sun);
-      sea.addWave(waves);
-      sea.addCloud(clouds);
-
-      const rain = new Rain(rainCanvas, "wzCoding");
-
-      const themes = {
-        "light": { canvas: seaCanvas, instance: sea },
-        "dark": { canvas: rainCanvas, instance: rain }
+    const themes = {
+      "light": {
+        canvas: null,
+        instance: null
+      },
+      "dark": {
+        canvas: null,
+        instance: null
       }
+    }
+    const route = useRoute();
+    const theme = ref("light");
 
-      const changeCanvas = function (theme) {
-        
-        if (route.fullPath == "/") {
-          for (let t in themes) {
-            const { canvas, instance } = themes[t];
-            // canvas.append(canvas.canvas)
-            instance.stop();
-            canvas.canvas.style.display = t == theme ? "block" : "none";
+    onMounted(() => {
+      for (let key in themes) {
+        themes[key].canvas = new Canvas({
+          container: document.body,
+          id: `${key}-canvas`,
+          width: document.documentElement.clientWidth,
+          height: document.documentElement.clientHeight,
+          styles: {
+            background: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
+            position: "absolute",
+            inset: 0
           }
-          themes[theme].instance.start(60);
+        })
+        if (key == "light") {
+          themes[key].instance = new Sea(themes[key].canvas);
+          themes[key].instance.addSun(sun);
+          themes[key].instance.addWave(waves);
+          themes[key].instance.addCloud(clouds);
+        } else {
+          themes[key].instance = new Rain(themes[key].canvas, "wzCoding");
         }
       }
 
-      const callback = function (list) {
-        const target = list[0];
-        const theme = target.target.getAttribute("data-theme");
-        changeCanvas(theme);
+      const changeCanvas = function () {
+        if (route.fullPath !== "/") {
+          themes[theme.value].instance.stop();
+        } else {
+          for (let t in themes) {
+            themes[t].instance.stop();
+          }
+          themes[theme.value].instance.start(60);
+        }
       }
 
       // 观察器
-      const observer = new MutationObserver(callback);
-      const html = document.getElementsByTagName("html")[0];
-      observer.observe(html, { attributes: true });
+      const observer = new MutationObserver((list) => {
+        theme.value = list[0].target.getAttribute("data-theme");
+      });
+      observer.observe(document.documentElement, { attributes: true });
 
-      // changeCanvas("light");
-      
+      watchEffect(() => {
+        changeCanvas();
+      });
     });
   }
 })

@@ -1,6 +1,6 @@
 import { debounce } from './utils'
 
-let bgContainer = null;
+let container = null;
 /**
  * @param {string} canvas.parent - 放置canvas的容器（父元素）的id或class
  * @param {string} canvas.canvasId - 将要创建的canvas的id
@@ -10,64 +10,57 @@ let bgContainer = null;
  */
 class Canvas {
     constructor({
-        parent,
-        canvasId,
+        container,
+        id,
         width,
         height,
         styles
     }) {
-
-        bgContainer = document.getElementById(parent) || document.getElementsByClassName(parent)[0];
-        bgContainer.style.overflow = "hidden";
-        bgContainer.style.backgroundImage = "unset"
-        bgContainer.style.backgroundColor = "#fff"
+        container.style.overflowX = "hidden";
+        // container.style.backgroundImage = "unset"
 
         this.width = width;
         this.height = height;
-        this.parent = parent;
-        this.id = canvasId;
+        this.container = container;
+        this.id = id;
         this.styles = styles;
         this.canvas = this.create();
         this.context = this.canvas.getContext("2d");
+        this.append();
         this.resize();
     }
     create() {
         const canvas = document.createElement("canvas");
-        canvas.className = `${this.parent}-canvas`;
         canvas.id = this.id;
         canvas.width = this.width;
         canvas.height = this.height;
 
-        if(this.styles){
-            for(let key in this.styles){
+        if (this.styles) {
+            for (let key in this.styles) {
                 canvas.style[key] = this.styles[key]
             }
         }
-
         return canvas;
     }
-    append(canvas) {
-        const idList = [];
-        Array.from(bgContainer.children).forEach(element => {
-            idList.push(element.id)
-        });
-        if (!idList.includes(canvas.id)) {
-            bgContainer.append(canvas);
+    append() {
+        if (!this.container.querySelector(`#${this.id}`)) {
+            this.container.append(this.canvas);
         }
     }
-    remove(canvas) {
-        const removeItem = Array.from(bgContainer.children).filter(element => element.id == canvas.id);
-        bgContainer.remove(removeItem);
+    remove() {
+        container.remove(this.canvas);
+    }
+    hide(isHide) {
+        this.canvas.style.display = isHide ? "none" : "block";
     }
     resize() {
-        const setSize = (event) => {
-            const { innerWidth, innerHeight } = event.target;
-            this.canvas.width = this.width = innerWidth;
-            this.canvas.height = this.height = innerHeight;
+        const setSize = () => {
+            this.canvas.width = this.width = document.documentElement.clientWidth;
+            this.canvas.height = this.height = document.documentElement.clientHeight;
         }
         window.addEventListener('resize', debounce(setSize, 100));
     }
-    setGradient({ startX, startY, endX, endY, gradients }) {
+    gradient({ startX, startY, endX, endY, gradients }) {
         const gradient = this.context.createLinearGradient(startX, startY, endX, endY);
         gradients.forEach(item => {
             gradient.addColorStop(item.value, item.color);

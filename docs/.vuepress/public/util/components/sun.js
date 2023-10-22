@@ -1,5 +1,5 @@
 let ctx = null;
-
+let cvs = null;
 class Sun {
     constructor({
         canvas,
@@ -8,13 +8,14 @@ class Sun {
         radius
     }) {
 
-        this.canvas = canvas;
-        this.xCoord = xCoord;
-        this.yCoord = yCoord;
-        this.radius = radius;
+        cvs = canvas;
         ctx = canvas.context;
 
-        this.sunColor = this.canvas.setGradient({
+        this.xCoord = xCoord / window.devicePixelRatio;
+        this.yCoord = yCoord / window.devicePixelRatio;
+        this.radius = radius / window.devicePixelRatio;
+        
+        this.sunColor = cvs.gradient({
             startX: this.xCoord - this.radius,
             startY: this.yCoord - this.radius,
             endX: this.xCoord + this.radius,
@@ -23,8 +24,9 @@ class Sun {
                 { color: "#fee140", value: 0 },
                 { color: "#fa709a", value: 1 },
             ]
-        })
-
+        });
+        
+        this.create();
     }
 
     create() {
