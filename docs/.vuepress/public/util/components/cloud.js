@@ -9,7 +9,7 @@ class Cloud {
         this.radius = radius;
         this.speed = speed;
     }
-    createCloud() {
+    create() {
         this.xCoord += this.speed;
         if (this.xCoord - this.radius+ this.speed > this.canvas.width || this.xCoord + this.speed < 0) {
             // this.speed = -this.speed;

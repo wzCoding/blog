@@ -3,49 +3,81 @@ import { Sun } from "./components/sun";
 import { Cloud } from "./components/cloud"
 import { Timer } from "./timer";
 const timer = new Timer();
-let ctx = null
+
+let cvs = null;
+let ctx = null;
+const materials = [];
+
+function handleMaterial(params, type) {
+    const list = [];
+    materials.push(type);
+
+    if (params.length) {
+        for (let i = 0; i < params.length; i++) {
+            params[i].canvas = cvs;
+            const instance = createMaterial(params[i], type);
+            list.push(instance);
+        }
+    } else {
+        params.canvas = cvs;
+        const instance = createMaterial(params, type);
+        list.push(instance);
+    }
+
+    return list;
+}
+
+function createMaterial(param, type) {
+    let material = null;
+    switch (type) {
+        case "waves":
+            material = new Wave(param);
+            break;
+        case "clouds":
+            material = new Cloud(param);
+            break;
+        case "sun":
+            material = new Sun(param);
+            break;
+        default: return material;
+    }
+    return material;
+}
 class Sea {
     constructor(canvas) {
-        this.canvas = canvas;
-        ctx = canvas.context;
-        
-        this.sun = null;
-        this.waves = [];
-        this.clouds = [];
-    }
-    addWave() {
-        const args = Array.from(arguments)
-        for (let i = 0; i < args.length; i++) {
-            //args[i].canvas = this.canvas
-            const wave = new Wave(args[i]);
-            this.waves.push(wave)
-        }
-    }
-    addCloud() {
-        const args = Array.from(arguments)
-        for (let i = 0; i < args.length; i++) {
-            const cloud = new Cloud(args[i]);
-            this.clouds.push(cloud)
-        }
-    }
-    addSun() {
-        const args = Array.from(arguments);
-        this.sun = new Sun(args[0]);
-    }
-    addBoat() {
+        cvs = canvas;
+        ctx = cvs.context;
 
+        this.sun = null;
+        this.waves = null;
+        this.clouds = null;
     }
-    start() {
-        timer.interval(() => {
-            ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-            this.sun.createSun();
-            this.waves.forEach(wave => {
-                wave.createWave();
-            });
-            this.clouds.forEach(cloud => {
-                cloud.createCloud();
-            });
-        }, 30)
+
+    addWave(waves) {
+        this.waves = handleMaterial(waves, "waves");
+    }
+
+    addCloud(clouds) {
+        this.clouds = handleMaterial(clouds, "clouds");
+    }
+    addSun(sun) {
+        this.sun = handleMaterial(sun, "sun");
+    }
+    start(speed) {
+        if (materials.length) {
+            timer.interval(() => {
+                ctx.clearRect(0, 0, cvs.width, cvs.height);
+                materials.forEach(material => {
+                    this[material].forEach(m => {
+                        m.create();
+                    })
+                })
+            }, speed);
+        }
+    }
+    stop() {
+        timer.stop();
+        ctx.clearRect(0,0,cvs.width,cvs.height);
     }
 }
 

@@ -7,13 +7,13 @@ class Sun {
         yCoord,
         radius
     }) {
-        this.canvas = canvas;
-        ctx = canvas.context;
 
+        this.canvas = canvas;
         this.xCoord = xCoord;
         this.yCoord = yCoord;
         this.radius = radius;
-        
+        ctx = canvas.context;
+
         this.sunColor = this.canvas.setGradient({
             startX: this.xCoord - this.radius,
             startY: this.yCoord - this.radius,
@@ -24,10 +24,10 @@ class Sun {
                 { color: "#fa709a", value: 1 },
             ]
         })
-        
+
     }
 
-    createSun() {
+    create() {
         ctx.beginPath();
         ctx.arc(this.xCoord, this.yCoord, this.radius, 0, Math.PI * 2);
         ctx.strokeStyle = "#ff887c"

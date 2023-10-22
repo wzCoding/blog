@@ -56,7 +56,6 @@ class Timer {
     clear() {
         this.timerClear = true;
         this.timerId = null;
-        console.log("clear Timer");
     }
 }
 

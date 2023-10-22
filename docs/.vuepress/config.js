@@ -22,6 +22,5 @@ export default defineUserConfig({
   ],
   theme,
   clientConfigFile: path.resolve(__dirname, 'client.js')
-  // Enable it with pwa
   // shouldPrefetch: false,
 });
