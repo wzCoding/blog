@@ -21,7 +21,6 @@ export default defineClientConfig({
     componentList.forEach(c => {
       app.component(c.name, c.component)
     })
-    console.log(router)
   },
   setup() {
     const route = useRoute();
@@ -48,16 +47,18 @@ export default defineClientConfig({
       const rain = new Rain(rainCanvas, "wzCoding");
 
       const themes = {
-        "light": { el: seaCanvas.canvas, instance: sea },
-        "dark": { el: rainCanvas.canvas, instance: rain }
+        "light": { canvas: seaCanvas, instance: sea },
+        "dark": { canvas: rainCanvas, instance: rain }
       }
 
       const changeCanvas = function (theme) {
+        
         if (route.fullPath == "/") {
           for (let t in themes) {
-            const { el, instance } = themes[t];
+            const { canvas, instance } = themes[t];
+            canvas.append(canvas.canvas)
             instance.stop();
-            el.style.display = t == theme ? "block" : "none";
+            canvas.canvas.style.display = t == theme ? "block" : "none";
           }
           themes[theme].instance.start(60);
         }
@@ -74,10 +75,8 @@ export default defineClientConfig({
       const html = document.getElementsByTagName("html")[0];
       observer.observe(html, { attributes: true });
 
-
-      watchEffect(() => {
-        changeCanvas("light");
-      })
+      changeCanvas("light");
+      
     });
   }
 })

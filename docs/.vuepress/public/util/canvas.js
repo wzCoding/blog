@@ -27,11 +27,11 @@ class Canvas {
         this.parent = parent;
         this.id = canvasId;
         this.styles = styles;
-        this.canvas = this.createCanvas();
+        this.canvas = this.create();
         this.context = this.canvas.getContext("2d");
-        this.resizeCanvas();
+        this.resize();
     }
-    createCanvas() {
+    create() {
         const canvas = document.createElement("canvas");
         canvas.className = `${this.parent}-canvas`;
         canvas.id = this.id;
@@ -44,11 +44,9 @@ class Canvas {
             }
         }
 
-        this.appendCanvas(canvas);
-
         return canvas;
     }
-    appendCanvas(canvas) {
+    append(canvas) {
         const idList = [];
         Array.from(bgContainer.children).forEach(element => {
             idList.push(element.id)
@@ -57,11 +55,11 @@ class Canvas {
             bgContainer.append(canvas);
         }
     }
-    removeCanvas(canvas) {
+    remove(canvas) {
         const removeItem = Array.from(bgContainer.children).filter(element => element.id == canvas.id);
         bgContainer.remove(removeItem);
     }
-    resizeCanvas() {
+    resize() {
         const setSize = (event) => {
             const { innerWidth, innerHeight } = event.target;
             this.canvas.width = this.width = innerWidth;
