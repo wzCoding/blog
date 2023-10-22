@@ -1,5 +1,5 @@
 import { defineClientConfig } from '@vuepress/client'
-import { onMounted, watchEffect } from 'vue'
+import { onMounted} from 'vue'
 import { useRoute } from 'vue-router'
 
 import { Canvas } from './public/util/canvas'
@@ -56,7 +56,7 @@ export default defineClientConfig({
         if (route.fullPath == "/") {
           for (let t in themes) {
             const { canvas, instance } = themes[t];
-            canvas.append(canvas.canvas)
+            // canvas.append(canvas.canvas)
             instance.stop();
             canvas.canvas.style.display = t == theme ? "block" : "none";
           }
@@ -75,7 +75,7 @@ export default defineClientConfig({
       const html = document.getElementsByTagName("html")[0];
       observer.observe(html, { attributes: true });
 
-      changeCanvas("light");
+      // changeCanvas("light");
       
     });
   }
