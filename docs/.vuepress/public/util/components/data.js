@@ -36,19 +36,19 @@ const clouds = [
         speed: -2
     },
     {
-        xCoordRatio: 0.5,
+        xCoordRatio: 0.3,
         yCoord: 250,
         radius: 30,
         speed: -2
     },
     {
-        xCoordRatio: 0.7,
+        xCoordRatio: 0.5,
         yCoord: 170,
         radius: 40,
         speed: -2
     },
     {
-        xCoordRatio: 0.3,
+        xCoordRatio: 0.7,
         yCoord: 300,
         radius: 60,
         speed: -2
