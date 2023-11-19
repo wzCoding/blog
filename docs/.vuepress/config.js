@@ -21,6 +21,6 @@ export default defineUserConfig({
     externalLinkIconPlugin
   ],
   theme,
-  clientConfigFile: path.resolve(__dirname, 'client.js')
-  // shouldPrefetch: false,
+  clientConfigFile: path.resolve(__dirname, 'client.js'),
+  shouldPrefetch: true
 });

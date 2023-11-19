@@ -1,8 +1,7 @@
 // place your custom styles here
 @font-face {
     font-family: FangYuan;
-    src: url(../assets/font/7isTenjrxLF1.woff),
-         url(../assets/font/7isTenjrxLF1.woff2);
+    src: url(../assets/font/7isTenjrxLF1.woff), url(../assets/font/7isTenjrxLF1.woff2);
 }
 
 :root {
@@ -18,26 +17,11 @@ html[data-theme="dark"] {
     code {
         background: #2b313a;
     }
-    .vp-page.vp-blog .vp-blog-hero.fullscreen .vp-blog-mask {
-        background-position-y: top !important;
-    }
-    .vp-blog-hero-description,
-    .vp-blog-hero-title {
-        background: linear-gradient(135deg, #9b9999, #d9ddde 30%, #969a9b 100%);
-    }
 }
-html[data-theme="light"] {
-    .vp-page.vp-blog .vp-blog-hero.fullscreen .vp-blog-mask {
-        background-position-y: center !important;
-    }
-    .vp-blog-hero-description,
-    .vp-blog-hero-title {
-        background: linear-gradient(135deg, #ff8383, #b6d4db 30%, #ffffff 100%);
-    }
-}
-body{
+body {
     position: relative;
 }
+
 .nav-link.vp-action.default {
     background-color: unset;
     border: 2px solid var(--theme-color);
@@ -62,9 +46,6 @@ body{
             color: var(--text-color);
         }
     }
-}
-.vp-blog-mask::after{
-    opacity: 0;
 }
 #toc .toc-link,
 .vp-breadcrumb li.is-active a,
@@ -124,24 +105,34 @@ body{
         margin: 0.5rem 0;
     }
 }
-.vp-blog-hero-description,
-.vp-blog-hero-title {
-    color: transparent;
-    -webkit-background-clip: text !important;
-    background-clip: text;
-}
 
 .mermaid-content {
-    .nodeLabel{
+    .nodeLabel {
         white-space: pre-line;
         display: block;
     }
     .edgeLabel {
-        font-size: .75rem;
+        font-size: 0.75rem;
         display: block;
         border: 2px;
     }
 }
-strong{
-    font-weight:700;
+strong {
+    font-weight: 700;
+}
+
+.vp-blog-mask {
+    //background: unset !important;
+    //background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%) !important;
+    animation: bgColor 1s linear infinite !important;
+}
+
+@keyframes bgColor {
+    0%{
+        background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%) !important;
+    }
+    10%{
+        
+        background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%) !important;
+    }
 }
