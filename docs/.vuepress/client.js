@@ -9,7 +9,6 @@ import { waves, clouds, sun } from './public/util/components/data'
 
 import Mcard from './components/Mcard.vue'
 import Minfo from './components/Minfo.vue'
-import BlogHero from './components/BlogHero.vue'
 const componentList = [
   { name: 'Mcard', component: Mcard },
   { name: 'Minfo', component: Minfo },
@@ -21,10 +20,7 @@ export default defineClientConfig({
     componentList.forEach(c => {
       app.component(c.name, c.component)
     })
-  },
-  layouts: {
-    BlogHero,
-  },
+  }
   // setup() {
   //   const themes = {
   //     "light": {

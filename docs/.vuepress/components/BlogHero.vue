@@ -3,7 +3,6 @@
 </template>
 <script>
 export default {
-    name: "BlogHero"
+    name:"BlogHero"
 }
 </script>
-<style lang="scss"></style>

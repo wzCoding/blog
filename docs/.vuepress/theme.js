@@ -12,15 +12,15 @@ export default hopeTheme({
   logo: "/head.png",
   repo: "https://github.com/wzCoding/blog",
   docsDir: "docs",
-  darkmode:"toggle",
+  darkmode: "toggle",
   breadcrumb: false,
-  displayFooter:true,
+  displayFooter: true,
   locales: {
     "/": {
       navbar,
       sidebar,
       footer: "",
-      copyright:"MIT LICENSE | copyright © 2023-present wzCoding",
+      copyright: "MIT LICENSE | copyright © 2023-present wzCoding",
       blog: {
         description: "前端开发者，持续学习中...",
         timeline: "昨日重现",
@@ -80,5 +80,5 @@ export default hopeTheme({
       excerptLength: 75,
     },
   },
-  custom:true
-});
+
+}, { custom: true });

@@ -22,5 +22,11 @@ export default defineUserConfig({
   ],
   theme,
   clientConfigFile: path.resolve(__dirname, 'client.js'),
-  shouldPrefetch: true
+  shouldPrefetch: true,
+  alias: {
+    "@theme-hope/modules/blog/components/BlogHero": path.resolve(
+      __dirname,
+      "./components/BlogHero.vue",
+    ),
+  },
 });
