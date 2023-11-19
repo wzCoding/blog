@@ -1,7 +1,7 @@
 import { defineClientConfig } from '@vuepress/client'
 import { onMounted, watchEffect, ref, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
-import { BlogHero } from './components/BlogHero.vue'
+
 import { Canvas } from './public/util/canvas'
 import { Rain } from './public/util/rain'
 import { Sea } from './public/util/sea'
@@ -9,7 +9,7 @@ import { waves, clouds, sun } from './public/util/components/data'
 
 import Mcard from './components/Mcard.vue'
 import Minfo from './components/Minfo.vue'
-
+import BlogHero from './components/BlogHero.vue'
 const componentList = [
   { name: 'Mcard', component: Mcard },
   { name: 'Minfo', component: Minfo },
