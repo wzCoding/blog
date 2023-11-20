@@ -80,5 +80,4 @@ export default hopeTheme({
       excerptLength: 75,
     },
   },
-
 }, { custom: true });

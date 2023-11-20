@@ -18,28 +18,35 @@ class Canvas {
     }) {
         container.style.overflowX = "hidden";
         // container.style.backgroundImage = "unset"
-
+        this.id = id;
         this.width = width;
         this.height = height;
         this.container = container;
-        this.id = id;
         this.styles = styles;
-        this.canvas = this.create();
+
+        this.canvas = document.getElementById(id);
+        if (!this.canvas) {
+            this.canvas = this.create();
+            this.append();
+        }else{
+            this.setStyles(this.canvas);
+        }
         this.context = this.canvas.getContext("2d");
-        this.append();
         this.resize();
     }
-    create() {
-        const canvas = document.createElement("canvas");
-        canvas.id = this.id;
+    setStyles(canvas) {
         canvas.width = this.width;
         canvas.height = this.height;
-
         if (this.styles) {
             for (let key in this.styles) {
                 canvas.style[key] = this.styles[key]
             }
         }
+    }
+    create() {
+        const canvas = document.createElement("canvas");
+        canvas.id = this.id;
+        this.setStyles(canvas);
         return canvas;
     }
     append() {
