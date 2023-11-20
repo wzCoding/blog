@@ -1,4 +1,4 @@
-import { Timer } from "./timer";
+import { Timer } from "../../public/util/timer";
 
 let ctx = null;
 let cvs = null;

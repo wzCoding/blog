@@ -1,39 +1,67 @@
 <template>
     <div class="hero-mask" ref="hero">
-        <canvas id="light"></canvas>
-        <canvas id="dark"></canvas>
+        <canvas id="light" v-show="show"></canvas>
+        <canvas id="dark" v-show="!show"></canvas>
     </div>
 </template>
 <script setup>
-import { computed, ref, watch, onMounted } from 'vue'
+import { ref, watchEffect, onMounted } from 'vue'
+import { useRoute } from 'vue-router'
 import { myCanvas } from './canvas/canvas'
+import { Rain } from './canvas/rain'
 import { Sea } from './canvas/sea'
 import { waves, clouds, sun } from './canvas/data'
-const theme = ref("light");
-
+const defaultTheme = "light";
+const show = ref(true);
 const hero = ref();
+const themes = {};
+
+function stopCanvas() {
+    for (const key in themes) {
+        themes[key].stop();
+    }
+}
+function startCanvas(theme) {
+    themes[theme].start(60);
+}
+function initCanvas(theme) {
+    if (!themes[theme]) {
+        const canvas = new myCanvas({
+            parent: hero.value,
+            id: theme,
+            styles: {
+                background: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
+                position: "absolute",
+                inset: 0
+            }
+        })
+        if (theme == defaultTheme) {
+            const sea = new Sea(canvas);
+            sea.addWave(waves);
+            sea.addSun(sun);
+            sea.addCloud(clouds);
+            themes[theme] = sea;
+        } else {
+            themes[theme] = new Rain(canvas, "wzCoding");
+        }
+    }
+    stopCanvas();
+    //startCanvas(theme);
+}
+
 onMounted(() => {
     const observer = new MutationObserver((list) => {
-        theme.value = list[0].target.getAttribute("data-theme");
+        const currentTheme = list[0].target.getAttribute("data-theme");
+        show.value = currentTheme == defaultTheme;
+        initCanvas(currentTheme);
     });
     observer.observe(document.documentElement, { attributes: true });
-    const canvas = new myCanvas({
-        parent: hero.value,
-        id: `light`,
-        styles: {
-            background: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
-            position: "absolute",
-            inset: 0
-        }
-    });
-    const lightCanvas = new Sea(canvas);
-    lightCanvas.addWave(waves);
-    lightCanvas.addSun(sun);
-    lightCanvas.addCloud(clouds);
-    lightCanvas.start(60)
+    const route = useRoute();
+    console.log(route)
+    watchEffect(route, (val) => {
+        console.log(val)
+    })
 })
-
-
 </script>
 <style lang="scss">
 .hero-mask {
