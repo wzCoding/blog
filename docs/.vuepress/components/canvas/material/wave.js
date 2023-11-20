@@ -47,10 +47,6 @@ class Wave {
             ctx.lineTo(x, this.startyCoord);
         }
 
-        ctx.strokeStyle = "#4c9af0";
-        ctx.lineWidth = 5;
-        ctx.stroke();
-
         ctx.shadowColor = "rgba(0,0,0,0.5)";
         ctx.shadowBlur = 10;
 
@@ -58,13 +54,10 @@ class Wave {
         ctx.lineTo(this.wavexCoord, this.canvas.height);
         ctx.lineTo(this.wavexCoord, this.startyCoord);
 
-
         ctx.fillStyle = this.waveColor;
 
         ctx.fill();
         ctx.closePath();
-
-
 
         ctx.globalCompositeOperation = "source-over";
     }

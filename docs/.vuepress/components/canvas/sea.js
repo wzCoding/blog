@@ -1,7 +1,7 @@
-import { Wave } from "./components/wave";
-import { Sun } from "./components/sun";
-import { Cloud } from "./components/cloud"
-import { Timer } from "./timer";
+import { Wave } from "./material/wave";
+import { Sun } from "./material/sun";
+import { Cloud } from "./material/cloud"
+import { Timer } from "../../public/util/timer";
 const timer = new Timer();
 
 let cvs = null;

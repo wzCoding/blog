@@ -1,4 +1,4 @@
-import { debounce } from './utils'
+import { debounce } from '../../public/util/utils'
 
 let container = null;
 /**
@@ -8,33 +8,33 @@ let container = null;
  * @param {number} canvas.height - 将要创建的canvas的高度
  * @returns {Object} 包含canvas信息的对象
  */
-class Canvas {
+class myCanvas {
     constructor({
-        container,
         id,
+        parent,
+        styles,
         width,
-        height,
-        styles
+        height
     }) {
+        container = parent;
         container.style.overflowX = "hidden";
         // container.style.backgroundImage = "unset"
         this.id = id;
-        this.width = width;
-        this.height = height;
-        this.container = container;
+        this.width = width ? width : parent.clientWidth;
+        this.height = height ? height : parent.clientHeight;
         this.styles = styles;
-
+        
         this.canvas = document.getElementById(id);
         if (!this.canvas) {
             this.canvas = this.create();
             this.append();
-        }else{
-            this.setStyles(this.canvas);
+        } else {
+            this.setStyle(this.canvas);
         }
         this.context = this.canvas.getContext("2d");
         this.resize();
     }
-    setStyles(canvas) {
+    setStyle(canvas) {
         canvas.width = this.width;
         canvas.height = this.height;
         if (this.styles) {
@@ -46,12 +46,12 @@ class Canvas {
     create() {
         const canvas = document.createElement("canvas");
         canvas.id = this.id;
-        this.setStyles(canvas);
+        this.setStyle(canvas);
         return canvas;
     }
     append() {
-        if (!this.container.querySelector(`#${this.id}`)) {
-            this.container.append(this.canvas);
+        if (!container.querySelector(`#${this.id}`)) {
+            container.append(this.canvas);
         }
     }
     remove() {
@@ -77,5 +77,5 @@ class Canvas {
 }
 
 export {
-    Canvas
+    myCanvas
 }

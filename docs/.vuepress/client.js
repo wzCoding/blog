@@ -1,12 +1,4 @@
 import { defineClientConfig } from '@vuepress/client'
-import { onMounted, watchEffect, ref, nextTick } from 'vue'
-import { useRoute } from 'vue-router'
-
-import { Canvas } from './public/util/canvas'
-import { Rain } from './public/util/rain'
-import { Sea } from './public/util/sea'
-import { waves, clouds, sun } from './public/util/components/data'
-
 import Mcard from './components/Mcard.vue'
 import Minfo from './components/Minfo.vue'
 const componentList = [
@@ -37,7 +29,7 @@ export default defineClientConfig({
 
   //   onMounted(() => {
   //     for (let key in themes) {
-  //       themes[key].canvas = new Canvas({
+  //       themes[key].canvas = new myCanvas({
   //         container: document.body,
   //         id: `${key}-canvas`,
   //         width: document.documentElement.clientWidth,

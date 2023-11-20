@@ -6,7 +6,7 @@ const waves = [
         waveyCoord: 500,
         wavexMove: 0,
         horizontalSpeed: 0.08,
-        waveColor: "#69c0ff"
+        waveColor: "#093da8"
     },
     {
         wavePeriod: 2,
@@ -25,7 +25,7 @@ const waves = [
         waveyCoord: 600,
         wavexMove: 0,
         horizontalSpeed: 0.15,
-        waveColor: "#093da8"
+        waveColor: "#69c0ff"
     }
 ];
 const clouds = [
