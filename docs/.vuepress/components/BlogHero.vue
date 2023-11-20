@@ -10,12 +10,13 @@ import { myCanvas } from './canvas/canvas'
 import { Sea } from './canvas/sea'
 import { waves, clouds, sun } from './canvas/data'
 const theme = ref("light");
-const observer = new MutationObserver((list) => {
-    theme.value = list[0].target.getAttribute("data-theme");
-});
-observer.observe(document.documentElement, { attributes: true });
+
 const hero = ref();
 onMounted(() => {
+    const observer = new MutationObserver((list) => {
+        theme.value = list[0].target.getAttribute("data-theme");
+    });
+    observer.observe(document.documentElement, { attributes: true });
     const canvas = new myCanvas({
         parent: hero.value,
         id: `light`,
@@ -29,7 +30,7 @@ onMounted(() => {
     lightCanvas.addWave(waves);
     lightCanvas.addSun(sun);
     lightCanvas.addCloud(clouds);
-    //lightCanvas.start(60)
+    lightCanvas.start(60)
 })
 
 
