@@ -11,6 +11,7 @@
 }
 html[data-theme="dark"] {
     --bg-color: #22272e;
+    --bg-color-float:var(--bg-color);
     --text-color: #adbac7;
     --light-grey: var(--text-color);
     --code-demo-header-bg-color: #282c34;
@@ -120,19 +121,6 @@ body {
 strong {
     font-weight: 700;
 }
-
-.vp-blog-mask {
-    //background: unset !important;
-    //background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%) !important;
-    animation: bgColor 1s linear infinite !important;
-}
-
-@keyframes bgColor {
-    0%{
-        background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%) !important;
-    }
-    10%{
-        
-        background: linear-gradient(to right, #4facfe 0%, #00f2fe 100%) !important;
-    }
+.blog-page-wrapper{
+    padding-top: 1rem;
 }

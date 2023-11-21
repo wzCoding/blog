@@ -1,4 +1,4 @@
-import { debounce } from '../../public/util/utils'
+import { debounce } from '../public/util/utils'
 
 let container = null;
 /**
