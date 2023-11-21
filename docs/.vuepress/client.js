@@ -21,15 +21,17 @@ export default defineClientConfig({
   setup() {
     const theme = ref("light");
     onMounted(() => {
+      const navHeight = document.getElementById("navbar").clientHeight
       const options = {
         parent: document.body,
         id: `theme-canvas`,
         width: document.documentElement.clientWidth,
-        height: document.documentElement.clientHeight,
+        height: document.documentElement.clientHeight - navHeight,
         styles: {
-          background: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)",
+          background: "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)",
           position: "absolute",
-          inset: 0
+          top: `${navHeight}px`,
+          left: 0
         }
       }
       const canvas = new myCanvas(options);
