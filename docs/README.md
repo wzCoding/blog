@@ -6,7 +6,8 @@ title: 主页
 heroImage: /head.png
 heroText: wzCoding
 heroFullScreen: true
-tagline: 木欣欣以向荣，泉涓涓而始流
+tagline: 海内存知己，天涯若比邻
+taglineDark: 身无彩凤双飞翼，心有灵犀一点通
 actions:
   - text: 开始探索 →
     link: ./blog-html/

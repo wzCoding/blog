@@ -5,8 +5,8 @@
     </div>
 </template>
 <script setup>
-import { ref, watchEffect, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { usePageFrontmatter } from '@vuepress/client'
 import { myCanvas } from './canvas/canvas'
 import { Rain } from './canvas/rain'
 import { Sea } from './canvas/sea'
@@ -17,11 +17,13 @@ const hero = ref();
 const themes = {};
 
 function stopCanvas() {
+    console.log("stop")
     for (const key in themes) {
         themes[key].stop();
     }
 }
 function startCanvas(theme) {
+    console.log("start")
     themes[theme].start(60);
 }
 function initCanvas(theme) {
@@ -46,21 +48,21 @@ function initCanvas(theme) {
         }
     }
     stopCanvas();
-    //startCanvas(theme);
+    startCanvas(theme);
 }
 
+const info = usePageFrontmatter()
 onMounted(() => {
     const observer = new MutationObserver((list) => {
         const currentTheme = list[0].target.getAttribute("data-theme");
         show.value = currentTheme == defaultTheme;
-        initCanvas(currentTheme);
+        console.log(111)
+        //initCanvas(currentTheme);
     });
     observer.observe(document.documentElement, { attributes: true });
-    const route = useRoute();
-    console.log(route)
-    watchEffect(route, (val) => {
-        console.log(val)
-    })
+})
+onUnmounted(()=>{
+    stopCanvas()
 })
 </script>
 <style lang="scss">
