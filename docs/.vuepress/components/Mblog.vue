@@ -4,6 +4,10 @@
     </div>
 </template>
 <script setup>
+import { usePageFrontmatter } from '@vuepress/client';
+
+const info = usePageFrontmatter();
+console.log(info.value)
 </script>
 <style lang="scss">
 .hero-mask {

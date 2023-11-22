@@ -26,7 +26,7 @@ export default defineUserConfig({
   alias: {
     "@theme-hope/modules/blog/components/BlogHero": path.resolve(
       __dirname,
-      "./components/BlogHero.vue",
+      "./components/Mblog.vue",
     ),
   },
 });
