@@ -26,12 +26,12 @@ export default defineClientConfig({
         parent: document.body,
         id: `theme-canvas`,
         width: document.documentElement.clientWidth,
-        height: document.documentElement.clientHeight - navHeight,
+        height: document.documentElement.clientHeight,
         styles: {
           background: "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)",
           position: "absolute",
-          top: `${navHeight}px`,
-          left: 0
+          inset: 0,
+          transition: "all 0.3s"
         }
       }
       const canvas = new myCanvas(options);
