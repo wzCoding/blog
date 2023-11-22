@@ -35,6 +35,7 @@ export default defineClientConfig({
         }
       }
       const canvas = new myCanvas(options);
+      console.log(canvas)
       const rain = new Rain(canvas, "wzCoding");
       const sea = new Sea(canvas);
       sea.addWave(waves);

@@ -18,35 +18,36 @@ class myCanvas {
     }) {
         container = parent;
         container.style.overflowX = "hidden";
-        // container.style.backgroundImage = "unset"
         this.id = id;
         this.width = width ? width : parent.clientWidth;
         this.height = height ? height : parent.clientHeight;
         this.styles = styles;
-        
+
         this.canvas = document.getElementById(id);
         if (!this.canvas) {
             this.canvas = this.create();
             this.append();
-        } else {
-            this.setStyle(this.canvas);
         }
-        this.context = this.canvas.getContext("2d");
+        this.context = this.canvas.getContext('2d');
+        this.init();
         this.resize();
     }
-    setStyle(canvas) {
-        canvas.width = this.width;
-        canvas.height = this.height;
+    init() {
+        const ratio = window.devicePixelRatio || 1;
+        this.canvas.width = this.width * ratio;
+        this.canvas.height = this.height * ratio;
+        this.canvas.style.width = `${this.width}px`;
+        this.canvas.style.height = `${this.height}px`;
+        this.context.scale(ratio, ratio);
         if (this.styles) {
             for (let key in this.styles) {
-                canvas.style[key] = this.styles[key]
+                this.canvas.style[key] = this.styles[key]
             }
         }
     }
     create() {
         const canvas = document.createElement("canvas");
         canvas.id = this.id;
-        this.setStyle(canvas);
         return canvas;
     }
     append() {
@@ -61,11 +62,11 @@ class myCanvas {
         this.canvas.style.display = isHide ? "none" : "block";
     }
     resize() {
-        const setSize = () => {
-            this.canvas.width = this.width = document.documentElement.clientWidth;
-            this.canvas.height = this.height = document.documentElement.clientHeight;
-        }
-        window.addEventListener('resize', debounce(setSize, 100));
+        window.addEventListener('resize', debounce(() => {
+            this.width = document.documentElement.clientWidth;
+            this.height = document.documentElement.clientHeight;
+            this.init();
+        }, 100));
     }
     gradient({ startX, startY, endX, endY, gradients }) {
         const gradient = this.context.createLinearGradient(startX, startY, endX, endY);
