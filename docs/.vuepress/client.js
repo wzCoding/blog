@@ -14,8 +14,12 @@ const components = [
   { name: 'Minfo', component: Minfo },
 ]
 export const useThemeStore = defineStore('theme', () => {
-  const cache = localStorage.getItem("vuepress-theme-hope-scheme")
-  const theme = ref(cache ? cache : "light");
+  const cache = ref()
+  onMounted(() => {
+    cache.value = localStorage.getItem("vuepress-theme-hope-scheme");
+  });
+
+  const theme = ref(cache.value ? cache.value : "light");
   //观察器监听页面主题变化
   const observer = new MutationObserver((list) => {
     theme.value = list[0].target.getAttribute("data-theme");
@@ -32,7 +36,7 @@ export const useThemeStore = defineStore('theme', () => {
 })
 const currentPath = ref("/")
 export default defineClientConfig({
-  enhance({ app,router }) {
+  enhance({ app, router }) {
     const pinia = createPinia()
     app.use(pinia)
     components.forEach(c => {
