@@ -21,7 +21,6 @@ class myCanvas {
         this.id = id;
         this.width = width ? width : parent.clientWidth;
         this.height = height ? height : parent.clientHeight;
-        this.styles = styles;
 
         this.canvas = document.getElementById(id);
         if (!this.canvas) {
@@ -31,6 +30,12 @@ class myCanvas {
         this.context = this.canvas.getContext('2d');
         this.init();
         this.resize();
+
+        if (styles) {
+            for (let key in styles) {
+                this.canvas.style[key] = styles[key]
+            }
+        }
     }
     init() {
         const ratio = window.devicePixelRatio || 1;
@@ -39,11 +44,7 @@ class myCanvas {
         this.canvas.style.width = `${this.width}px`;
         this.canvas.style.height = `${this.height}px`;
         this.context.scale(ratio, ratio);
-        if (this.styles) {
-            for (let key in this.styles) {
-                this.canvas.style[key] = this.styles[key]
-            }
-        }
+
     }
     create() {
         const canvas = document.createElement("canvas");
