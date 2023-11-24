@@ -13,35 +13,30 @@ const components = [
   { name: 'Minfo', component: Minfo },
 ]
 export const useThemeStore = defineStore('theme', () => {
-  const cache = ref()
+  let observer = null;
+  const theme = ref("light");
   onMounted(() => {
-    cache.value = window.localStorage.getItem("vuepress-theme-hope-scheme");
-  });
-
-  const theme = ref(cache.value ? cache.value : "light");
-  //观察器监听页面主题变化
-  const observer = new MutationObserver((list) => {
-    theme.value = list[0].target.getAttribute("data-theme");
+    theme.value = window.localStorage.getItem("vuepress-theme-hope-scheme");
+    //观察器监听页面主题变化
+    observer = new MutationObserver((list) => {
+      theme.value = list[0].target.getAttribute("data-theme");
+    });
   });
   const startObserver = () => {
-    console.log("start observe")
     observer.observe(document.documentElement, { attributes: true });
   }
   const stopObserver = () => {
-    console.log("stop observe")
     observer.disconnect()
   }
   return { theme, startObserver, stopObserver }
 })
-const currentPath = ref("/")
 export default defineClientConfig({
-  enhance({ app, router }) {
+  enhance({ app }) {
     const pinia = createPinia()
     app.use(pinia)
     components.forEach(c => {
       app.component(c.name, c.component);
     });
-    currentPath.value = router.currentRoute.value
   },
   setup() {
     onMounted(() => {
@@ -72,8 +67,8 @@ export default defineClientConfig({
       const themeStore = useThemeStore()
       const animate = () => {
         if (route.fullPath !== "/") {
-          themes[themeStore.theme].stop();
           themeStore.stopObserver();
+          themes[themeStore.theme].stop();
         } else {
           themeStore.startObserver();
           for (let key in themes) { themes[key].stop() }
