@@ -15,7 +15,7 @@ const components = [
 export const useThemeStore = defineStore('theme', () => {
   const cache = ref()
   onMounted(() => {
-    cache.value = localStorage.getItem("vuepress-theme-hope-scheme");
+    cache.value = window.localStorage.getItem("vuepress-theme-hope-scheme");
   });
 
   const theme = ref(cache.value ? cache.value : "light");
