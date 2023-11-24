@@ -57,8 +57,13 @@ function throttle(callback, delay) {
         }
     }
 }
-
+function getImageUrl(path) {
+    if (!path) return;
+    const imgUrl = new URL(path, import.meta.url);
+    return imgUrl.href;
+}
 export {
     debounce,
-    throttle
+    throttle,
+    getImageUrl
 }

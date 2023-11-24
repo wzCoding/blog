@@ -1,5 +1,6 @@
 import { defineUserConfig } from "vuepress"
 import { getDirname, path } from '@vuepress/utils'
+import { ref } from "vue"
 import docsearchPlugin from './public/plugin/docsearch'
 import externalLinkIconPlugin from './public/plugin/linkIcon'
 import theme from "./theme.js"
@@ -27,6 +28,10 @@ export default defineUserConfig({
     "@theme-hope/modules/blog/components/BlogHero": path.resolve(
       __dirname,
       "./components/Mblog.vue",
+    ),
+    "@theme-hope/modules/outlook/components/OutlookButton":path.resolve(
+      __dirname,
+      "./components/MTheme.vue",
     ),
   },
 });

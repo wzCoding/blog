@@ -17,7 +17,6 @@ const themeStore = useThemeStore();
 const heroClass = computed(() => {
     return `${themeStore.theme}-mask`
 });
-
 </script>
 <style lang="scss" scoped>
 .vp-navbar {
@@ -42,9 +41,6 @@ const heroClass = computed(() => {
     .hero-mask {
         width: 80%;
         height: 80%;
-        background-color: rgba(255, 255, 255, 0);
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        border-radius: 10px;
         display: flex;
         justify-content: center;
         align-items: center;

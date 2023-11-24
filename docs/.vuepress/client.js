@@ -8,7 +8,6 @@ import { Sea } from './canvas/sea'
 import { clouds, waves, sun } from './canvas/data'
 import Mcard from './components/Mcard.vue'
 import Minfo from './components/Minfo.vue'
-
 const components = [
   { name: 'Mcard', component: Mcard },
   { name: 'Minfo', component: Minfo },
