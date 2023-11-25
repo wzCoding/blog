@@ -5,6 +5,8 @@
 }
 
 :root {
+    --theme-color:rgba(0,255,0,0.7);
+    --theme-color-dark:var(--theme-color);
     --font-family: "FangYuan";
     --font-family-heading: var(--font-family);
     --font-family-mono: var(--font-family);
