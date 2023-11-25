@@ -28,5 +28,5 @@ export default defineUserConfig({
       __dirname,
       "./components/Mblog.vue",
     )
-  },
+  }
 });

@@ -27,7 +27,7 @@ class Rain {
         ctx.fillStyle = "rgba(0,0,0,0.08)";
         ctx.fillRect(0, 0, cvs.width, cvs.height);
         ctx.font = `${this.fontWeight} ${this.fontSize}px ${this.fontFamily}`;
-        ctx.fillStyle = "#0f0";
+        ctx.fillStyle = "#1890ff";
 
         this.letters.forEach((item, index) => {
             ctx.fillText(this.text[Math.floor(Math.random() * this.text.length)], index * this.fontSize, item + this.fontSize);

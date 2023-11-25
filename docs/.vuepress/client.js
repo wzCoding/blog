@@ -13,22 +13,8 @@ const components = [
   { name: 'Minfo', component: Minfo },
 ]
 export const useThemeStore = defineStore('theme', () => {
-  let observer = null;
   const theme = ref("light");
-  onMounted(() => {
-    theme.value = window.localStorage.getItem("vuepress-theme-hope-scheme");
-    //观察器监听页面主题变化
-    observer = new MutationObserver((list) => {
-      theme.value = list[0].target.getAttribute("data-theme");
-    });
-  });
-  const startObserver = () => {
-    observer.observe(document.documentElement, { attributes: true });
-  }
-  const stopObserver = () => {
-    observer.disconnect()
-  }
-  return { theme, startObserver, stopObserver }
+  return { theme }
 })
 export default defineClientConfig({
   enhance({ app }) {
@@ -65,12 +51,15 @@ export default defineClientConfig({
       }
       const route = useRoute();
       const themeStore = useThemeStore()
+      const observer = new MutationObserver((list) => {
+        themeStore.theme = list[0].target.getAttribute("data-theme");
+      });
       const animate = () => {
         if (route.fullPath !== "/") {
-          themeStore.stopObserver();
           themes[themeStore.theme].stop();
+          observer.disconnect();
         } else {
-          themeStore.startObserver();
+          observer.observe(document.documentElement, { attributes: true });
           for (let key in themes) { themes[key].stop() }
           themes[themeStore.theme].start(60);
         }

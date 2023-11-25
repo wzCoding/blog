@@ -86,7 +86,8 @@ export default {
                 <slot name="head" :head="cardHead">
                     <h4 :id="cardHead.title" tabindex="-1">
                         <a class="header-anchor" :href="`#${cardHead.title}`" aria-hidden="true">#</a>
-                        <a v-if="cardHead.link" class="mdn-link" :href="cardHead.link" target="_blank" rel="noopener noreferrer">
+                        <a v-if="cardHead.link" class="mdn-link" :href="cardHead.link" target="_blank"
+                            rel="noopener noreferrer">
                             <code>{{ cardHead.title }}</code>
                             <img src="../public/assets/icon/link.png" alt="link">
                         </a>
@@ -123,9 +124,10 @@ export default {
         position: relative;
         top: 1px;
         z-index: 3;
-        img{
+
+        img {
             padding-left: .2rem;
-            width:.75rem;
+            width: .75rem;
         }
     }
 
@@ -144,7 +146,7 @@ export default {
         display: block;
         position: absolute;
         inset: 0;
-        background: linear-gradient(to left, transparent 0%, #409eff33 100%);
+        background: linear-gradient(to left, transparent 0%, rgba(24,144,255,0.3) 100%);
         transition: opacity .6s ease-in-out;
     }
 

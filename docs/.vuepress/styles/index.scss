@@ -5,15 +5,13 @@
 }
 
 :root {
-    --theme-color:rgba(0,255,0,0.7);
-    --theme-color-dark:var(--theme-color);
     --font-family: "FangYuan";
     --font-family-heading: var(--font-family);
     --font-family-mono: var(--font-family);
 }
 html[data-theme="dark"] {
     --bg-color: #22272e;
-    --bg-color-float:var(--bg-color);
+    --bg-color-float: var(--bg-color);
     --text-color: #adbac7;
     --light-grey: var(--text-color);
     --code-demo-header-bg-color: #282c34;
@@ -123,6 +121,6 @@ body {
 strong {
     font-weight: 700;
 }
-.blog-page-wrapper{
+.blog-page-wrapper {
     padding-top: 1rem;
 }

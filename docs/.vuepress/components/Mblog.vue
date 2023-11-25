@@ -6,7 +6,7 @@
         <div class="hero-text">{{ heroText }}</div>
         <div class="hero-tag">{{ tagText }}</div>
         <div class="start-btn" @click="start">
-            <span>start !</span>
+            <span>start</span>
         </div>
     </div>
 </template>
@@ -46,13 +46,13 @@ const start = () => {
     z-index: 1;
 
     &.light-mask {
-        --text-color: #1890ff;
+        --text-color: var(--theme-color);
         --shadow-color: rgba(255, 255, 255, 0.7);
     }
 
     &.dark-mask {
-        --text-color: #000;
-        --shadow-color: rgba(0, 255, 0, 0.5);
+        --text-color: rgba(255,255,255,0.8);
+        --shadow-color: rgba(24, 144, 255, 0.7);
     }
 
     .hero-head {

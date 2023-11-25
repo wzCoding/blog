@@ -1,6 +1,6 @@
 <script>
 import { computed } from 'vue'
-export default{
+export default {
     name: "Minfo",
     props: {
         type: String,
@@ -44,29 +44,33 @@ export default{
 <style lang="scss" scoped>
 .info-box {
     padding: 1.25rem;
-    padding-bottom:0.25rem;
+    padding-bottom: 0.25rem;
     margin: 1rem 0;
     border: 1px solid #ddd;
     border-radius: .75rem;
+
     .info-title {
         margin: 0;
-        padding-top:0;
+        padding-top: 0;
         padding-bottom: .75rem;
+
         span {
             padding-right: .25rem;
         }
     }
-    .info-content{
-        margin:0;
+
+    .info-content {
+        margin: 0;
     }
 }
 
 .info-box.tip {
-    border-color: #409eff;
-    background-color: rgba(64, 158, 255, 0.1);
-    box-shadow: 0px 0px 8px 0px rgba(64, 158, 255, 0.3);
+    border-color: var(--theme-color);
+    background-color: rgba(24, 144, 255, 0.1);
+    box-shadow: 0px 0px 8px 0px rgba(24, 144, 255, 0.5);
+
     .info-content {
-        border-top: 1px dashed #409eff;
+        border-top: 1px dashed var(--theme-color);
     }
 }
 
@@ -74,18 +78,19 @@ export default{
     border-color: #f1b300;
     background-color: rgba(241, 179, 0, 0.1);
     box-shadow: 0px 0px 8px 0px rgba(241, 179, 0, 0.3);
-    color: #746000; 
+    color: #746000;
+
     .info-content {
         border-top: 1px dashed #f1b300;
     }
 }
 
 .info-box.danger {
-    border-color:#f11e37;
+    border-color: #f11e37;
     background-color: rgba(241, 30, 55, 0.1);
     box-shadow: 0px 0px 8px 0px rgba(241, 30, 55, 0.3);
+
     .info-content {
         border-top: 1px dashed #f11e37;
     }
-}
-</style>
+}</style>
