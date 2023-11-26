@@ -46,7 +46,7 @@ export default defineClientConfig({
       const theme = ref("light");
       const route = useRoute();
       const cacheTheme = window.localStorage.getItem("vuepress-theme-hope-scheme");
-      theme.value = cacheTheme ? cacheTheme : "light";
+      theme.value = cacheTheme && cacheTheme !== "auto" ? cacheTheme : "light";
       const observer = new MutationObserver((list) => {
         theme.value = list[0].target.getAttribute("data-theme");
       });
