@@ -31,38 +31,38 @@ const waves = [
 const clouds = [
     {
         xCoordRatio: 0.1,
-        yCoord: 230,
+        yCoord: 200,
         radius: 30,
         speed: -2
     },
     {
         xCoordRatio: 0.3,
-        yCoord: 280,
+        yCoord: 250,
         radius: 30,
         speed: -2
     },
     {
         xCoordRatio: 0.5,
-        yCoord: 200,
+        yCoord: 170,
         radius: 40,
         speed: -2
     },
     {
         xCoordRatio: 0.7,
-        yCoord: 330,
+        yCoord: 300,
         radius: 60,
         speed: -2
     },
     {
         xCoordRatio: 0.9,
-        yCoord: 310,
+        yCoord: 260,
         radius: 50,
         speed: -2
     }
 ]
 const sun = {
     xCoord: 100,
-    yCoord: 180,
+    yCoord: 160,
     radius: 30
 }
 

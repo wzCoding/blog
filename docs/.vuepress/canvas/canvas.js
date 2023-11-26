@@ -14,14 +14,15 @@ class myCanvas {
         parent,
         styles,
         width,
-        height
+        height,
+        navHeight
     }) {
         container = parent;
         container.style.overflowX = "hidden";
         this.id = id;
         this.width = width ? width : parent.clientWidth;
         this.height = height ? height : parent.clientHeight;
-
+        this.navHeight = navHeight ? navHeight : 0;
         this.canvas = document.getElementById(id);
         if (!this.canvas) {
             this.canvas = this.create();
@@ -65,7 +66,7 @@ class myCanvas {
     resize() {
         window.addEventListener('resize', debounce(() => {
             this.width = document.documentElement.clientWidth;
-            this.height = document.documentElement.clientHeight;
+            this.height = document.documentElement.clientHeight - this.navHeight;
             this.init();
         }, 100));
     }

@@ -1,12 +1,17 @@
 <template>
     <div class="hero-box" :class="heroClass">
         <div class="hero-head">
-            <img :src="heroImage" alt="head">
+            <img :src="imgUrl" alt="head">
         </div>
         <div class="hero-text">{{ heroText }}</div>
         <div class="hero-tag">{{ tagText }}</div>
         <div class="start-btn" @click="start">
-            <span>start</span>
+            <svg t="1700988240162" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                p-id="5612" width="48" height="48">
+                <path
+                    d="M512 714.666667c-8.533333 0-17.066667-2.133333-23.466667-8.533334l-341.333333-341.333333c-12.8-12.8-12.8-32 0-44.8 12.8-12.8 32-12.8 44.8 0l320 317.866667 317.866667-320c12.8-12.8 32-12.8 44.8 0 12.8 12.8 12.8 32 0 44.8L533.333333 704c-4.266667 8.533333-12.8 10.666667-21.333333 10.666667z"
+                    p-id="5613"></path>
+            </svg>
         </div>
     </div>
 </template>
@@ -14,9 +19,11 @@
 import { usePageFrontmatter } from '@vuepress/client';
 import { useThemeStore } from '../client';
 import { computed } from 'vue';
+import { getImageUrl } from '../public/util/utils';
 const info = usePageFrontmatter();
 const { heroImage, heroText, tagline, taglineDark } = info.value
 const themeStore = useThemeStore();
+const imgUrl = getImageUrl(heroImage);
 const heroClass = computed(() => {
     return `${themeStore.theme}-mask`
 });
@@ -24,8 +31,9 @@ const tagText = computed(() => {
     return themeStore.theme == "light" ? tagline : taglineDark
 });
 const start = () => {
-     const navHeight = document.querySelector("#navbar").clientHeight;
-     document.documentElement.scrollTop = document.documentElement.clientHeight - navHeight;
+    const navBar = document.querySelector("#navbar");
+    const autoHide = navBar.className.includes("auto-hide");
+    document.documentElement.scrollTop = document.documentElement.clientHeight - (autoHide ? 0 : navBar.clientHeight);
 }
 </script>
 <style lang="scss" scoped>
@@ -51,7 +59,7 @@ const start = () => {
     }
 
     &.dark-mask {
-        --text-color: rgba(255,255,255,0.8);
+        --text-color: rgba(255, 255, 255, 0.8);
         --shadow-color: rgba(24, 144, 255, 0.7);
     }
 
@@ -134,33 +142,15 @@ const start = () => {
         overflow: hidden;
         position: relative;
         cursor: pointer;
-        padding: 8px 40px;
-        border: 3px solid var(--shadow-color);
-        border-radius: 20px;
-        color: var(--shadow-color);
-        font-weight: 600;
-        box-shadow: 0 0 10px var(--shadow-color);
-
-        span {
-            position: inherit;
-            z-index: 2;
-        }
-
-        &::after {
-            content: "";
-            background-color: var(--shadow-color);
-            position: absolute;
-            inset: 0;
-            transform: translate(0, -100%);
+        svg{
+            fill:var(--text-color);
             transition: all 0.3s ease;
         }
-
         &:hover {
-            color: var(--text-color);
-
-            &::after {
-                transform: translate(0, 0);
+            svg{
+                transform: scale(1.5);
             }
         }
     }
-}</style>
+}
+</style>

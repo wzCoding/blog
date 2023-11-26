@@ -26,20 +26,23 @@ export default defineClientConfig({
   },
   setup() {
     onMounted(() => {
+      const navHeight = document.querySelector("#navbar").clientHeight;
       const option = {
         parent: document.body,
         id: `theme-canvas`,
         width: document.documentElement.clientWidth,
-        height: document.documentElement.clientHeight,
+        height: document.documentElement.clientHeight - navHeight,
+        navHeight,
         styles: {
           background: "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)",
           position: "absolute",
-          inset: 0,
+          top:`${navHeight}px`,
+          left:0,
           transition: "all 0.3s"
         }
       }
       const canvas = new myCanvas(option);
-      const rain = new Rain(canvas, "wzCoding");
+      const rain = new Rain(canvas);
       const sea = new Sea(canvas);
       sea.addWave(waves);
       sea.addSun(sun);
@@ -50,7 +53,8 @@ export default defineClientConfig({
         "dark": rain
       }
       const route = useRoute();
-      const themeStore = useThemeStore()
+      const themeStore = useThemeStore();
+      themeStore.theme = window.localStorage.getItem("vuepress-theme-hope-scheme");
       const observer = new MutationObserver((list) => {
         themeStore.theme = list[0].target.getAttribute("data-theme");
       });

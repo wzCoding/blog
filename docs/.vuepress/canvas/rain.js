@@ -19,8 +19,8 @@ class Rain {
         this.fontSize = 16;
         this.fontWeight = 700;
         this.fontFamily = "微软雅黑";
-        
-        this.text = text.length ? text.split("") : "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
+
+        this.text = text && text.length ? text.split("") : "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
         this.letters = Array(Math.ceil(cvs.width / this.fontSize)).fill(0);
     }
     createRain() {
@@ -40,7 +40,7 @@ class Rain {
     }
     stop() {
         timer.stop();
-        ctx.clearRect(0,0,cvs.width,cvs.height);
+        ctx.clearRect(0, 0, cvs.width, cvs.height);
         cvs.hide(true);
     }
 }
