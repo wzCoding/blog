@@ -45,9 +45,7 @@ export default defineClientConfig({
       const rain = new Rain(canvas);
       const sea = new Sea(canvas);
       sea.addWave(waves);
-      sea.addSun(sun);
-      sea.addCloud(clouds);
-
+      
       const themes = {
         "light": sea,
         "dark": rain
