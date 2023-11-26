@@ -121,6 +121,22 @@ body {
 strong {
     font-weight: 700;
 }
-.blog-page-wrapper {
-    padding-top: 1rem;
+.vp-blog-hero {
+    .vp-blog-hero-image {
+        width: 9rem;
+    }
+    .vp-blog-hero-title{
+        text-shadow: 0 2px var(--theme-color), 2px 0 var(--theme-color), 0 -2px var(--theme-color), -2px 0 var(--theme-color),
+        2px 2px var(--theme-color), 2px -2px var(--theme-color), -2px -2px var(--theme-color), -2px 2px var(--theme-color);
+    }
+    .vp-blog-hero-description{
+        font-weight: 700;
+        font-size: 1.25rem;
+        color: transparent;
+        background-clip: text;
+        background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+    }
+    .vp-blog-mask::after{
+        opacity: 0.1 !important;
+    }
 }
