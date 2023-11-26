@@ -1,6 +1,6 @@
 <template>
     <div class="hero-box" :class="heroClass">
-        <img class="hero-image" :src="heroImage" alt="head">
+        <img class="hero-image" :src="`.${heroImage}`" alt="head">
         <div class="hero-title">{{ heroText }}</div>
         <div class="hero-description">{{ tagline }}</div>
         <div class="start-btn" @click="start">
