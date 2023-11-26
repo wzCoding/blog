@@ -124,6 +124,7 @@ strong {
 .vp-blog-hero {
     .vp-blog-hero-image {
         width: 9rem;
+        box-shadow: 0 0 20px 2px var(--theme-color);
     }
     .vp-blog-hero-title{
         text-shadow: 0 2px var(--theme-color), 2px 0 var(--theme-color), 0 -2px var(--theme-color), -2px 0 var(--theme-color),
