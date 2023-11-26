@@ -1,6 +1,6 @@
 <template>
     <div class="hero-box" :class="heroClass">
-        <img class="hero-image" :src="imgUrl" alt="head">
+        <img class="hero-image" :src="heroImage" alt="head">
         <div class="hero-title">{{ heroText }}</div>
         <div class="hero-description">{{ tagline }}</div>
         <div class="start-btn" @click="start">
@@ -19,10 +19,8 @@
 </template>
 <script setup>
 import { usePageFrontmatter } from '@vuepress/client';
-import { getImageUrl } from '../public/util/utils';
 const info = usePageFrontmatter();
 const { heroImage, heroText, tagline } = info.value
-const imgUrl = getImageUrl(heroImage);
 const start = () => {
     const navBar = document.querySelector("#navbar");
     const autoHide = navBar.className.includes("auto-hide");
