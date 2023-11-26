@@ -23,4 +23,10 @@ export default defineUserConfig({
   theme,
   clientConfigFile: path.resolve(__dirname, 'client.js'),
   shouldPrefetch: true,
+  alias: {
+    "@theme-hope/modules/blog/components/BlogHero": path.resolve(
+      __dirname,
+      "./components/Mblog.vue",
+    ),
+  }
 });
