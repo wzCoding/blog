@@ -43,7 +43,7 @@ export default defineClientConfig({
         "light": sea,
         "dark": rain
       }
-      const theme = ref();
+      const theme = ref("light");
       const route = useRoute();
       const cacheTheme = window.localStorage.getItem("vuepress-theme-hope-scheme");
       theme.value = cacheTheme ? cacheTheme : "light";
