@@ -31,8 +31,7 @@ export default defineClientConfig({
           inset: 0,
           top:`${navHeight}px`,
           transition: "all 0.3s"
-        },
-        navHeight
+        }
       }
       const canvas = new myCanvas(option);
       const rain = new Rain(canvas);

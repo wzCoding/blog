@@ -34,7 +34,7 @@ const start = () => {
 .hero-box {
     position: relative;
     width: 100%;
-    height: calc(100vh - var(--navbar-height)) !important;
+    height: calc(100vh - var(--navbar-height));
     display: flex;
     justify-content: center;
     align-items: center;
