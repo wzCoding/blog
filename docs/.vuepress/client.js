@@ -24,7 +24,8 @@ export default defineClientConfig({
         parent: document.body,
         id: `theme-canvas`,
         width: document.documentElement.clientWidth,
-        height: document.documentElement.clientHeight,
+        height: document.documentElement.clientHeight-navHeight,
+        navHeight,
         styles: {
           background: "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)",
           position: "absolute",

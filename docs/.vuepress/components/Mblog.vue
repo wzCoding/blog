@@ -1,7 +1,7 @@
 <template>
     <div class="hero-box">
         <img class="hero-image" :src="`.${heroImage}`" alt="head">
-        <div class="hero-title">{{ heroText }}{{ sTop }}</div>
+        <div class="hero-title">{{ heroText }}</div>
         <div class="hero-description">{{ tagline }}</div>
         <div class="start-btn" @click="start">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1024 1024">
@@ -18,16 +18,13 @@
     </div>
 </template>
 <script setup>
-import { ref } from 'vue';
 import { usePageFrontmatter } from '@vuepress/client';
 const info = usePageFrontmatter();
 const { heroImage, heroText, tagline } = info.value
-const sTop = ref(0)
 const start = () => {
     const navBar = document.querySelector("#navbar");
     const autoHide = navBar.className.includes("auto-hide");
     document.documentElement.scrollTop = document.documentElement.clientHeight - (autoHide ? 0 : navBar.clientHeight);
-    sTop.value = document.documentElement.clientHeight;
 }
 </script>
 <style lang="scss" scoped>
