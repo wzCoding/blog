@@ -29,7 +29,7 @@ export default defineClientConfig({
           background: "linear-gradient(to top, #fff1eb 0%, #ace0f9 100%)",
           position: "absolute",
           inset: 0,
-          // top:`${navHeight}px`,
+          top:`${navHeight}px`,
           transition: "all 0.3s"
         }
       }
