@@ -10,7 +10,7 @@ const waves = [
     },
     {
         wavePeriod: 2,
-        waveHeight: 40,
+        waveHeight: 45,
         wavexCoord: 0,
         waveyCoord: 520,
         wavexMove: 0,
@@ -20,7 +20,7 @@ const waves = [
     },
     {
         wavePeriod: 2,
-        waveHeight: 35,
+        waveHeight: 40,
         wavexCoord: 0,
         waveyCoord: 600,
         wavexMove: 0,

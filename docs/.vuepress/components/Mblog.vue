@@ -26,9 +26,8 @@ const sTop = ref(0)
 const start = () => {
     const navBar = document.querySelector("#navbar");
     const autoHide = navBar.className.includes("auto-hide");
-    document.documentElement.scrollTop = document.documentElement.clientHeight;
+    document.documentElement.scrollTop = document.documentElement.clientHeight - (autoHide ? 0 : navBar.clientHeight);
     sTop.value = document.documentElement.clientHeight;
-    console.log(sTop.value)
 }
 </script>
 <style lang="scss" scoped>
