@@ -1,7 +1,7 @@
 <template>
-    <div class="hero-box" :class="heroClass">
+    <div class="hero-box">
         <img class="hero-image" :src="`.${heroImage}`" alt="head">
-        <div class="hero-title">{{ heroText }}</div>
+        <div class="hero-title">{{ heroText }}{{ sTop }}</div>
         <div class="hero-description">{{ tagline }}</div>
         <div class="start-btn" @click="start">
             <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 1024 1024">
@@ -18,13 +18,17 @@
     </div>
 </template>
 <script setup>
+import { ref } from 'vue';
 import { usePageFrontmatter } from '@vuepress/client';
 const info = usePageFrontmatter();
 const { heroImage, heroText, tagline } = info.value
+const sTop = ref(0)
 const start = () => {
     const navBar = document.querySelector("#navbar");
     const autoHide = navBar.className.includes("auto-hide");
-    document.documentElement.scrollTop = document.documentElement.clientHeight - (autoHide ? 0 : navBar.clientHeight);
+    document.documentElement.scrollTop = document.documentElement.clientHeight;
+    sTop.value = document.documentElement.clientHeight;
+    console.log(sTop.value)
 }
 </script>
 <style lang="scss" scoped>
@@ -36,9 +40,21 @@ const start = () => {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    position: relative;
     overflow: hidden;
     z-index: 1;
+
+    &::after {
+        content: " ";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        display: block;
+        background: var(--light-grey);
+        opacity: 0.05;
+    }
 
     .hero-image {
         width: 9rem;
@@ -69,29 +85,33 @@ const start = () => {
         background-clip: text;
         background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
     }
-    .start-btn{
+
+    .start-btn {
         position: absolute;
         bottom: 10px;
         cursor: pointer;
-        svg{
+        z-index: 2;
+        svg {
             display: block;
             width: 2rem;
-            height:2rem;
-            fill:rgba(24,144,255,0.5);
+            height: 2rem;
+            fill: rgba(24, 144, 255, 0.5);
             animation: start 1.5s linear infinite alternate;
             margin-top: -20px;
-            &:last-child{
-                fill:var(--theme-color);
+
+            &:last-child {
+                fill: var(--theme-color);
             }
         }
+
         @keyframes start {
-            from{
-                transform: translate(0,-5px);
+            from {
+                transform: translate(0, -5px);
             }
-            to{
-                transform: translate(0,5px); 
+
+            to {
+                transform: translate(0, 5px);
             }
         }
     }
-}
-</style>
+}</style>
