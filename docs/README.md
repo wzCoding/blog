@@ -55,8 +55,8 @@ projects:
     desc: 使用 CSS 生成各种形状的网站
     link: https://css-doodle.com/
     icon: link 
-  - name: Google Fonts 
-    desc: 开源的字体网站
-    link: https://fonts.google.com/
+  - name: icon.p2hp 
+    desc: 免费的图标生成网站
+    link: https://icon.p2hp.com/
     icon: link
 ---
