@@ -55,7 +55,7 @@ const start = () => {
     .hero-image {
         width: 9rem;
         border-radius: 50%;
-        box-shadow: 0 0 20px 2px var(--theme-color);
+        box-shadow: 0 0 10px 2px var(--theme-color);
     }
 
     .hero-title {
