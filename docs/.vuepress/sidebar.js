@@ -46,7 +46,7 @@ export default sidebar({
           text: '异步与请求',
           collapsible: true,
           prefix: '/blog-js/async/',
-          children: ['README.md','01', '02', '03'],
+          children: ['01', '02', '03','04'],
         },
       ]
     },
