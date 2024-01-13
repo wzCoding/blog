@@ -19,7 +19,6 @@ export default defineClientConfig({
   },
   setup() {
     onMounted(() => {
-     
       const option = {
         parent: document.body,
         id: `theme-canvas`,
@@ -32,38 +31,35 @@ export default defineClientConfig({
           transition: "all 0.3s"
         }
       }
+
       const canvas = new myCanvas(option);
       const rain = new Rain(canvas);
       const sea = new Sea(canvas);
       sea.addWave(waves);
 
-      const themes = {
-        "light": sea,
-        "dark": rain
-      }
-      const theme = ref("light");
       const route = useRoute();
       const cacheTheme = window.localStorage.getItem("vuepress-theme-hope-scheme");
-      theme.value = cacheTheme && cacheTheme !== "auto" ? cacheTheme : "light";
-      const observer = new MutationObserver((list) => {
-        theme.value = list[0].target.getAttribute("data-theme");
-      });
+      const theme = ref(cacheTheme || "light");
+      const themes = { "light": sea, "dark": rain }
+
       const animate = () => {
         if (route.fullPath !== "/") {
           themes[theme.value].stop();
-          observer.disconnect();
         } else {
-          observer.observe(document.documentElement, { attributes: true });
           for (let key in themes) { themes[key].stop() }
           themes[theme.value].start(60);
         }
       }
+
+      
+      switchBtndocument.querySelector('#appearance-switch').addEventListener("click", () => {
+        theme.value = window.localStorage.getItem("vuepress-theme-hope-scheme");
+      })
       //使用watchEffect立即执行canvas动画并监听
       watchEffect(() => {
         animate();
       })
 
-      
     });
   }
 })
