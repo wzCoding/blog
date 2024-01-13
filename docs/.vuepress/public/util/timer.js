@@ -11,33 +11,39 @@ class Timer {
 
         //循环执行计算时间间隔
         const _loop = () => {
-            
+
             let currentTime = Date.now();
 
-            //清除定时
+            
             if (this.timerClear) {
+
+                //清除定时
                 window.cancelAnimationFrame(this.timerId);
-            }
+                this.timerId = null;
 
-            //此条件执行interval
-            if (type == "interval") {
-                if (currentTime - startTime >= delay && !this.timerStop) {
-                    callback && callback();
-                    startTime = Date.now();
+            } else {
+
+                //此条件执行interval
+                if (type == "interval") {
+                    if (currentTime - startTime >= delay && !this.timerStop) {
+                        callback && callback();
+                        startTime = Date.now();
+                    }
+                    this.timerId = window.requestAnimationFrame(_loop);
                 }
-                this.timerId = window.requestAnimationFrame(_loop);
+
+                //此条件执行timeout
+                else if (type == "timeout") {
+                    currentTime - startTime >= delay && !this.timerStop ? (callback && callback()) : (this.timerId = window.requestAnimationFrame(_loop))
+                }
             }
 
-            //此条件执行timeout
-            else if (type == "timeout") {
-                currentTime - startTime >= delay && !this.timerStop ? (callback && callback()) : (this.timerId = window.requestAnimationFrame(_loop))
-            }
         }
 
         //定时! 启动!
         this.timerId = requestAnimationFrame(_loop)
     }
-    
+
     interval(callback, delay = 1000) {
         const type = "interval";
         this.timerStop = false;
@@ -55,7 +61,6 @@ class Timer {
     }
     clear() {
         this.timerClear = true;
-        this.timerId = null;
     }
 }
 
