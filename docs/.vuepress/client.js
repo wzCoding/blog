@@ -52,7 +52,7 @@ export default defineClientConfig({
       }
 
       
-      switchBtndocument.querySelector('#appearance-switch').addEventListener("click", () => {
+      document.querySelector('#appearance-switch').addEventListener("click", () => {
         theme.value = window.localStorage.getItem("vuepress-theme-hope-scheme");
       })
       //使用watchEffect立即执行canvas动画并监听
