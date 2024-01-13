@@ -36,10 +36,12 @@ class Rain {
     }
     start(speed) {
         cvs.hide(false);
-        timer.interval(this.createRain.bind(this), speed);
+        timer.interval(()=>{
+            this.createRain()
+        }, speed);
     }
     stop() {
-        timer.stop();
+        timer.clear();
         ctx.clearRect(0, 0, cvs.width, cvs.height);
         cvs.hide(true);
     }

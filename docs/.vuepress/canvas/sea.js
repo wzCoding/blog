@@ -77,9 +77,9 @@ class Sea {
         }
     }
     stop() {
-        timer.stop();
-        ctx.clearRect(0,0,cvs.width,cvs.height);
+        timer.clear();
         cvs.hide(true);
+        ctx.clearRect(0,0,cvs.width,cvs.height);
     }
 }
 
