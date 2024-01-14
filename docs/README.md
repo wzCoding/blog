@@ -6,7 +6,7 @@ title: 主页
 heroImage: /head.png
 heroText: wzCoding
 heroFullScreen: true
-tagline: 身无彩凤双飞翼，心有灵犀一点通
+tagline: 垂死病中惊坐起，还有bug要处理
 actions:
   - text: 开始探索 →
     link: ./blog-html/

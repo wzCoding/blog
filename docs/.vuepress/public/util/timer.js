@@ -60,6 +60,15 @@ class Timer {
     }
 }
 
+const TimerFunc = ["interval", "timeout", "stop", "clear"];
+
+for (const func of TimerFunc) {
+    Object.defineProperty(Timer.prototype, func, {
+        writable: false,
+        configurable: false,
+    })
+}
+
 export {
     Timer
 }
