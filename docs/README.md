@@ -6,7 +6,7 @@ title: 主页
 heroImage: /head.png
 heroText: wzCoding
 heroFullScreen: true
-tagline: 垂死病中惊坐起，还有bug要处理
+tagline: 垂死病中惊坐起，还有bug要处理...
 actions:
   - text: 开始探索 →
     link: ./blog-html/
