@@ -1,66 +1,71 @@
 class Timer {
     constructor() {
-
-        this.timerId = null;
-        this.timerClear = false;
-
+        this.record = {}
     }
+
     loop(type, callback, delay) {
+        if (!['interval', 'timeout'].includes(type)) return;
+        if (!this.record[type]) this.record[type] = {}
 
         //记录开始时间
         let startTime = Date.now();
+        const record = Symbol(type);
 
         //循环执行计算时间间隔
         const loopStart = () => {
 
+            this.setRecord(record, type, loopStart);
+
             let currentTime = Date.now();
 
+            if (currentTime - startTime >= delay) {
+        
+                if (type == "timeout") {
 
-            if (this.timerClear) {
+                    //此条件执行timeout
+                    callback && callback()
+                    this.clear({ record, type })
 
-                //清除定时
-                window.cancelAnimationFrame(this.timerId);
-                //this.timerId = null;
+                } else if (type == "interval") {
 
-            } else {
+                    //此条件执行interval
+                    startTime = Date.now();
+                    callback && callback();
 
-                //此条件执行interval
-                if (type == "interval") {
-                    if (currentTime - startTime >= delay) {
-                        callback && callback();
-                        startTime = Date.now();
-                    }
-                    this.timerId = window.requestAnimationFrame(loopStart);
                 }
 
-                //此条件执行timeout
-                else if (type == "timeout") {
-                    currentTime - startTime >= delay  ? (callback && callback()) : (this.timerId = window.requestAnimationFrame(loopStart))
-                }
             }
-
         }
-
         //定时! 启动!
-        this.timerId = requestAnimationFrame(loopStart)
+        this.setRecord(record, type, loopStart);
+        return { record, type }
+
+    }
+    
+    setRecord(record, type, callback) {
+        const id = window.requestAnimationFrame(callback)
+        this.record[type][record] = id;
     }
 
     interval(callback, delay = 1000) {
-        this.timerClear = false
-        this.loop("interval", callback, delay);
+        delay = delay < (1000 / 60) ? (1000 / 60) : delay;
+        return this.loop("interval", callback, delay);
     }
 
     timeout(callback, delay = 1000) {
-        this.timerClear = false
-        this.loop("timeout", callback, delay);
+        delay = delay < (1000 / 60) ? (1000 / 60) : delay;
+        return this.loop("timeout", callback, delay);
     }
 
-    clear() {
-        this.timerClear = true;
+    clear(timer) {
+        if(!timer) return
+        const { record, type } = timer
+        window.cancelAnimationFrame(this.record[type][record]);
+        this.record[type][record] = null
     }
 }
 
-const TimerFunc = ["interval", "timeout", "stop", "clear"];
+const TimerFunc = ["loop", "setRecord", "interval", "timeout", "clear"];
 
 for (const func of TimerFunc) {
     Object.defineProperty(Timer.prototype, func, {

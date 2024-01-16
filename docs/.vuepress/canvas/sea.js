@@ -2,15 +2,14 @@ import { Wave } from "./material/wave";
 import { Sun } from "./material/sun";
 import { Cloud } from "./material/cloud"
 import { Timer } from "../public/util/timer";
-const timer = new Timer();
 
+let timer = null;
+let interval = null;
 let cvs = null;
 let ctx = null;
-const materials = [];
 
 function handleMaterial(params, type) {
     const list = [];
-    materials.push(type);
 
     if (params.length) {
         for (let i = 0; i < params.length; i++) {
@@ -23,7 +22,6 @@ function handleMaterial(params, type) {
         const instance = createMaterial(params, type);
         list.push(instance);
     }
-
     return list;
 }
 
@@ -48,38 +46,49 @@ class Sea {
         cvs = canvas;
         ctx = cvs.context;
 
-        this.sun = null;
-        this.waves = null;
-        this.clouds = null;
+        this.init()
     }
-
+    init() {
+        timer = new Timer()
+        this.materials = {}
+    }
+    addMaterial(material, type) {
+        if (!material) return
+        type = type || Symbol("material")
+        if (!this.materials[type]) {
+            this.materials[type] = handleMaterial(material, type);
+        }
+    }
     addWave(waves) {
-        this.waves = handleMaterial(waves, "waves");
+        this.addMaterial(waves, "waves");
     }
 
     addCloud(clouds) {
-        this.clouds = handleMaterial(clouds, "clouds");
+        this.addMaterial(clouds, "clouds");
     }
     addSun(sun) {
-        this.sun = handleMaterial(sun, "sun");
+        this.addMaterial(sun, "sun");
     }
     start(speed) {
-        cvs.hide(false);
-        if (materials.length) {
-            timer.interval(() => {
-                ctx.clearRect(0, 0, cvs.width, cvs.height);
-                materials.forEach(material => {
-                    this[material].forEach(m => {
-                        m.create();
-                    })
-                })
-            }, speed);
-        }
+        cvs.show()
+        interval = timer.interval(() => {
+            cvs.clear()
+            Object.values(this.materials).forEach(material => {
+                material.forEach(m => m.create())
+            })
+        }, speed);
     }
     stop() {
-        timer.clear();
-        cvs.hide(true);
-        ctx.clearRect(0,0,cvs.width,cvs.height);
+        timer.clear(interval)
+        cvs.clear()
+        cvs.hide()
+    }
+    destory() {
+        cvs = null;
+        ctx = null;
+        interval = null;
+        timer = null;
+        this.materials = null;
     }
 }
 

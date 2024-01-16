@@ -2,48 +2,69 @@ import { debounce } from '../public/util/utils'
 
 let container = null;
 /**
- * @param {string} canvas.parent - 放置canvas的容器（父元素）的id或class
- * @param {string} canvas.canvasId - 将要创建的canvas的id
+ * @param {string} canvas.id - 将要创建的canvas的id
+ * @param {string} canvas.parent - 放置canvas的容器（父元素）的id或class或dom对象
+ * @param {object} canvas.styles - 设置canvas的样式
  * @param {number} canvas.width - 将要创建的canvas的宽度
  * @param {number} canvas.height - 将要创建的canvas的高度
- * @returns {Object} 包含canvas信息的对象
+ * @returns {object} 包含canvas信息的对象
  */
 class myCanvas {
     constructor({
         id,
         parent,
-        styles,
+        style,
         width,
-        height
+        height,
     }) {
-        container = parent;
+
+        const options = this.resolve(arguments[0])
+
+        this.init(options);
+        this.resize();
+
+    }
+    init(options) {
+        if(!options) return
+        
+        container = options.parent;
         container.style.overflowX = "hidden";
-        this.id = id;
-        this.width = width ? width : parent.clientWidth;
-        this.height = height ? height : parent.clientHeight;
-        this.canvas = document.getElementById(id);
+
+        this.id = options.id;
+        this.width = options.width;
+        this.height = options.height;
+        this.canvas = document.getElementById(options.id);
         if (!this.canvas) {
             this.canvas = this.create();
             this.append();
         }
         this.context = this.canvas.getContext('2d');
-        this.init();
-        this.resize();
-
-        if (styles) {
-            for (let key in styles) {
-                this.canvas.style[key] = styles[key]
-            }
+        
+        // 设置canvas样式
+        for (let key in options.styles) {
+            this.canvas.style[key] = options.styles[key]
         }
-    }
-    init() {
+
+        // 根据设备像素比重新调整canvas宽高以使图像清晰
         const ratio = window.devicePixelRatio || 1;
         this.canvas.width = this.width * ratio;
         this.canvas.height = this.height * ratio;
         this.canvas.style.width = `${this.width}px`;
         this.canvas.style.height = `${this.height}px`;
         this.context.scale(ratio, ratio);
-
+    }
+    resolve(params) {
+        const options = {
+            id: params.id ? params.id : 'my-canvas',
+            parent: document.body,
+            width: params.width ? params.width : document.documentElement.clientWidth,
+            height: params.height ? params.height : document.documentElement.clientHeight,
+            styles: params.styles ? params.styles : {},
+        }
+        if (params.parent) {
+            options.parent = typeof params.parent == 'object' ? params.parent : (document.getElementById(params.parent) || document.getElementsByClassName(params.parent))
+        }
+        return options
     }
     create() {
         const canvas = document.createElement("canvas");
@@ -58,8 +79,11 @@ class myCanvas {
     remove() {
         container.remove(this.canvas);
     }
-    hide(isHide) {
-        this.canvas.style.display = isHide ? "none" : "block";
+    hide() {
+        this.canvas.style.display = "none"
+    }
+    show() {
+        this.canvas.style.display = "block"
     }
     resize() {
         window.addEventListener('resize', debounce(() => {
@@ -67,6 +91,9 @@ class myCanvas {
             this.height = document.documentElement.clientHeight;
             this.init();
         }, 100));
+    }
+    clear() {
+        this.context.clearRect(0, 0, this.width, this.height);
     }
     gradient({ startX, startY, endX, endY, gradients }) {
         const gradient = this.context.createLinearGradient(startX, startY, endX, endY);
