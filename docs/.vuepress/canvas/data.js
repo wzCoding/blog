@@ -1,4 +1,4 @@
-const waves = [
+const wave = [
     {
         wavePeriod: 2,
         waveHeight: 30,
@@ -67,7 +67,7 @@ const sun = {
 }
 
 export {
-    waves,
+    wave,
     clouds,
     sun
 }
