@@ -19,10 +19,8 @@ class myCanvas {
     }) {
 
         const options = this.resolve(arguments[0])
-
         this.init(options);
-        this.resize();
-
+        
     }
     init(options) {
         if(!options) return
@@ -52,6 +50,8 @@ class myCanvas {
         this.canvas.style.width = `${this.width}px`;
         this.canvas.style.height = `${this.height}px`;
         this.context.scale(ratio, ratio);
+
+        this.resize();
     }
     resolve(params) {
         const options = {
