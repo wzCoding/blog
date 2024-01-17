@@ -3,8 +3,8 @@ import { onMounted, ref, watchEffect } from 'vue'
 import { useRoute } from 'vue-router'
 import { myCanvas } from './canvas/canvas'
 import { Rain } from './canvas/rain'
-import { Sea } from './canvas/sea'
-import { clouds, waves } from './canvas/data'
+import { Waves } from './canvas/waves'
+import { wave } from './canvas/data'
 import Mcard from './components/Mcard.vue'
 import Minfo from './components/Minfo.vue'
 const components = [
@@ -37,8 +37,8 @@ export default defineClientConfig({
       const rain = new Rain(canvas);
       rain.set({ color: "#409eff" });
 
-      const sea = new Sea(canvas);
-      sea.addMaterial(waves, "waves");
+      const waves = new Waves(canvas);
+      waves.addMaterial(wave, "waves");
       
       //使用observer监听主题变化（监听click偶尔会失效!!!）
       const observer = new MutationObserver((list) => {
@@ -53,7 +53,7 @@ export default defineClientConfig({
       const route = useRoute();
       const theme = ref(getTheme());
       const themes = {
-        "light": sea,
+        "light": waves,
         "dark": rain
       }
 

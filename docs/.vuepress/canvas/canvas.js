@@ -54,12 +54,13 @@ class myCanvas {
         this.resize();
     }
     resolve(params) {
+        const defaultStyle = { "position": "absolute", "inset": "0" }
         const options = {
             id: params.id ? params.id : 'my-canvas',
             parent: document.body,
             width: params.width ? params.width : document.documentElement.clientWidth,
             height: params.height ? params.height : document.documentElement.clientHeight,
-            styles: params.styles ? params.styles : {},
+            styles: params.styles ? Object.assign(params.styles, defaultStyle) : defaultStyle,
         }
         if (params.parent) {
             options.parent = typeof params.parent == 'object' ? params.parent : (document.getElementById(params.parent) || document.getElementsByClassName(params.parent))

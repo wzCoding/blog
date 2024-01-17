@@ -41,7 +41,7 @@ function createMaterial(param, type) {
     }
     return material;
 }
-class Sea {
+class Waves {
     constructor(canvas) {
         cvs = canvas;
         ctx = cvs.context;
@@ -93,5 +93,5 @@ class Sea {
 }
 
 export {
-    Sea
+    Waves
 }
