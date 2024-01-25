@@ -7,10 +7,14 @@ import { Waves } from './canvas/waves'
 import { wave } from './canvas/data'
 import Mcard from './components/Mcard.vue'
 import Minfo from './components/Minfo.vue'
+import Mgrid from './components/Mgrid.vue'
+
 const components = [
   { name: 'Mcard', component: Mcard },
   { name: 'Minfo', component: Minfo },
+  { name: 'Mgrid', component: Mgrid },
 ]
+
 export default defineClientConfig({
   enhance({ app }) {
     components.forEach(c => {
