@@ -1,7 +1,7 @@
 <template>
     <div class="m-grid">
         <form class="prop-form">
-            <div v-for="item in exampleProps" :key="item.key">
+            <div v-for="item in exampleProps" :key="item.key" class="props">
                 <label for="prop-select">{{ item.key }}：</label>
                 <select class="prop-select" v-model="item.selected">
                     <option v-for="val in item.value" :value="val">{{ val }}</option>
@@ -103,8 +103,8 @@ const exampleData = {
         "grid-row-start": {
             item: true,
             static: {
-                "grid-template-columns": "repeat(4,1fr)",
-                "grid-template-rows": "repeat(4,1fr)"
+                "grid-template-columns": "repeat(4,100px)",
+                "grid-template-rows": "repeat(3,100px)"
             },
             active: [
                 "auto",
@@ -128,8 +128,8 @@ const exampleData = {
         "grid-column-start": {
             item: true,
             static: {
-                "grid-template-columns": "repeat(4,120px)",
-                "grid-template-rows": "repeat(4,1fr)"
+                "grid-template-columns": "repeat(4,100px)",
+                "grid-template-rows": "repeat(3,100px)"
             },
             active: [
                 "auto",
@@ -166,7 +166,7 @@ export default {
             default: ''
         },
         item: {
-            type: Number,
+            type: [String, Number],
             default: 6
         }
     },
@@ -186,7 +186,8 @@ export default {
                         key: prop,
                         value: exampleData[props.type][prop]['active'],
                         selected: exampleData[props.type][prop]['active'][0],
-                        static: exampleData[props.type][prop]['static']
+                        static: exampleData[props.type][prop]['static'],
+                        item: exampleData[props.type][prop]['item']
                     }
                 )
             }
@@ -199,32 +200,36 @@ export default {
                 "container": { "display": props.type },
                 "item": {}
             }
-            for (const item of exampleProps) {
-                if (!item.item) {
-                    style.container[item.key] = item.selected
-                    if (item.static) {
-                        for (const prop in item.static) {
-                            style.container[prop] = item.static[prop]
-                        }
+            for (const example of exampleProps) {
+                if (example.static) {
+                    for (const prop in example.static) {
+                        style.container[prop] = example.static[prop]
                     }
-                } else {
-                    style.item[item.key] = item.selected
                 }
+                example.item ? style.item[example.key] = example.selected : style.container[example.key] = example.selected
             }
+            // console.log(style)
             return style
         })
-        const getAreas = (prop) => {
-            if (prop && prop === 'grid-template-areas') {
-                const area = computed(() => {
-                    return styles.value.container[prop].split(" ").map(item => item.replace("'", "")).filter((el, i, arr) => {
+        const getItemStyle = (item) =>{
+            if(item.key === 'grid-template-areas'){
+                const item = computed(() => {
+                    return item.selected.split(" ").map(i => i.replace("'", "")).filter((el, i, arr) => {
                         return arr.indexOf(el) === i && el !== "."
                     })
                 })
+            }
+            return item.selected
+        }
+        const getAreas = (prop) => {
+            if (prop && prop === 'grid-template-areas') {
+                
+                console.log(area.value)
                 return area
             }
-            return props.item
+            return Number(props.item)
         }
-        console.log(styles.value)
+
         const items = ref(getAreas(props.prop))
         return { exampleProps, styles, items }
     }
@@ -233,7 +238,9 @@ export default {
 <style lang="scss" scoped>
 .m-grid {
     .prop-form {
-        padding-bottom: 0.75rem;
+        .props {
+            padding-bottom: 0.75rem;
+        }
     }
 
     .prop-select {
