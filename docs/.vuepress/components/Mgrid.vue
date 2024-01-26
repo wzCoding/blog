@@ -186,10 +186,6 @@ export default {
             &[class*='footer-'] {
                 background-color: antiquewhite;
             }
-
-            &[class*='.-'] {
-                background-color: #fff;
-            }
         }
 
     }
