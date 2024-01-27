@@ -245,8 +245,8 @@ const exampleData = {
             ]
         },
         "align-items": {
-            static:{
-                "flex-direction":"column"
+            static: {
+                "flex-direction": "column"
             },
             active: [
                 'normal',
@@ -257,29 +257,30 @@ const exampleData = {
                 'stretch'
             ]
         },
-       
+
         "flex-grow": {
-            item:true,
+            item: true,
             active: [
+                "0",
                 "0.5",
                 "1",
-                "2",
-                "3",
                 "-1"
             ]
         },
         "flex-shrink": {
-            item:true,
+            static:{"overflow":"hidden"},
+            item: true,
             active: [
+                "0",
                 "0.5",
                 "1",
+                "1.5",
                 "2",
-                "3",
                 "-1"
             ]
         },
         "flex-basis": {
-            item:true,
+            item: true,
             active: [
                 "auto",
                 "0",
@@ -291,7 +292,7 @@ const exampleData = {
             ]
         },
         "flex": {
-            item:true,
+            item: true,
             active: [
                 "0 0 auto",
                 "1 1 auto",
@@ -305,7 +306,10 @@ const exampleData = {
             ]
         },
         "align-self": {
-            item:true,
+            static: {
+                "flex-direction": "column"
+            },
+            item: true,
             active: [
                 'auto',
                 'flex-start',
@@ -317,7 +321,7 @@ const exampleData = {
                 'stretch'
             ]
         },
-        "order":{
+        "order": {
             active: [0, 1, 2, 3, 4, 5]
         }
     }
@@ -395,9 +399,11 @@ export default {
             }
             for (let i = 0; i < list.value.length; i++) {
                 _style[item.key] = item.selected
+                _style["class"] = `item item-${list.value[i]} ${props.type}-item`
+                _style["class"] += ` ${item.key}-item`
                 itemStyle.push({
                     name: list.value[i],
-                    class: `item item-${list.value[i]} ${props.type}-item`,
+                    class: _style.class,
                     style: item.item ? _style : isArea ? { gridArea: `${list.value[i]}` } : {}
                 })
             }
@@ -435,6 +441,10 @@ export default {
             &.flex-item {
                 width: 100px;
                 height: 100px;
+            }
+
+            &.flex-shrink-item {
+                width: 120%;
             }
 
             &:nth-child(1) {
@@ -476,7 +486,6 @@ export default {
                 background-color: palevioletred;
             }
 
-            &[class*='d-'],
             &[class*='footer-'] {
                 background-color: antiquewhite;
             }
