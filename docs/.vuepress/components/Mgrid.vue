@@ -8,7 +8,7 @@
                 </select>
             </div>
         </form>
-        <div class="container" :style="styles.container">
+        <div class="container" :class="`${type}-container`" :style="styles.container">
             <div v-for="item in styles.item" :key="item.class" :class="item.class" :style="item.style">{{ item.name }}</div>
         </div>
     </div>
@@ -188,18 +188,137 @@ const exampleData = {
                 "stretch"
             ]
         },
+        "align-content": {
+            active: [
+                'normal',
+                'flex-start',
+                'flex-end',
+                'center',
+                'space-between',
+                'space-around',
+                'space-evenly',
+                'baseline',
+                'stretch'
+            ]
+        },
     },
     "flex": {
         "flex-direction": {
-            static: {
-                "display": "flex",
-            },
             active: [
                 'row',
                 'column',
                 'row-reverse',
                 'column-reverse'
             ]
+        },
+        "flex-wrap": {
+            active: [
+                'nowrap',
+                'wrap',
+                'wrap-reverse'
+            ]
+        },
+        "flex-flow": {
+            active: [
+                'row nowrap',
+                'row wrap',
+                'row wrap-reverse',
+                'column nowrap',
+                'column wrap',
+                'column wrap-reverse',
+                'row-reverse nowrap',
+                'row-reverse wrap',
+                'row-reverse wrap-reverse',
+                'column-reverse nowrap',
+                'column-reverse wrap',
+                'column-reverse wrap-reverse'
+            ]
+        },
+        "justify-content": {
+            active: [
+                'flex-start',
+                'flex-end',
+                'center',
+                'space-between',
+                'space-around',
+                'space-evenly'
+            ]
+        },
+        "align-items": {
+            static:{
+                "flex-direction":"column"
+            },
+            active: [
+                'normal',
+                'flex-start',
+                'flex-end',
+                'center',
+                'baseline',
+                'stretch'
+            ]
+        },
+       
+        "flex-grow": {
+            item:true,
+            active: [
+                "0.5",
+                "1",
+                "2",
+                "3",
+                "-1"
+            ]
+        },
+        "flex-shrink": {
+            item:true,
+            active: [
+                "0.5",
+                "1",
+                "2",
+                "3",
+                "-1"
+            ]
+        },
+        "flex-basis": {
+            item:true,
+            active: [
+                "auto",
+                "0",
+                "100%",
+                "200px",
+                "fill",
+                "fit-content",
+                "max-content"
+            ]
+        },
+        "flex": {
+            item:true,
+            active: [
+                "0 0 auto",
+                "1 1 auto",
+                "1 0 auto",
+                "1 0 50px",
+                "1 0 100%",
+                "1 1 50px",
+                "1 1 100%",
+                "initial",
+                "inherit"
+            ]
+        },
+        "align-self": {
+            item:true,
+            active: [
+                'auto',
+                'flex-start',
+                'flex-end',
+                'center',
+                'self-start',
+                'self-end',
+                'baseline',
+                'stretch'
+            ]
+        },
+        "order":{
+            active: [0, 1, 2, 3, 4, 5]
         }
     }
 }
@@ -265,7 +384,7 @@ export default {
         const _style = {}
         const getItemStyle = (item) => {
             let itemStyle = []
-            let list = ref(Array(props.item).fill(0).map((_, i) => i + 1))
+            let list = ref(Array(Number(props.item)).fill(0).map((_, i) => i + 1))
             const isArea = item.key === 'grid-template-areas'
             if (isArea) {
                 list = computed(() => {
@@ -312,10 +431,12 @@ export default {
             justify-content: center;
             align-items: center;
             font-size: 2rem;
-            &.flex-item{
+
+            &.flex-item {
                 width: 100px;
                 height: 100px;
             }
+
             &:nth-child(1) {
                 background-color: lightblue;
             }
