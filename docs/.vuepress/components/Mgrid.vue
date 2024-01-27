@@ -9,8 +9,7 @@
             </div>
         </form>
         <div class="container" :style="styles.container">
-            <div v-for="(i, index) in items" :key="`${i}-${index}`" class="item" :class="`${i}-${index + 1}`"
-                :style="prop === 'grid-template-areas' ? { 'grid-area': `${i}` } : styles.item">{{ i }}</div>
+            <div v-for="item in styles.item" :key="item.class" :class="item.class" :style="item.style">{{ item.name }}</div>
         </div>
     </div>
 </template>
@@ -103,14 +102,15 @@ const exampleData = {
         "grid-row-start": {
             item: true,
             static: {
-                "grid-template-columns": "repeat(4,100px)",
-                "grid-template-rows": "repeat(3,100px)"
+                "grid-template-columns": "repeat(3,100px)",
+                "grid-template-rows": "[r1] 100px [r2] 100px [r3] 100px [r4] 100px"
             },
             active: [
                 "auto",
                 "1",
-                "2",
                 "3",
+                "span 2",
+                "span r3",
                 "-1"
             ]
         },
@@ -119,8 +119,9 @@ const exampleData = {
             active: [
                 "auto",
                 "1",
-                "2",
                 "3",
+                "span 2",
+                "span r3",
                 "-1"
             ]
 
@@ -128,14 +129,15 @@ const exampleData = {
         "grid-column-start": {
             item: true,
             static: {
-                "grid-template-columns": "repeat(4,100px)",
+                "grid-template-columns": "[c1] 100px [c2] 100px [c3] 100px [c4] 100px",
                 "grid-template-rows": "repeat(3,100px)"
             },
             active: [
                 "auto",
                 "1",
-                "2",
                 "3",
+                "span 2",
+                "span c3",
                 "-1"
             ]
         },
@@ -144,14 +146,61 @@ const exampleData = {
             active: [
                 "auto",
                 "1",
-                "2",
                 "3",
+                "span 2",
+                "span c3",
                 "-1"
+            ]
+        },
+        "gap": {
+            static: {
+                "grid-template-columns": "repeat(3,100px)",
+                "grid-template-rows": "repeat(3,100px)"
+            },
+            active: [
+                "0", // 默认值，即没有间距
+                "5px",
+                "10px",
+                "20px"
+            ]
+        },
+        "justify-self": {
+            static: {
+                "grid-template-columns": "repeat(3,100px)",
+                "grid-template-rows": "repeat(3,100px)"
+            },
+            item: true,
+            active: [
+                "auto",
+                "start",
+                "end",
+                "center",
+                "stretch"
+            ]
+        },
+        "align-self": {
+            item: true,
+            active: [
+                "auto",
+                "start",
+                "end",
+                "center",
+                "stretch"
             ]
         },
     },
     "flex": {
-
+        "flex-direction": {
+            static: {
+                "display": "flex",
+            },
+            active: [
+                'row',
+                'column',
+                'row-reverse',
+                'column-reverse'
+            ]
+        }
     }
 }
 export default {
@@ -198,7 +247,7 @@ export default {
         const styles = computed(() => {
             const style = {
                 "container": { "display": props.type },
-                "item": {}
+                "item": []
             }
             for (const example of exampleProps) {
                 if (example.static) {
@@ -206,32 +255,37 @@ export default {
                         style.container[prop] = example.static[prop]
                     }
                 }
-                example.item ? style.item[example.key] = example.selected : style.container[example.key] = example.selected
+                if (!example.item) style.container[example.key] = example.selected
+
+                style.item = getItemStyle(example)
             }
-            // console.log(style)
             return style
         })
-        const getItemStyle = (item) =>{
-            if(item.key === 'grid-template-areas'){
-                const item = computed(() => {
+
+        const _style = {}
+        const getItemStyle = (item) => {
+            let itemStyle = []
+            let list = ref(Array(props.item).fill(0).map((_, i) => i + 1))
+            const isArea = item.key === 'grid-template-areas'
+            if (isArea) {
+                list = computed(() => {
                     return item.selected.split(" ").map(i => i.replace("'", "")).filter((el, i, arr) => {
                         return arr.indexOf(el) === i && el !== "."
                     })
                 })
             }
-            return item.selected
-        }
-        const getAreas = (prop) => {
-            if (prop && prop === 'grid-template-areas') {
-                
-                console.log(area.value)
-                return area
+            for (let i = 0; i < list.value.length; i++) {
+                _style[item.key] = item.selected
+                itemStyle.push({
+                    name: list.value[i],
+                    class: `item item-${list.value[i]} ${props.type}-item`,
+                    style: item.item ? _style : isArea ? { gridArea: `${list.value[i]}` } : {}
+                })
             }
-            return Number(props.item)
-        }
 
-        const items = ref(getAreas(props.prop))
-        return { exampleProps, styles, items }
+            return itemStyle
+        }
+        return { exampleProps, styles }
     }
 }
 </script>
@@ -251,13 +305,17 @@ export default {
 
     .container {
         border: 1px solid #999;
+        gap: 2px;
 
         .item {
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 2rem;
-
+            &.flex-item{
+                width: 100px;
+                height: 100px;
+            }
             &:nth-child(1) {
                 background-color: lightblue;
             }
