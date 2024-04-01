@@ -22,9 +22,17 @@ export default defineClientConfig({
     });
   },
   setup() {
+    fetch('https://geojson.cn/api/data/220000.topo.json', {
+      method: 'GET',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json'
+      },
+      mode: 'cors'
+    }).then(res => {
+      console.log(res)
+    })
     onMounted(() => {
-      fetch('https://geojson.cn/api/data/220000.topo.json').then(res => console.log(res))
-  
       const option = {
         parent: document.body,
         id: `theme-canvas`,
@@ -45,7 +53,7 @@ export default defineClientConfig({
 
       const waves = new Waves(canvas);
       waves.addMaterial(wave, "waves");
-      
+
       //使用observer监听主题变化（监听click偶尔会失效!!!）
       const observer = new MutationObserver((list) => {
         theme.value = list[0].target.getAttribute("data-theme");
