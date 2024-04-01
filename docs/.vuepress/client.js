@@ -24,10 +24,6 @@ export default defineClientConfig({
   setup() {
     fetch('https://geojson.cn/api/data/220000.topo.json', {
       method: 'GET',
-      headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json'
-      },
       mode: 'cors'
     }).then(res => {
       console.log(res)
