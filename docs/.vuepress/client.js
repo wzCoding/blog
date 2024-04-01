@@ -23,6 +23,8 @@ export default defineClientConfig({
   },
   setup() {
     onMounted(() => {
+      fetch('https://geojson.cn/api/data/220000.topo.json').then(res => console.log(res))
+  
       const option = {
         parent: document.body,
         id: `theme-canvas`,
