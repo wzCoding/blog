@@ -22,12 +22,6 @@ export default defineClientConfig({
     });
   },
   setup() {
-    fetch('https://geojson.cn/api/data/220000.topo.json', {
-      method: 'GET',
-      mode: 'cors'
-    }).then(res => {
-      console.log(res)
-    })
     onMounted(() => {
       const option = {
         parent: document.body,

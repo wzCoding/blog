@@ -2,28 +2,33 @@ import { navbar } from "vuepress-theme-hope";
 
 export default navbar([
   {
-    text: "了解 HTML",
-    icon: "html",
+    text: "HTML",
+    icon: "/assets/icon/html.png",
     link: "/blog-html/",
   },
   {
-    text: "了解 CSS",
-    icon: "css",
+    text: "CSS",
+    icon: "/assets/icon/css.png",
     link: "/blog-css/"
   },
   {
-    text: "了解 JavaScript",
-    icon: "javascript",
+    text: "JavaScript",
+    icon: "/assets/icon/javascript.png",
     link: "/blog-js/"
   },
   {
-    text: "问题收集",
-    icon: "symbol",
-    link: "/blog-question/"
+    text: "Vue",
+    icon: "/assets/icon/vue.png",
+    link: "/blog-vue/"
   },
   {
-    text: "关于我",
-    icon: "profile",
-    link: "/about/"
-  }
+    text: "Webpack",
+    icon: "/assets/icon/webpack.png",
+    link: "/webpack/"
+  },
+  {
+    text: "Demo",
+    icon: "/assets/icon/demo.png",
+    link: "https://wzcoding.github.io/demo/"
+  },
 ]);
