@@ -35,7 +35,7 @@ export default navbar([
   {
     text: "Webpack",
     icon: "/assets/icon/webpack.png",
-    link: "/webpack/"
+    link: "/blog-webpack/"
   },
   {
     text: "Demo",

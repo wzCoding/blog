@@ -55,7 +55,7 @@ export default sidebar({
     {
       text: 'Vue3',
       children: [
-        'README.md','01','02','03','04','05','06','07',
+        'README.md','01','02','03','04','05','06','07','08'
       ]
     }
   ],
@@ -68,9 +68,9 @@ export default sidebar({
       ]
     }
   ],
-  '/webpack/': [
+  '/blog-webpack/': [
     {
-      text: '关于我',
+      text: 'Webpack 相关',
       children: "structure",
     },
   ],
