@@ -1,0 +1,1 @@
+import{_ as t,o as a,c,e,f as n}from"./app-27d97269.js";const o={},r=e("h1",{id:"vue3-介绍",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#vue3-介绍","aria-hidden":"true"},"#"),n(" Vue3 介绍")],-1),s=[r];function _(d,i){return a(),c("div",null,s)}const l=t(o,[["render",_],["__file","index.html.vue"]]);export{l as default};
