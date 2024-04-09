@@ -123,11 +123,11 @@ strong {
 }
 
 //首页样式
-.vp-blog-hero-image{
+.vp-blog-hero-image {
     width: 9rem;
     border-radius: 50%;
 }
-.vp-blog-hero-title{
+.vp-blog-hero-title {
     font-size: 1.75rem;
     font-weight: 600;
     color: #fff;
@@ -148,17 +148,31 @@ strong {
     background-clip: text;
     background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
 }
-.vp-blog-mask::after{
+.vp-blog-mask::after {
     background: unset !important;
 }
 
-.vp-nav-links{
-    .nav-link{
+.vp-nav-links {
+    .nav-link {
         display: flex;
         align-items: center;
-        img.icon{
-            width:1rem;
+        img.icon {
+            width: 1rem;
             height: 1rem;
+        }
+    }
+    .dropdown-wrapper {
+        .dropdown-title {
+            display: flex;
+            align-items: center;
+            .title {
+                display: flex;
+                align-items: center;
+            }
+            img.icon {
+                width: 1rem;
+                height: 1rem;
+            }
         }
     }
 }

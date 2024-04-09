@@ -19,7 +19,18 @@ export default navbar([
   {
     text: "Vue",
     icon: "/assets/icon/vue.png",
-    link: "/blog-vue/"
+    children: [
+      {
+        text: "了解 Vue3",
+        icon: "/assets/icon/vue3.png",
+        link: "/blog-vue/vue3/readme.md"
+      },
+      {
+        text: "了解 Vue2",
+        icon: "/assets/icon/vue2.png",
+        link: "/blog-vue/vue2/readme.md"
+      },
+    ]
   },
   {
     text: "Webpack",
