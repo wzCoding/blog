@@ -1,0 +1,1 @@
+import{_ as t,o as r,c as a,e,f as c}from"./app-05f21645.js";const o={},s=e("h1",{id:"ref-相关",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#ref-相关","aria-hidden":"true"},"#"),c(" ref 相关")],-1),_=[s];function n(d,f){return r(),a("div",null,_)}const h=t(o,[["render",n],["__file","06.html.vue"]]);export{h as default};
