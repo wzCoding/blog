@@ -1,1 +1,0 @@
-import{_ as t,o as a,c,e,f as o}from"./app-40c9110a.js";const r={},s=e("h1",{id:"watch-监听器",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#watch-监听器","aria-hidden":"true"},"#"),o(" watch 监听器")],-1),_=[s];function n(d,h){return a(),c("div",null,_)}const l=t(r,[["render",n],["__file","08.html.vue"]]);export{l as default};
