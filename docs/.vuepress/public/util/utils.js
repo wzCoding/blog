@@ -60,5 +60,5 @@ function throttle(callback, delay) {
 
 export {
     debounce,
-    throttle,
+    throttle
 }

@@ -4,6 +4,33 @@
     src: url(../assets/font/7isTenjrxLF1.woff), url(../assets/font/7isTenjrxLF1.woff2);
 }
 
+::view-transition-image-pair(root) {
+    isolation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+    display: block;
+}
+
+:root::view-transition-old(root) {
+    z-index: 1;
+}
+
+:root::view-transition-new(root) {
+    z-index: 2;
+}
+
+:root[data-theme="dark"]::view-transition-old(root) {
+    z-index: 2;
+}
+
+:root[data-theme="dark"]::view-transition-new(root) {
+    z-index: 1;
+}
+
 :root {
     --font-family: "FangYuan";
     --font-family-heading: var(--font-family);

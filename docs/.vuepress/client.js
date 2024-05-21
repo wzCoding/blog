@@ -44,14 +44,14 @@ export default defineClientConfig({
       const waves = new Waves(canvas);
       waves.addMaterial(wave, "waves");
 
-      //使用observer监听主题变化（监听click偶尔会失效!!!）
+      //使用observer监听主题变化（监听click结果不准确!!!）
       const observer = new MutationObserver((list) => {
         theme.value = list[0].target.getAttribute("data-theme");
       })
       //从缓存中获取主题
       const getTheme = () => {
         const value = window.localStorage.getItem("vuepress-theme-hope-scheme");
-        return value && value !== 'auto' ? value : "light";
+        return (value && value !== 'auto') ? value : "light";
       }
 
       const route = useRoute();
@@ -71,10 +71,9 @@ export default defineClientConfig({
           themes[theme.value].start(60);
         }
       }
-
       //使用watchEffect立即执行canvas动画并监听
       watchEffect(() => {
-        animate();
+        animate()
       })
 
     });
