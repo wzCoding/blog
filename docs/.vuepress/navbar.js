@@ -38,6 +38,11 @@ export default navbar([
     link: "/blog-webpack/"
   },
   {
+    text: "综合知识",
+    icon: "/assets/icon/complex.png",
+    link: "/blog-complex/"
+  },
+  {
     text: "Demo",
     icon: "/assets/icon/demo.png",
     link: "https://wzcoding.github.io/demo/"
