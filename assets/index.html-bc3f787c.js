@@ -1,1 +1,0 @@
-import{_ as t,o as a,c,d as e,e as n}from"./app-b05cb820.js";const o={},r=e("h1",{id:"vue2-介绍",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#vue2-介绍","aria-hidden":"true"},"#"),n(" Vue2 介绍")],-1),s=[r];function d(_,i){return a(),c("div",null,s)}const l=t(o,[["render",d],["__file","index.html.vue"]]);export{l as default};
