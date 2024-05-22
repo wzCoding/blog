@@ -78,7 +78,7 @@ export default sidebar({
   '/blog-complex/': [
     {
       text: '综合知识',
-      children: "structure",
+      children: ['01','02','03'],
     },
   ],
   '/article/': false,

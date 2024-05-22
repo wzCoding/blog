@@ -40,7 +40,7 @@ export default navbar([
   {
     text: "综合知识",
     icon: "/assets/icon/complex.png",
-    link: "/blog-complex/"
+    link: "/blog-complex/01"
   },
   {
     text: "Demo",
