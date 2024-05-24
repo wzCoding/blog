@@ -16,27 +16,27 @@ export default navbar([
     icon: "/assets/icon/javascript.png",
     link: "/blog-js/"
   },
-  {
-    text: "Vue",
-    icon: "/assets/icon/vue.png",
-    children: [
-      {
-        text: "了解 Vue3",
-        icon: "/assets/icon/vue3.png",
-        link: "/blog-vue/vue3/readme.md"
-      },
-      {
-        text: "了解 Vue2",
-        icon: "/assets/icon/vue2.png",
-        link: "/blog-vue/vue2/readme.md"
-      },
-    ]
-  },
-  {
-    text: "Webpack",
-    icon: "/assets/icon/webpack.png",
-    link: "/blog-webpack/"
-  },
+  // {
+  //   text: "Vue",
+  //   icon: "/assets/icon/vue.png",
+  //   children: [
+  //     {
+  //       text: "了解 Vue3",
+  //       icon: "/assets/icon/vue3.png",
+  //       link: "/blog-vue/vue3/readme.md"
+  //     },
+  //     {
+  //       text: "了解 Vue2",
+  //       icon: "/assets/icon/vue2.png",
+  //       link: "/blog-vue/vue2/readme.md"
+  //     },
+  //   ]
+  // },
+  // {
+  //   text: "Webpack",
+  //   icon: "/assets/icon/webpack.png",
+  //   link: "/blog-webpack/"
+  // },
   {
     text: "综合知识",
     icon: "/assets/icon/complex.png",

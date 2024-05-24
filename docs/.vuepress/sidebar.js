@@ -52,33 +52,33 @@ export default sidebar({
       ]
     },
   ],
-  '/blog-vue/vue3/': [
-    {
-      text: 'Vue3',
-      children: [
-        'README.md', '01', '02', '03', '04', '05', '06', '07', '08', '09'
-      ]
-    }
-  ],
-  '/blog-vue/vue2/': [
-    {
-      text: 'Vue2',
-      children: [
-        'README.md',
-        '01',
-      ]
-    }
-  ],
-  '/blog-webpack/': [
-    {
-      text: 'Webpack 相关',
-      children: "structure",
-    },
-  ],
+  // '/blog-vue/vue3/': [
+  //   {
+  //     text: 'Vue3',
+  //     children: [
+  //       'README.md', '01', '02', '03', '04', '05', '06', '07', '08', '09'
+  //     ]
+  //   }
+  // ],
+  // '/blog-vue/vue2/': [
+  //   {
+  //     text: 'Vue2',
+  //     children: [
+  //       'README.md',
+  //       '01',
+  //     ]
+  //   }
+  // ],
+  // '/blog-webpack/': [
+  //   {
+  //     text: 'Webpack 相关',
+  //     children: "structure",
+  //   },
+  // ],
   '/blog-complex/': [
     {
       text: '综合知识',
-      children: ['01','02','03','04'],
+      children: ['01','02','03','04','05','06','07','08','09','10'],
     },
   ],
   '/article/': false,
