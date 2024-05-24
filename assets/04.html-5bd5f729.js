@@ -1,1 +1,0 @@
-import{_ as a,o as t,c as r,e,f as c}from"./app-40a123d0.js";const o={},s=e("h1",{id:"raf-定时器",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#raf-定时器","aria-hidden":"true"},"#"),c(" raf 定时器")],-1),_=[s];function n(d,f){return t(),r("div",null,_)}const h=a(o,[["render",n],["__file","04.html.vue"]]);export{h as default};
