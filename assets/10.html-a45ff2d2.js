@@ -1,1 +1,0 @@
-import{_ as t,o as a,c,e,f as o}from"./app-c58a6935.js";const r={},s=e("h1",{id:"文件导出",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#文件导出","aria-hidden":"true"},"#"),o(" 文件导出")],-1),_=[s];function n(d,i){return a(),c("div",null,_)}const l=t(r,[["render",n],["__file","10.html.vue"]]);export{l as default};

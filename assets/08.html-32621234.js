@@ -1,1 +1,0 @@
-import{_ as t,o,c as r,e,f as s}from"./app-c58a6935.js";const a={},c=e("h1",{id:"promise-实现",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#promise-实现","aria-hidden":"true"},"#"),s(" promise 实现")],-1),_=[c];function n(i,d){return o(),r("div",null,_)}const l=t(a,[["render",n],["__file","08.html.vue"]]);export{l as default};
