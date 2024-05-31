@@ -32,8 +32,7 @@ export default sidebar({
           prefix: '/blog-css/layout/',
           children: ['01', '02', '03'],
         },
-        '03',
-        '04'
+        '03'
       ]
     },
   ],
