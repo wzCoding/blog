@@ -1,1 +1,0 @@
-import{_ as t,o as a,c,e,f as o}from"./app-253976bb.js";const r={},s=e("h1",{id:"组件",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#组件","aria-hidden":"true"},"#"),o(" 组件")],-1),_=[s];function n(d,i){return a(),c("div",null,_)}const l=t(r,[["render",n],["__file","09.html.vue"]]);export{l as default};
