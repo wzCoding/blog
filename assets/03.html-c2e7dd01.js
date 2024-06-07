@@ -1,0 +1,1 @@
+import{_ as t,o as a,c,e,f as o}from"./app-fb571044.js";const r={},s=e("h1",{id:"动画",tabindex:"-1"},[e("a",{class:"header-anchor",href:"#动画","aria-hidden":"true"},"#"),o(" 动画")],-1),_=[s];function n(d,i){return a(),c("div",null,_)}const l=t(r,[["render",n],["__file","03.html.vue"]]);export{l as default};
