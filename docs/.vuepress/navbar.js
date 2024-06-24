@@ -24,7 +24,23 @@ export default navbar([
   {
     text: "综合知识",
     icon: "/assets/icon/complex.png",
-    link: "/blog-complex/01"
+    children: [
+      {
+        text: "工程化",
+        icon: "/assets/icon/project.png",
+        link: "/blog-complex/project/01"
+      },
+      {
+        text: "打包工具",
+        icon: "/assets/icon/webpack.png",
+        link: "/blog-complex/package/"
+      },
+      {
+        text: "开发知识",
+        icon: "/assets/icon/code.png",
+        link: "/blog-complex/development/01"
+      }
+    ]
   },
   {
     text: "Demo",
