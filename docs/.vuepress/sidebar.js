@@ -82,12 +82,6 @@ export default sidebar({
           prefix: '/blog-complex/package/webpack/',
           children: ['01', '02', '03', '04', '05']
         },
-        {
-          text: 'Vite',
-          collapsible: false,
-          prefix: '/blog-complex/package/vite/',
-          children: ['01', '02', '03', '04', '05']
-        }
       ],
     },
   ],
