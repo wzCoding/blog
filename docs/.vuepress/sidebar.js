@@ -65,12 +65,6 @@ export default sidebar({
       children: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17',],
     },
   ],
-  '/blog-complex/project/': [
-    {
-      text: '前端工程化',
-      children: ['01',],
-    },
-  ],
   '/blog-complex/package/': [
     {
       text: '打包工具',
