@@ -22,6 +22,11 @@ export default navbar([
     link: "/blog-vue/"
   },
   {
+    text: "Http 相关",
+    icon: "/assets/icon/http.png",
+    link: "/blog-http/"
+  },
+  {
     text: "综合知识",
     icon: "/assets/icon/complex.png",
     children: [
