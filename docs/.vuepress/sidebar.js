@@ -68,7 +68,7 @@ export default sidebar({
   '/blog-http/': [
     {
       text: 'Http 相关',
-      children: ['README.md','01', '02', '03', '04', '05', '06'],
+      children: ['README.md','01', '02', '03', '04', '05', '06','07'],
     },
   ],
   '/blog-complex/package/': [
